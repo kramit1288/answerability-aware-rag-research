@@ -33,6 +33,29 @@ are label-construction/evaluation metadata. They are forbidden classifier featur
 - `phase03_annotation_status.json`: records that genuine first/second human annotation and
   agreement are pending until supplied.
 
+The sample has exactly 30 rows in each of five mutually exclusive strata and is not self-weighting.
+Human annotators edit independent CSV copies of `phase03_annotation_template.csv`; automatic-label
+and coverage columns are forbidden in those inputs. The complete first-human file has 150 rows. A
+second-human file, when available, should overlap on approximately 100 rows; any smaller overlap is
+reported exactly.
+
+## Human validation outputs (created only after genuine annotation)
+
+- `phase03_human_validation_results.json` records the primary annotator, actual resolved
+  TRAIN+VALIDATION stratum census, metrics and ambiguous rate by stratum, descriptive-only
+  unweighted sample metrics, prevalence-weighted metrics derived from weighted confusion rates,
+  benchmark-impossible audit rate, human-human agreement, and the frozen gate report.
+- `phase03_annotation_disagreements.csv` records automatic-vs-primary-human disagreements,
+  ambiguous decisions, and original human-human disagreements for review. Its canonical key is
+  `(disagreement_scope, sample_id, annotator_id)`.
+
+The development-population weighting strata are `automatic_positive`, `partial_overlap`,
+`correct_document_insufficient`, `wrong_document_retrieval`, and `benchmark_impossible`. Resolved
+TRAIN+VALIDATION condition counts are read mechanically from
+`context_sufficiency_labels.parquet`; TEST rows and unresolved/null rows are excluded. The physical
+answer key remains separate from all blinded annotator inputs and is joined only by the evaluation
+script after the first-human file is complete.
+
 ## Reports and governance
 
 - `phase03_alignment_feasibility.json`: train/validation-only alignment gate and span summaries.

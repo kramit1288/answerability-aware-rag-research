@@ -416,7 +416,7 @@ Every resolved label has provenance from:
 Before any manual labels are created, an explicit versioned annotation guideline must define:
 
 - the annotation unit `(question, ordered retrieved chunks, retrieval strategy, k)`;
-- labels `sufficient`, `insufficient`, and `cannot_determine`;
+- labels `sufficient`, `insufficient`, and `ambiguous`;
 - that all material answer evidence—not merely the correct topic/document—must be in the chunks;
 - handling of partial procedures, prerequisites, negation, numerical/version constraints,
   conflicting chunks, duplicate documents, and benchmark-impossible cases;
@@ -438,6 +438,39 @@ two humans using `sufficient`, `insufficient`, or `ambiguous`; compute raw agree
 kappa only when two genuine human files exist. If human annotations are unavailable during Phase 3,
 produce the complete pack and evaluation tooling but leave validation accuracy/agreement pending.
 No manual test sample is drawn or inspected during Phase 3 development.
+
+The frozen 150-condition sample deliberately allocates 30 conditions to each of five mutually
+exclusive strata: `automatic_positive`, `partial_overlap`, `correct_document_insufficient`,
+`wrong_document_retrieval`, and `benchmark_impossible`. It is therefore not self-weighting.
+Unweighted overall sample accuracy may be shown only as a descriptive audit-sample statistic with
+an explicit warning; it must not be presented as an estimate of natural TRAIN+VALIDATION label
+accuracy. The validation analysis reports metrics separately by sampling stratum, automatic-label
+precision/recall/F1 against non-ambiguous human decisions, the ambiguous/unjudgeable rate, and
+named disagreement categories. Its population aggregate is constructed from stratum-specific
+non-ambiguous confusion rates weighted by the actual resolved TRAIN+VALIDATION condition
+frequencies in those five strata. Precision, recall, and F1 are derived from the resulting weighted
+confusion proportions rather than averaged naively across strata.
+
+Before any human results are examined, the following internal research-validity gates are frozen;
+they are not claimed as universal benchmark thresholds:
+
+- automatic `sufficient` precision against non-ambiguous primary-human judgements targets at least
+  `0.90`;
+- prevalence-weighted F1 targets at least `0.85`;
+- if strictly more than `10%` of non-ambiguous audited `benchmark_impossible` conditions are judged
+  context-sufficient, benchmark-impossible negatives are excluded from PRIMARY Phase 4 classifier
+  training and retained only for a separately reported sensitivity analysis; and
+- human-human Cohen's kappa of at least `0.80` is desirable when two genuine annotators are
+  available. A lower value requires reported disagreement analysis and adjudication; it cannot be
+  hidden or replaced by a machine annotator.
+
+The first genuine human annotator covers all 150 conditions. If available, a second genuine human
+annotator independently covers approximately 100 of the same blinded conditions. A smaller overlap
+is permissible only when its exact size and limitation are reported. Raw agreement and Cohen's
+kappa use the original overlapping categorical decisions before adjudication. An LLM, Codex, NLI
+model, embedding model, or other automatic evaluator is never represented as a human annotator.
+The separate automatic answer key is opened by the evaluation workflow only after the complete
+first-annotator file passes blinded-schema and completion checks.
 
 ## 7. Initial prediction features
 

@@ -21,9 +21,34 @@ After genuine human annotation files exist:
 
 ```powershell
 .\.venv\Scripts\python scripts\evaluate_phase03_annotations.py `
-  --annotations path/to/annotator_1.csv `
-  --annotations path/to/annotator_2.csv
+  --annotations artifacts/results/phase03_annotation_annotator_1.csv `
+  --annotations artifacts/results/phase03_annotation_annotator_2.csv `
+  --output artifacts/results/phase03_human_validation_results.json `
+  --disagreements-output artifacts/results/phase03_annotation_disagreements.csv
 ```
+
+Create each annotator file as an independent copy of
+`artifacts/results/phase03_annotation_template.csv`. The first annotator completes all 150 rows. If
+available, the second annotator independently completes approximately 100 overlapping rows (the
+frozen default is `blind_order` 1 through 100) and may leave the other rows blank. If no second
+human is available, omit the second `--annotations` argument. The exact overlap and any shortfall
+from 100 are reported.
+
+The command rejects automatic-label/coverage columns in human inputs and refuses to open the
+separate answer key until the 150-row first-human file is complete. It reads only resolved
+TRAIN+VALIDATION rows when deriving the real five-stratum population frequencies. It reports
+stratum metrics, prevalence-weighted confusion-derived metrics, ambiguity, disagreements, raw
+human-human agreement, Cohen's kappa, and all frozen research-validity gates. A failure of the
+precision or weighted-F1 gate is written to the report and returns exit status 2. A
+non-evaluable/pending core gate (for example, an all-ambiguous stratum) returns exit status 3. A
+benchmark-impossible contamination rate strictly above 10% records the mandatory Phase 4 exclusion
+action rather than silently relabelling Phase 3. No TEST aggregate is read or emitted.
+
+For the frozen Phase 3 artifact, those exclusive resolved TRAIN+VALIDATION frequencies are:
+`automatic_positive=1686`, `partial_overlap=1014`,
+`correct_document_insufficient=787`, `wrong_document_retrieval=2693`, and
+`benchmark_impossible=3060` (total `9240`). The evaluator recomputes and records this census from
+the frozen label artifact rather than trusting the documentation.
 
 Do not enter automatic labels in the blinded template. No classifier, calibration, threshold,
 policy, generation, grounding, or final test evaluation belongs to this phase.
