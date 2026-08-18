@@ -1,0 +1,40 @@
+{
+  "schema_version": "phase02-feasibility-v1",
+  "status": "approved_resume_canonical_cpu_checkpoint",
+  "measured_at": "2026-08-18T16:18:13.8548062+05:30",
+  "canonical_execution": {
+    "device": "cpu",
+    "dtype": "float32",
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "batch_size": 64,
+    "embedding_dimension": 384
+  },
+  "observations": {
+    "chunk_rows": 169472,
+    "completed_embedding_batches": 66,
+    "total_embedding_batches": 2648,
+    "completed_embedding_rows": 4224,
+    "remaining_embedding_rows": 165248,
+    "measured_embedding_seconds": 460.78,
+    "measured_chunks_per_second": 9.167,
+    "projected_remaining_embedding_seconds": 18026,
+    "projected_remaining_embedding_hours": 5.01,
+    "chunk_parquet_bytes": 56849992,
+    "bm25_cache_bytes": 125769677,
+    "embedding_cache_preallocated_bytes": 260308992,
+    "peak_process_memory_bytes": null,
+    "peak_process_memory_note": "Native Torch peak working set was not available from the managed sandbox; persisted cache sizes are measured, not estimates."
+  },
+  "checkpoint": {
+    "status": "valid_resumable_partial",
+    "completed_batches_are_persisted": true,
+    "stale_or_mismatched_cache_is_rejected": true
+  },
+  "test_set": {
+    "rankings_generated": false,
+    "aggregate_metrics_calculated": false,
+    "aggregate_metrics_reported": false
+  },
+  "approved_action": "Resume the approximately five-hour canonical CPU checkpoint without changing device, precision, model, tokenizer, chunk corpus, retrieval backend, or retrieval configuration."
+}

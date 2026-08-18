@@ -1,0 +1,76 @@
+{
+  "checks": [
+    {
+      "check_id": "ranked_hit_rows",
+      "expected": 27300,
+      "observed": 27300,
+      "status": "pass"
+    },
+    {
+      "check_id": "condition_rows",
+      "expected": 10920,
+      "observed": 10920,
+      "status": "pass"
+    },
+    {
+      "check_id": "unique_rank_keys",
+      "expected": 27300,
+      "observed": 27300,
+      "status": "pass"
+    },
+    {
+      "check_id": "rank_continuity",
+      "expected": true,
+      "observed": true,
+      "status": "pass"
+    },
+    {
+      "check_id": "unique_chunks_per_ranking",
+      "expected": true,
+      "observed": true,
+      "status": "pass"
+    },
+    {
+      "check_id": "question_split_counts",
+      "expected": {
+        "test": 136,
+        "train": 637,
+        "validation": 137
+      },
+      "observed": {
+        "test": 136,
+        "train": 637,
+        "validation": 137
+      },
+      "status": "pass"
+    },
+    {
+      "check_id": "nested_prefixes",
+      "expected": true,
+      "observed": true,
+      "status": "pass"
+    },
+    {
+      "check_id": "test_aggregate_sealed",
+      "expected": 0,
+      "observed": 0,
+      "status": "pass"
+    },
+    {
+      "check_id": "strategy_rows",
+      "expected": {
+        "bm25": 9100,
+        "dense": 9100,
+        "hybrid": 9100
+      },
+      "observed": {
+        "bm25": 9100,
+        "dense": 9100,
+        "hybrid": 9100
+      },
+      "status": "pass"
+    }
+  ],
+  "overall_status": "pass",
+  "schema_version": "phase02-integrity-v1"
+}

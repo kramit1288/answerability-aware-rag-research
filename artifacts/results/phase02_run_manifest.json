@@ -1,0 +1,271 @@
+{
+  "aggregate_metric_splits": [
+    "train",
+    "validation"
+  ],
+  "artifact_hashes": {
+    "chunks": {
+      "bytes": 56849992,
+      "columns": [
+        "schema_version",
+        "chunk_id",
+        "doc_id",
+        "filename",
+        "archive_path",
+        "raw_source_sha256",
+        "normalized_source_sha256",
+        "retrieval_source_transform_version",
+        "chunk_index",
+        "token_start",
+        "token_end",
+        "char_start",
+        "char_end",
+        "token_length",
+        "char_length",
+        "text",
+        "text_sha256",
+        "tokenizer_name",
+        "tokenizer_revision",
+        "max_content_tokens",
+        "overlap_tokens",
+        "step_tokens",
+        "chunking_version",
+        "chunk_config_sha256",
+        "corpus_manifest_sha256"
+      ],
+      "path": "C:/answerability-aware-rag-research/artifacts/data/techqa_chunk_manifest.parquet",
+      "physical_sha256": "a1e9c9a88d09d707a12f1ad166f74189f92c4595b7e1326ec3d8e21e61f1ff06",
+      "rows": 169472,
+      "semantic_sha256": "8f3a355a0eac1e8d3823bcba7dce274b5d133f2bbf7cc9f56bf8e9c0f883dcd9"
+    },
+    "conditions": {
+      "bytes": 1030153,
+      "columns": [
+        "schema_version",
+        "run_id",
+        "question_id",
+        "split",
+        "provenance_partition",
+        "retrieval_strategy",
+        "k",
+        "ordered_chunk_ids_json",
+        "ordered_doc_ids_json",
+        "ordered_raw_scores_json",
+        "gold_doc_ids_json",
+        "confirmed_gold_eligible",
+        "unresolved_reference",
+        "first_gold_rank",
+        "doc_recall_at_k",
+        "reciprocal_rank_at_k",
+        "reciprocal_rank_at_10",
+        "corpus_semantic_sha256",
+        "chunk_config_sha256",
+        "retrieval_config_sha256"
+      ],
+      "path": "C:/answerability-aware-rag-research/artifacts/results/retrieval_query_level.parquet",
+      "physical_sha256": "07d0a414be3a722c7a0ff640bf0a483655ecbf8447048cb1d4939d3bb2807983",
+      "rows": 10920,
+      "semantic_sha256": "8fab5965cd750e4ab694ddac8938a4b5fbe610cd200d8c7573c029e477ed1164"
+    },
+    "metrics": {
+      "path": "C:/answerability-aware-rag-research/artifacts/results/phase02_metrics_train_validation.csv",
+      "physical_sha256": "c9a3ebaab401e4184f5c358e148a5d5e48e8ed6c9d0c258d085f6bc663f9b029",
+      "rows": 24
+    },
+    "ranked_hits": {
+      "bytes": 1049109,
+      "columns": [
+        "schema_version",
+        "run_id",
+        "question_id",
+        "split",
+        "provenance_partition",
+        "retrieval_strategy",
+        "rank",
+        "chunk_id",
+        "doc_id",
+        "filename",
+        "strategy_score",
+        "bm25_score",
+        "bm25_rank",
+        "dense_score",
+        "dense_rank",
+        "is_confirmed_gold_document",
+        "confirmed_gold_eligible",
+        "unresolved_reference",
+        "corpus_semantic_sha256",
+        "chunk_config_sha256",
+        "retrieval_config_sha256"
+      ],
+      "path": "C:/answerability-aware-rag-research/artifacts/results/retrieval_ranked_hits.parquet",
+      "physical_sha256": "45e7723e8fd541887c207059955df48e301169aac69ebe7b055e2f5768836796",
+      "rows": 27300,
+      "semantic_sha256": "edda1b74ee2a24b4758850b2944f73ee9548d6da8ca17c1ab7bb2d34e25262c0"
+    }
+  },
+  "bm25_cached": true,
+  "cache_sizes": {
+    "bm25_bytes": 125769677,
+    "embeddings_bytes": 260308992
+  },
+  "chunk_config_sha256": "5f2931faf3ced37054430bf78b755200657799d857a284f563532fc67290dc94",
+  "chunks_cached": true,
+  "condition_rows": 10920,
+  "corpus_semantic_sha256": "8f3a355a0eac1e8d3823bcba7dce274b5d133f2bbf7cc9f56bf8e9c0f883dcd9",
+  "dense_resumed_or_cached": true,
+  "device": "cpu",
+  "dtype": "float32",
+  "eligible_confirmed_gold_questions": 608,
+  "embedding_dimension": 384,
+  "git_commit_sha": "797001765ab7ad7de77bf04151b5d9847432e233",
+  "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+  "model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "packages": {
+    "numpy": "2.5.2",
+    "rank-bm25": "0.2.2",
+    "sentence-transformers": "5.7.0",
+    "torch": "2.13.0",
+    "transformers": "5.15.0"
+  },
+  "phase01_counts": {
+    "components": 784,
+    "corpus_documents": 28481,
+    "questions": 910,
+    "split_questions": {
+      "test": 136,
+      "train": 637,
+      "validation": 137
+    }
+  },
+  "phase01_split_sha256": "4e84c5bdce2d6649f7e9eb8a22271faf0ffb51a5c934fbb642721237cb4292e7",
+  "phase_boundary": "stopped before Phase 3; no sufficiency labels or later-phase logic",
+  "prior_completed_run": {
+    "artifact_hashes": {
+      "chunks": {
+        "bytes": 56849992,
+        "columns": [
+          "schema_version",
+          "chunk_id",
+          "doc_id",
+          "filename",
+          "archive_path",
+          "raw_source_sha256",
+          "normalized_source_sha256",
+          "retrieval_source_transform_version",
+          "chunk_index",
+          "token_start",
+          "token_end",
+          "char_start",
+          "char_end",
+          "token_length",
+          "char_length",
+          "text",
+          "text_sha256",
+          "tokenizer_name",
+          "tokenizer_revision",
+          "max_content_tokens",
+          "overlap_tokens",
+          "step_tokens",
+          "chunking_version",
+          "chunk_config_sha256",
+          "corpus_manifest_sha256"
+        ],
+        "path": "C:/answerability-aware-rag-research/artifacts/data/techqa_chunk_manifest.parquet",
+        "physical_sha256": "a1e9c9a88d09d707a12f1ad166f74189f92c4595b7e1326ec3d8e21e61f1ff06",
+        "rows": 169472,
+        "semantic_sha256": "8f3a355a0eac1e8d3823bcba7dce274b5d133f2bbf7cc9f56bf8e9c0f883dcd9"
+      },
+      "conditions": {
+        "bytes": 1030153,
+        "columns": [
+          "schema_version",
+          "run_id",
+          "question_id",
+          "split",
+          "provenance_partition",
+          "retrieval_strategy",
+          "k",
+          "ordered_chunk_ids_json",
+          "ordered_doc_ids_json",
+          "ordered_raw_scores_json",
+          "gold_doc_ids_json",
+          "confirmed_gold_eligible",
+          "unresolved_reference",
+          "first_gold_rank",
+          "doc_recall_at_k",
+          "reciprocal_rank_at_k",
+          "reciprocal_rank_at_10",
+          "corpus_semantic_sha256",
+          "chunk_config_sha256",
+          "retrieval_config_sha256"
+        ],
+        "path": "C:/answerability-aware-rag-research/artifacts/results/retrieval_query_level.parquet",
+        "physical_sha256": "07d0a414be3a722c7a0ff640bf0a483655ecbf8447048cb1d4939d3bb2807983",
+        "rows": 10920,
+        "semantic_sha256": "8fab5965cd750e4ab694ddac8938a4b5fbe610cd200d8c7573c029e477ed1164"
+      },
+      "metrics": {
+        "path": "C:/answerability-aware-rag-research/artifacts/results/phase02_metrics_train_validation.csv",
+        "physical_sha256": "c9a3ebaab401e4184f5c358e148a5d5e48e8ed6c9d0c258d085f6bc663f9b029",
+        "rows": 24
+      },
+      "ranked_hits": {
+        "bytes": 1049109,
+        "columns": [
+          "schema_version",
+          "run_id",
+          "question_id",
+          "split",
+          "provenance_partition",
+          "retrieval_strategy",
+          "rank",
+          "chunk_id",
+          "doc_id",
+          "filename",
+          "strategy_score",
+          "bm25_score",
+          "bm25_rank",
+          "dense_score",
+          "dense_rank",
+          "is_confirmed_gold_document",
+          "confirmed_gold_eligible",
+          "unresolved_reference",
+          "corpus_semantic_sha256",
+          "chunk_config_sha256",
+          "retrieval_config_sha256"
+        ],
+        "path": "C:/answerability-aware-rag-research/artifacts/results/retrieval_ranked_hits.parquet",
+        "physical_sha256": "45e7723e8fd541887c207059955df48e301169aac69ebe7b055e2f5768836796",
+        "rows": 27300,
+        "semantic_sha256": "edda1b74ee2a24b4758850b2944f73ee9548d6da8ca17c1ab7bb2d34e25262c0"
+      }
+    },
+    "timings": {
+      "bm25_index_seconds": 5.19228119996842,
+      "bm25_query_seconds": 4905.272919699957,
+      "chunks_seconds": 15.02362599998014,
+      "dense_query_seconds": 53.050311199971475,
+      "embedding_seconds": 9325.658641300048,
+      "total_seconds": 14320.527590300015
+    }
+  },
+  "ranked_hit_rows": 27300,
+  "reproducibility": {
+    "prior_completed_run_available": true,
+    "ranking_physical_hashes_equal": true,
+    "ranking_semantic_hashes_equal": true
+  },
+  "retrieval_config_sha256": "f1854ae6f73fddb36da2c407505c05396491771b00d2b97710c2de22d9add4ca",
+  "run_id": "phase02-e57ea98d4538acfb",
+  "schema_version": "phase02-run-v1",
+  "test_aggregate_metrics_calculated": false,
+  "timings": {
+    "bm25_index_seconds": 5.434217700036243,
+    "bm25_query_seconds": 4456.810978500056,
+    "chunks_seconds": 19.74188410001807,
+    "dense_query_seconds": 52.21536020003259,
+    "embedding_seconds": 1.5512095999438316,
+    "total_seconds": 4546.2610028999625
+  },
+  "tokenizer_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41"
+}

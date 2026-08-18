@@ -1,0 +1,41 @@
+{
+  "artifact": {
+    "bytes": 56849992,
+    "columns": [
+      "schema_version",
+      "chunk_id",
+      "doc_id",
+      "filename",
+      "archive_path",
+      "raw_source_sha256",
+      "normalized_source_sha256",
+      "retrieval_source_transform_version",
+      "chunk_index",
+      "token_start",
+      "token_end",
+      "char_start",
+      "char_end",
+      "token_length",
+      "char_length",
+      "text",
+      "text_sha256",
+      "tokenizer_name",
+      "tokenizer_revision",
+      "max_content_tokens",
+      "overlap_tokens",
+      "step_tokens",
+      "chunking_version",
+      "chunk_config_sha256",
+      "corpus_manifest_sha256"
+    ],
+    "path": "C:/answerability-aware-rag-research/artifacts/data/techqa_chunk_manifest.parquet",
+    "physical_sha256": "a1e9c9a88d09d707a12f1ad166f74189f92c4595b7e1326ec3d8e21e61f1ff06",
+    "rows": 169472,
+    "semantic_sha256": "8f3a355a0eac1e8d3823bcba7dce274b5d133f2bbf7cc9f56bf8e9c0f883dcd9"
+  },
+  "cache_key": "e513816c754ffd984bcd6920e3ae9e42fe503eeda562c915685742289cb44e43",
+  "chunk_config_sha256": "5f2931faf3ced37054430bf78b755200657799d857a284f563532fc67290dc94",
+  "corpus_manifest_sha256": "f43938932ee648c4fd194f7b83cdac6a9ffaedbe4fbf9a663b133afdd26ec222",
+  "kind": "chunks",
+  "zero_chunk_documents": []
+}

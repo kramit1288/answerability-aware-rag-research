@@ -37,6 +37,9 @@ where = ["src"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+markers = [
+  "network: integration tests requiring the pinned upstream dataset releases",
+]
 
 [tool.ruff]
 line-length = 100

@@ -1,0 +1,55 @@
+{
+  "checked_at": "2026-08-18T10:16:45.605310+00:00",
+  "device": "cpu",
+  "dtype": "float32",
+  "embedding_dimension": 384,
+  "imports": {
+    "numpy": "2.5.2",
+    "pandas": "3.0.5",
+    "pyarrow": "25.0.1",
+    "scipy": "1.18.0",
+    "torch": "2.13.0+cpu",
+    "transformers": "5.15.0"
+  },
+  "max_sequence_length": 256,
+  "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+  "normalize_embeddings": true,
+  "packages": {
+    "huggingface-hub": "1.27.0",
+    "numpy": "2.5.2",
+    "pandas": "3.0.5",
+    "pyarrow": "25.0.1",
+    "rank-bm25": "0.2.2",
+    "safetensors": "0.8.0",
+    "scikit-learn": "1.9.0",
+    "scipy": "1.18.0",
+    "sentence-transformers": "5.7.0",
+    "tokenizers": "0.22.2",
+    "torch": "2.13.0",
+    "transformers": "5.15.0"
+  },
+  "platform": "Windows-10-10.0.19045-SP0",
+  "python": "3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]",
+  "python_implementation": "CPython",
+  "requested_model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "resolved_model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "schema_version": "phase02-dependencies-v1",
+  "similarity": "exact float32 dot product",
+  "status": "pass",
+  "tiny_bm25_scores": [
+    0.0,
+    1.0216512475319814,
+    0.0
+  ],
+  "tiny_dense_scores": [
+    [
+      0.9999998807907104,
+      0.015002105385065079
+    ],
+    [
+      0.015002105385065079,
+      1.0000001192092896
+    ]
+  ],
+  "tokenizer_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41"
+}

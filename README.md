@@ -74,6 +74,28 @@ Commit after every phase.
 
 **Never fabricate or silently fill experimental results.** If an experiment has not run successfully, the result is unknown.
 
+## Phase 1 data foundation
+
+Phase 1 is rebuilt and checked from the pinned, immutable dataset revisions with:
+
+```powershell
+python -m pip install scipy
+python scripts/prepare_phase01_data.py --config configs/phase01_data.json
+python scripts/check_phase01_data.py --config configs/phase01_data.json
+python -m pytest -q
+```
+
+The preparation command verifies all pinned checksums and fails on schema/count drift, non-optimal
+split status, leakage, or a changed frozen artifact. Run it a second time to confirm byte-identical
+frozen artifacts and the same semantic split SHA-256. The complete raw TechQA corpus, RAGTruth raw
+JSONL, download caches, and extracted corpus remain under ignored `data/raw/` and `data/derived/`.
+Only lightweight research-critical manifests under `artifacts/data/` are Git-trackable. Their exact
+schemas are documented in `docs/PHASE_01_ARTIFACT_SCHEMAS.md`.
+
+The Phase 1 split seals the research test membership before retrieval features, labels, model
+selection, calibration, policy thresholds, generation, or statistical analysis. Do not regenerate
+or replace it without an explicit pre-test contract decision.
+
 ## Output locations
 
 - `artifacts/data/` — immutable split manifests and query-level datasets
@@ -81,4 +103,3 @@ Commit after every phase.
 - `artifacts/figures/` — thesis-ready figures
 - `artifacts/models/` — trained/calibrated model artifacts
 - `reports/` — generated summaries if added later
-

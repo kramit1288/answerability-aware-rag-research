@@ -4,6 +4,7 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+.cache/
 .ipynb_checkpoints/
 .DS_Store
 .env
@@ -12,7 +13,32 @@ artifacts/models/*
 !artifacts/models/.gitkeep
 artifacts/data/*
 !artifacts/data/.gitkeep
+!artifacts/data/techqa_split_assignments.csv
+!artifacts/data/techqa_split_components.csv
+!artifacts/data/techqa_corpus_manifest.csv
+!artifacts/data/ragtruth_manifest.csv
+!artifacts/data/dataset_metadata.json
+!artifacts/data/phase01_integrity_report.json
+!artifacts/data/manual_evidence_alignments.csv
+!artifacts/data/phase01_split_config.json
+!artifacts/data/techqa_split.sha256
+!artifacts/data/phase02_chunk_summary.json
+!artifacts/data/phase02_chunk_checksums.json
 artifacts/results/*
 !artifacts/results/.gitkeep
+!artifacts/results/phase02_dependency_manifest.json
+!artifacts/results/phase02_metrics_train_validation.csv
+!artifacts/results/phase02_integrity_report.json
+!artifacts/results/phase02_run_manifest.json
+!artifacts/results/phase02_artifact_hashes.json
+!artifacts/results/phase02_feasibility_report.json
+!artifacts/results/retrieval_ranked_hits.parquet
+!artifacts/results/retrieval_query_level.parquet
 artifacts/figures/*
 !artifacts/figures/.gitkeep
+
+# Phase 1 raw releases and the extracted 28,481-document corpus are reproducible
+# from immutable, checksum-verified sources and must never be committed.
+data/raw/
+data/derived/
+data/downloads/

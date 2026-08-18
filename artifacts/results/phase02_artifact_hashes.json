@@ -1,0 +1,108 @@
+{
+  "artifacts": {
+    "chunks": {
+      "bytes": 56849992,
+      "columns": [
+        "schema_version",
+        "chunk_id",
+        "doc_id",
+        "filename",
+        "archive_path",
+        "raw_source_sha256",
+        "normalized_source_sha256",
+        "retrieval_source_transform_version",
+        "chunk_index",
+        "token_start",
+        "token_end",
+        "char_start",
+        "char_end",
+        "token_length",
+        "char_length",
+        "text",
+        "text_sha256",
+        "tokenizer_name",
+        "tokenizer_revision",
+        "max_content_tokens",
+        "overlap_tokens",
+        "step_tokens",
+        "chunking_version",
+        "chunk_config_sha256",
+        "corpus_manifest_sha256"
+      ],
+      "path": "C:/answerability-aware-rag-research/artifacts/data/techqa_chunk_manifest.parquet",
+      "physical_sha256": "a1e9c9a88d09d707a12f1ad166f74189f92c4595b7e1326ec3d8e21e61f1ff06",
+      "rows": 169472,
+      "semantic_sha256": "8f3a355a0eac1e8d3823bcba7dce274b5d133f2bbf7cc9f56bf8e9c0f883dcd9"
+    },
+    "conditions": {
+      "bytes": 1030153,
+      "columns": [
+        "schema_version",
+        "run_id",
+        "question_id",
+        "split",
+        "provenance_partition",
+        "retrieval_strategy",
+        "k",
+        "ordered_chunk_ids_json",
+        "ordered_doc_ids_json",
+        "ordered_raw_scores_json",
+        "gold_doc_ids_json",
+        "confirmed_gold_eligible",
+        "unresolved_reference",
+        "first_gold_rank",
+        "doc_recall_at_k",
+        "reciprocal_rank_at_k",
+        "reciprocal_rank_at_10",
+        "corpus_semantic_sha256",
+        "chunk_config_sha256",
+        "retrieval_config_sha256"
+      ],
+      "path": "C:/answerability-aware-rag-research/artifacts/results/retrieval_query_level.parquet",
+      "physical_sha256": "07d0a414be3a722c7a0ff640bf0a483655ecbf8447048cb1d4939d3bb2807983",
+      "rows": 10920,
+      "semantic_sha256": "8fab5965cd750e4ab694ddac8938a4b5fbe610cd200d8c7573c029e477ed1164"
+    },
+    "metrics": {
+      "path": "C:/answerability-aware-rag-research/artifacts/results/phase02_metrics_train_validation.csv",
+      "physical_sha256": "c9a3ebaab401e4184f5c358e148a5d5e48e8ed6c9d0c258d085f6bc663f9b029",
+      "rows": 24
+    },
+    "ranked_hits": {
+      "bytes": 1049109,
+      "columns": [
+        "schema_version",
+        "run_id",
+        "question_id",
+        "split",
+        "provenance_partition",
+        "retrieval_strategy",
+        "rank",
+        "chunk_id",
+        "doc_id",
+        "filename",
+        "strategy_score",
+        "bm25_score",
+        "bm25_rank",
+        "dense_score",
+        "dense_rank",
+        "is_confirmed_gold_document",
+        "confirmed_gold_eligible",
+        "unresolved_reference",
+        "corpus_semantic_sha256",
+        "chunk_config_sha256",
+        "retrieval_config_sha256"
+      ],
+      "path": "C:/answerability-aware-rag-research/artifacts/results/retrieval_ranked_hits.parquet",
+      "physical_sha256": "45e7723e8fd541887c207059955df48e301169aac69ebe7b055e2f5768836796",
+      "rows": 27300,
+      "semantic_sha256": "edda1b74ee2a24b4758850b2944f73ee9548d6da8ca17c1ab7bb2d34e25262c0"
+    }
+  },
+  "reproducibility": {
+    "prior_completed_run_available": true,
+    "ranking_physical_hashes_equal": true,
+    "ranking_semantic_hashes_equal": true
+  },
+  "schema_version": "phase02-artifact-hashes-v1"
+}
