@@ -1,0 +1,9 @@
+{
+  "cohens_kappa": null,
+  "first_human_annotation": "pending",
+  "note": "No human judgement is inferred from Codex, an LLM, NLI, or embeddings.",
+  "raw_agreement": null,
+  "sample_rows": 150,
+  "schema_version": "phase03-annotation-status-v1",
+  "second_human_annotator": "pending"
+}

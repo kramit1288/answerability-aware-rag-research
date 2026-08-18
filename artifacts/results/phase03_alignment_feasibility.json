@@ -1,0 +1,35 @@
+{
+  "accepted_candidate_spans_per_question": {
+    "maximum": 5,
+    "mean": 1.001926782273603,
+    "median": 1,
+    "minimum": 0
+  },
+  "aligned_questions": 515,
+  "alignment_coverage": 0.9922928709055877,
+  "answerable_questions": 519,
+  "character_length_distribution": {
+    "maximum": 1772,
+    "mean": 349.8980769230769,
+    "median": 257.5,
+    "minimum": 34
+  },
+  "exact_aligned_questions": 511,
+  "gate_status": "pass",
+  "minimum_required_coverage": 0.9,
+  "multiple_match_questions": 2,
+  "normalized_only_aligned_questions": 4,
+  "schema_version": "phase03-alignment-feasibility-v1",
+  "summary_splits": [
+    "train",
+    "validation"
+  ],
+  "test_aggregate_alignment_statistics_calculated": false,
+  "token_length_distribution": {
+    "maximum": 545,
+    "mean": 97.07884615384616,
+    "median": 64.0,
+    "minimum": 5
+  },
+  "unresolved_questions": 4
+}

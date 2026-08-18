@@ -24,6 +24,9 @@ artifacts/data/*
 !artifacts/data/techqa_split.sha256
 !artifacts/data/phase02_chunk_summary.json
 !artifacts/data/phase02_chunk_checksums.json
+!artifacts/data/techqa_evidence_alignments.parquet
+!artifacts/data/context_sufficiency_labels.parquet
+!artifacts/data/phase03_column_governance.json
 artifacts/results/*
 !artifacts/results/.gitkeep
 !artifacts/results/phase02_dependency_manifest.json
@@ -34,6 +37,18 @@ artifacts/results/*
 !artifacts/results/phase02_feasibility_report.json
 !artifacts/results/retrieval_ranked_hits.parquet
 !artifacts/results/retrieval_query_level.parquet
+!artifacts/results/phase03_alignment_feasibility.json
+!artifacts/results/phase03_prerequisite_report.json
+!artifacts/results/phase03_development_label_summary.csv
+!artifacts/results/phase03_manual_sample_manifest.csv
+!artifacts/results/phase03_annotation_blinded.parquet
+!artifacts/results/phase03_annotation_template.csv
+!artifacts/results/phase03_annotation_answer_key.parquet
+!artifacts/results/phase03_annotation_status.json
+!artifacts/results/phase03_label_integrity_report.json
+!artifacts/results/phase03_label_manifest.json
+!artifacts/results/phase03_artifact_hashes.json
+!artifacts/results/phase03_human_validation_results.json
 artifacts/figures/*
 !artifacts/figures/.gitkeep
 

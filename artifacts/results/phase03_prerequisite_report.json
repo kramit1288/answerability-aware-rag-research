@@ -1,0 +1,120 @@
+{
+  "checks": [
+    {
+      "check_id": "phase01_split_sha256",
+      "expected": "4e84c5bdce2d6649f7e9eb8a22271faf0ffb51a5c934fbb642721237cb4292e7",
+      "observed": "4e84c5bdce2d6649f7e9eb8a22271faf0ffb51a5c934fbb642721237cb4292e7",
+      "status": "pass"
+    },
+    {
+      "check_id": "phase02_retrieval_config_sha256",
+      "expected": "f1854ae6f73fddb36da2c407505c05396491771b00d2b97710c2de22d9add4ca",
+      "observed": "f1854ae6f73fddb36da2c407505c05396491771b00d2b97710c2de22d9add4ca",
+      "status": "pass"
+    },
+    {
+      "check_id": "documents",
+      "expected": 28481,
+      "observed": 28481,
+      "status": "pass"
+    },
+    {
+      "check_id": "chunks",
+      "expected": 169472,
+      "observed": 169472,
+      "status": "pass"
+    },
+    {
+      "check_id": "phase02_chunk_config_sha256",
+      "expected": "5f2931faf3ced37054430bf78b755200657799d857a284f563532fc67290dc94",
+      "observed": "5f2931faf3ced37054430bf78b755200657799d857a284f563532fc67290dc94",
+      "status": "pass"
+    },
+    {
+      "check_id": "chunks_physical_sha256",
+      "expected": "a1e9c9a88d09d707a12f1ad166f74189f92c4595b7e1326ec3d8e21e61f1ff06",
+      "observed": "a1e9c9a88d09d707a12f1ad166f74189f92c4595b7e1326ec3d8e21e61f1ff06",
+      "status": "pass"
+    },
+    {
+      "check_id": "chunks_semantic_sha256",
+      "expected": "8f3a355a0eac1e8d3823bcba7dce274b5d133f2bbf7cc9f56bf8e9c0f883dcd9",
+      "observed": "8f3a355a0eac1e8d3823bcba7dce274b5d133f2bbf7cc9f56bf8e9c0f883dcd9",
+      "status": "pass"
+    },
+    {
+      "check_id": "chunks_rows",
+      "expected": 169472,
+      "observed": 169472,
+      "status": "pass"
+    },
+    {
+      "check_id": "ranked_hits_physical_sha256",
+      "expected": "45e7723e8fd541887c207059955df48e301169aac69ebe7b055e2f5768836796",
+      "observed": "45e7723e8fd541887c207059955df48e301169aac69ebe7b055e2f5768836796",
+      "status": "pass"
+    },
+    {
+      "check_id": "ranked_hits_semantic_sha256",
+      "expected": "edda1b74ee2a24b4758850b2944f73ee9548d6da8ca17c1ab7bb2d34e25262c0",
+      "observed": "edda1b74ee2a24b4758850b2944f73ee9548d6da8ca17c1ab7bb2d34e25262c0",
+      "status": "pass"
+    },
+    {
+      "check_id": "ranked_hits_rows",
+      "expected": 27300,
+      "observed": 27300,
+      "status": "pass"
+    },
+    {
+      "check_id": "conditions_physical_sha256",
+      "expected": "07d0a414be3a722c7a0ff640bf0a483655ecbf8447048cb1d4939d3bb2807983",
+      "observed": "07d0a414be3a722c7a0ff640bf0a483655ecbf8447048cb1d4939d3bb2807983",
+      "status": "pass"
+    },
+    {
+      "check_id": "conditions_semantic_sha256",
+      "expected": "8fab5965cd750e4ab694ddac8938a4b5fbe610cd200d8c7573c029e477ed1164",
+      "observed": "8fab5965cd750e4ab694ddac8938a4b5fbe610cd200d8c7573c029e477ed1164",
+      "status": "pass"
+    },
+    {
+      "check_id": "conditions_rows",
+      "expected": 10920,
+      "observed": 10920,
+      "status": "pass"
+    },
+    {
+      "check_id": "chunk_semantic_frozen",
+      "expected": "8f3a355a0eac1e8d3823bcba7dce274b5d133f2bbf7cc9f56bf8e9c0f883dcd9",
+      "observed": "8f3a355a0eac1e8d3823bcba7dce274b5d133f2bbf7cc9f56bf8e9c0f883dcd9",
+      "status": "pass"
+    },
+    {
+      "check_id": "ranked_hits_semantic_frozen",
+      "expected": "edda1b74ee2a24b4758850b2944f73ee9548d6da8ca17c1ab7bb2d34e25262c0",
+      "observed": "edda1b74ee2a24b4758850b2944f73ee9548d6da8ca17c1ab7bb2d34e25262c0",
+      "status": "pass"
+    },
+    {
+      "check_id": "conditions_semantic_frozen",
+      "expected": "8fab5965cd750e4ab694ddac8938a4b5fbe610cd200d8c7573c029e477ed1164",
+      "observed": "8fab5965cd750e4ab694ddac8938a4b5fbe610cd200d8c7573c029e477ed1164",
+      "status": "pass"
+    },
+    {
+      "check_id": "ranked_hit_rows_frozen",
+      "expected": 27300,
+      "observed": 27300,
+      "status": "pass"
+    },
+    {
+      "check_id": "condition_rows_frozen",
+      "expected": 10920,
+      "observed": 10920,
+      "status": "pass"
+    }
+  ],
+  "overall_status": "pass",
+  "schema_version": "phase03-prerequisites-v1"
+}

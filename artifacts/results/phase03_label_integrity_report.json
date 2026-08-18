@@ -1,0 +1,120 @@
+{
+  "checks": [
+    {
+      "check_id": "label_rows",
+      "expected": 10920,
+      "observed": 10920,
+      "status": "pass"
+    },
+    {
+      "check_id": "unique_condition_labels",
+      "expected": 10920,
+      "observed": 10920,
+      "status": "pass"
+    },
+    {
+      "check_id": "exact_phase02_condition_coverage",
+      "expected": 0,
+      "observed": 0,
+      "status": "pass"
+    },
+    {
+      "check_id": "split_row_counts",
+      "expected": {
+        "test": 1632,
+        "train": 7644,
+        "validation": 1644
+      },
+      "observed": {
+        "test": 1632,
+        "train": 7644,
+        "validation": 1644
+      },
+      "status": "pass"
+    },
+    {
+      "check_id": "k_monotonicity",
+      "expected": 0,
+      "observed": 0,
+      "status": "pass"
+    },
+    {
+      "check_id": "full_span_rule",
+      "expected": true,
+      "observed": true,
+      "status": "pass"
+    },
+    {
+      "check_id": "benchmark_negative_provenance",
+      "expected": {
+        "rows": 3600,
+        "valid": true
+      },
+      "observed": {
+        "rows": 3600,
+        "valid": true
+      },
+      "status": "pass"
+    },
+    {
+      "check_id": "unresolved_are_na",
+      "expected": true,
+      "observed": true,
+      "status": "pass"
+    },
+    {
+      "check_id": "test_aggregate_sealed",
+      "expected": 0,
+      "observed": 0,
+      "status": "pass"
+    },
+    {
+      "check_id": "manual_sample",
+      "expected": {
+        "rows": 150,
+        "test_rows": 0,
+        "unique_questions": 150
+      },
+      "observed": {
+        "rows": 150,
+        "test_rows": 0,
+        "unique_questions": 150
+      },
+      "status": "pass"
+    },
+    {
+      "check_id": "annotation_blinding",
+      "expected": [],
+      "observed": [],
+      "status": "pass"
+    },
+    {
+      "check_id": "annotation_key_separation",
+      "expected": {
+        "blind": 150,
+        "key": 150,
+        "sample": 150
+      },
+      "observed": {
+        "blind": 150,
+        "key": 150,
+        "sample": 150
+      },
+      "status": "pass"
+    },
+    {
+      "check_id": "column_governance_complete",
+      "expected": [],
+      "observed": [],
+      "status": "pass"
+    },
+    {
+      "check_id": "feature_allowlist_guard",
+      "expected": true,
+      "observed": true,
+      "status": "pass"
+    }
+  ],
+  "overall_status": "pass",
+  "schema_version": "phase03-integrity-v1"
+}

@@ -1,0 +1,77 @@
+{
+  "schema_version": "phase03-config-v1",
+  "seed": 42,
+  "expected_inputs": {
+    "phase01_split_sha256": "4e84c5bdce2d6649f7e9eb8a22271faf0ffb51a5c934fbb642721237cb4292e7",
+    "phase02_chunk_config_sha256": "5f2931faf3ced37054430bf78b755200657799d857a284f563532fc67290dc94",
+    "phase02_retrieval_config_sha256": "f1854ae6f73fddb36da2c407505c05396491771b00d2b97710c2de22d9add4ca",
+    "phase02_chunk_semantic_sha256": "8f3a355a0eac1e8d3823bcba7dce274b5d133f2bbf7cc9f56bf8e9c0f883dcd9",
+    "phase02_ranked_hits_semantic_sha256": "edda1b74ee2a24b4758850b2944f73ee9548d6da8ca17c1ab7bb2d34e25262c0",
+    "phase02_conditions_semantic_sha256": "8fab5965cd750e4ab694ddac8938a4b5fbe610cd200d8c7573c029e477ed1164",
+    "documents": 28481,
+    "chunks": 169472,
+    "ranked_hit_rows": 27300,
+    "condition_rows": 10920
+  },
+  "alignment": {
+    "version": "techqa-contiguous-span-alignment-v1",
+    "source_coordinate_system": "phase02_canonical_normalized_source_chars_exclusive",
+    "hierarchy": ["exact_source_text", "normalized_text", "unresolved"],
+    "normalization_version": "html-unescape-nfkc-casefold-punctuation-space-whitespace-v1",
+    "normalization": [
+      "HTML entity decoding for semicolon-terminated entities",
+      "Unicode NFKC",
+      "Unicode casefold",
+      "Unicode punctuation converted to spaces without deleting URL content",
+      "whitespace collapsed and stripped"
+    ],
+    "retain_all_candidate_spans": true,
+    "forbidden_automatic_alignment_methods": [
+      "fuzzy_matching", "semantic_similarity", "embeddings", "nli", "llm"
+    ],
+    "development_splits": ["train", "validation"],
+    "minimum_development_alignment_coverage": 0.90,
+    "answer_tokenizer_name": "sentence-transformers/all-MiniLM-L6-v2",
+    "answer_tokenizer_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41"
+  },
+  "label": {
+    "version": "retrieved-interval-union-full-span-v1",
+    "depths": [1, 3, 5, 10],
+    "merge_adjacent_intervals": true,
+    "answerable_positive_rule": "any_complete_accepted_span_covered",
+    "benchmark_impossible_method": "benchmark_impossible",
+    "benchmark_impossible_status": "preliminary_benchmark_negative",
+    "unresolved_answerable_value": null,
+    "test_aggregate_summaries": false
+  },
+  "annotation": {
+    "version": "phase03-sufficiency-annotation-v1",
+    "sample_seed": 42,
+    "target_size": 150,
+    "eligible_splits": ["train", "validation"],
+    "one_condition_per_question": true,
+    "target_strata": {
+      "automatic_positive": 30,
+      "partial_overlap": 30,
+      "correct_document_insufficient": 30,
+      "wrong_document_retrieval": 30,
+      "benchmark_impossible": 30
+    },
+    "labels": ["sufficient", "insufficient", "ambiguous"],
+    "annotator_count_target": 2
+  },
+  "serialization": {
+    "engine": "pyarrow",
+    "parquet_version": "2.6",
+    "compression": "zstd",
+    "compression_level": 9,
+    "use_dictionary": false,
+    "write_statistics": true,
+    "data_page_version": "1.0",
+    "row_group_size": 65536
+  },
+  "future_classifier_feature_allowlist_from_phase03_labels": [
+    "retrieval_strategy",
+    "k"
+  ]
+}

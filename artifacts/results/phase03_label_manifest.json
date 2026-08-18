@@ -1,0 +1,284 @@
+{
+  "aggregate_label_splits": [
+    "train",
+    "validation"
+  ],
+  "alignment_gate": {
+    "accepted_candidate_spans_per_question": {
+      "maximum": 5,
+      "mean": 1.001926782273603,
+      "median": 1,
+      "minimum": 0
+    },
+    "aligned_questions": 515,
+    "alignment_coverage": 0.9922928709055877,
+    "answerable_questions": 519,
+    "character_length_distribution": {
+      "maximum": 1772,
+      "mean": 349.8980769230769,
+      "median": 257.5,
+      "minimum": 34
+    },
+    "exact_aligned_questions": 511,
+    "gate_status": "pass",
+    "minimum_required_coverage": 0.9,
+    "multiple_match_questions": 2,
+    "normalized_only_aligned_questions": 4,
+    "schema_version": "phase03-alignment-feasibility-v1",
+    "summary_splits": [
+      "train",
+      "validation"
+    ],
+    "test_aggregate_alignment_statistics_calculated": false,
+    "token_length_distribution": {
+      "maximum": 545,
+      "mean": 97.07884615384616,
+      "median": 64.0,
+      "minimum": 5
+    },
+    "unresolved_questions": 4
+  },
+  "alignment_rule_version": "techqa-contiguous-span-alignment-v1",
+  "annotation_guideline_sha256": "f2fe3f7f29b834d78fd7c79bf4d4a94faee43c658d89c48e386854123066802b",
+  "annotation_guideline_version": "phase03-sufficiency-annotation-v1",
+  "artifacts": {
+    "alignment_feasibility": {
+      "path": "C:/answerability-aware-rag-research/artifacts/results/phase03_alignment_feasibility.json",
+      "physical_sha256": "c845f2d612b56810637146cd6bcb671688dcb2e846571d9ef18bf1c46529a2b2"
+    },
+    "annotation_answer_key": {
+      "bytes": 16623,
+      "columns": [
+        "schema_version",
+        "sample_id",
+        "question_id",
+        "example_id",
+        "sampling_stratum",
+        "automatic_y_suff",
+        "label_status",
+        "label_method",
+        "gold_document_hit",
+        "maximum_span_coverage_fraction",
+        "partial_overlap",
+        "exclusion_reason",
+        "phase03_label_config_sha256"
+      ],
+      "path": "C:/answerability-aware-rag-research/artifacts/results/phase03_annotation_answer_key.parquet",
+      "physical_sha256": "e1369f326b3f246ece5e2fab0fe2a068f8e3ffd2b7c3bf4f0f3c5d182712afd7",
+      "rows": 150,
+      "semantic_sha256": "02b7766a7ca5d49b9f9ae47ac38829dee6f9cb16545796898d2c3042eba9194c"
+    },
+    "annotation_blinded": {
+      "bytes": 232266,
+      "columns": [
+        "schema_version",
+        "sample_id",
+        "blind_order",
+        "question_id",
+        "split",
+        "retrieval_strategy",
+        "k",
+        "question",
+        "benchmark_status",
+        "benchmark_answer",
+        "retrieved_context_json",
+        "annotation_guideline_version",
+        "annotation_guideline_sha256",
+        "annotator_id",
+        "manual_label",
+        "rationale",
+        "annotation_timestamp"
+      ],
+      "path": "C:/answerability-aware-rag-research/artifacts/results/phase03_annotation_blinded.parquet",
+      "physical_sha256": "25c1a0f220eb10b0f1c5aa8f0f2eeb6efc042b806e480c0b36018812c9a1306f",
+      "rows": 150,
+      "semantic_sha256": "f9bbb5b3574b522607afa092730823e625c8b1e2ca2c13d48d1e61923c1dff4a"
+    },
+    "annotation_status": {
+      "bytes": 297,
+      "path": "C:/answerability-aware-rag-research/artifacts/results/phase03_annotation_status.json",
+      "physical_sha256": "3b033f42e10e4173571d5518268ec4f11fb8b8b30344da8bce00db5592bda023"
+    },
+    "annotation_template": {
+      "bytes": 892748,
+      "columns": [
+        "schema_version",
+        "sample_id",
+        "blind_order",
+        "question_id",
+        "split",
+        "retrieval_strategy",
+        "k",
+        "question",
+        "benchmark_status",
+        "benchmark_answer",
+        "retrieved_context_json",
+        "annotation_guideline_version",
+        "annotation_guideline_sha256",
+        "annotator_id",
+        "manual_label",
+        "rationale",
+        "annotation_timestamp"
+      ],
+      "path": "C:/answerability-aware-rag-research/artifacts/results/phase03_annotation_template.csv",
+      "physical_sha256": "7a9c3bfe96200338e05d0583812e34f49ad05d20dce83fa1961411b7fd36e17d",
+      "rows": 150,
+      "semantic_sha256": "f9bbb5b3574b522607afa092730823e625c8b1e2ca2c13d48d1e61923c1dff4a"
+    },
+    "column_governance": {
+      "bytes": 3031,
+      "path": "C:/answerability-aware-rag-research/artifacts/data/phase03_column_governance.json",
+      "physical_sha256": "8963a088bd819956b57c357c62fc6cdfae59f3492f7f924aa1080cacd4345618"
+    },
+    "development_summary": {
+      "bytes": 2028,
+      "columns": [
+        "schema_version",
+        "split",
+        "retrieval_strategy",
+        "k",
+        "condition_rows",
+        "positive_labels",
+        "negative_labels",
+        "na_labels",
+        "answerable_wrong_document_negatives",
+        "correct_document_incomplete_negatives",
+        "partial_overlap_conditions",
+        "benchmark_impossible_preliminary_negatives"
+      ],
+      "path": "C:/answerability-aware-rag-research/artifacts/results/phase03_development_label_summary.csv",
+      "physical_sha256": "4e369d81c1c0d2cffa5f1722de1922ac3317611a11e0e76faecec707dd67a077",
+      "rows": 24,
+      "semantic_sha256": "c3627c15967c005c742ae4b7c2318210af48be58ccba63a77c1bf04cf03fc26a"
+    },
+    "evidence_alignments": {
+      "bytes": 245820,
+      "columns": [
+        "schema_version",
+        "alignment_id",
+        "question_id",
+        "split",
+        "reference_status",
+        "gold_alignment_status",
+        "alignment_method",
+        "candidate_index",
+        "candidate_span_count",
+        "gold_doc_id",
+        "filename",
+        "source_coordinate_system",
+        "source_char_start",
+        "source_char_end",
+        "raw_char_start",
+        "raw_char_end",
+        "reference_answer",
+        "reference_answer_sha256",
+        "evidence_text",
+        "evidence_text_sha256",
+        "character_length",
+        "token_length",
+        "raw_source_sha256",
+        "normalized_source_sha256",
+        "alignment_version",
+        "normalization_version",
+        "phase01_split_sha256",
+        "phase02_chunk_config_sha256",
+        "phase03_config_sha256",
+        "exclusion_reason"
+      ],
+      "path": "C:/answerability-aware-rag-research/artifacts/data/techqa_evidence_alignments.parquet",
+      "physical_sha256": "e77ce2c16a016e24d9a86a0654c8fabf8e70105597f4a36a657ec2c380f1529c",
+      "rows": 617,
+      "semantic_sha256": "515dc83e3dde8b0e4eede45f830a2c28cad1fcefdf2d24d902150d9208313ccd"
+    },
+    "integrity_report": {
+      "bytes": 2511,
+      "path": "C:/answerability-aware-rag-research/artifacts/results/phase03_label_integrity_report.json",
+      "physical_sha256": "1706b85b92cd78a736da223afa918812f5fac11be8993e35370c0503c1d267e5"
+    },
+    "manual_sample_manifest": {
+      "bytes": 47233,
+      "columns": [
+        "schema_version",
+        "sample_id",
+        "blind_order",
+        "question_id",
+        "split",
+        "retrieval_strategy",
+        "k",
+        "sampling_stratum",
+        "sample_seed",
+        "example_id",
+        "annotation_guideline_version",
+        "annotation_guideline_sha256"
+      ],
+      "path": "C:/answerability-aware-rag-research/artifacts/results/phase03_manual_sample_manifest.csv",
+      "physical_sha256": "38e922301865e78a2d8a2d22aeb8803631201072b721753438286f1632d8945e",
+      "rows": 150,
+      "semantic_sha256": "d02c5ceaab5a588ce9227fa3ccdbc4b616d89d0a3d88235162fa37ee58a6ee51"
+    },
+    "prerequisite_report": {
+      "path": "C:/answerability-aware-rag-research/artifacts/results/phase03_prerequisite_report.json",
+      "physical_sha256": "f7a5cf39dc594d29b80983e55e90d264f2d953d04da87402a50eacd314c8f8fc"
+    },
+    "sufficiency_labels": {
+      "bytes": 483695,
+      "columns": [
+        "schema_version",
+        "example_id",
+        "run_id",
+        "question_id",
+        "split",
+        "split_group_id",
+        "retrieval_strategy",
+        "k",
+        "benchmark_is_impossible",
+        "reference_status",
+        "gold_alignment_status",
+        "label_status",
+        "y_suff",
+        "label_method",
+        "label_provenance",
+        "gold_document_hit",
+        "accepted_gold_span_count",
+        "maximum_span_coverage_fraction",
+        "fully_covered_span_count",
+        "partial_overlap",
+        "first_covering_rank",
+        "covering_chunk_ids_json",
+        "exclusion_reason",
+        "phase01_split_sha256",
+        "phase02_conditions_semantic_sha256",
+        "phase02_retrieval_config_sha256",
+        "phase03_label_config_sha256"
+      ],
+      "path": "C:/answerability-aware-rag-research/artifacts/data/context_sufficiency_labels.parquet",
+      "physical_sha256": "00862e10ba6d0eb8661d68df1206381e4712b7731b48ce8cbee18ac5c906fc42",
+      "rows": 10920,
+      "semantic_sha256": "f1e8e48adae4f371525a2f285c0202177a182028b50f557c5abf018578ee1254"
+    }
+  },
+  "git_commit_sha": "baeca908120c4e7fa8b51dad2051a4e412fc0118",
+  "human_annotation_status": "pending",
+  "label_rows": 10920,
+  "label_rule_version": "retrieved-interval-union-full-span-v1",
+  "manual_sample_rows": 150,
+  "packages": {
+    "pyarrow": "25.0.1",
+    "transformers": "5.15.0"
+  },
+  "phase01_split_sha256": "4e84c5bdce2d6649f7e9eb8a22271faf0ffb51a5c934fbb642721237cb4292e7",
+  "phase02_chunk_config_sha256": "5f2931faf3ced37054430bf78b755200657799d857a284f563532fc67290dc94",
+  "phase02_conditions_semantic_sha256": "8fab5965cd750e4ab694ddac8938a4b5fbe610cd200d8c7573c029e477ed1164",
+  "phase02_retrieval_config_sha256": "f1854ae6f73fddb36da2c407505c05396491771b00d2b97710c2de22d9add4ca",
+  "phase03_config_sha256": "8a10e8fd037751f92750a14364a3f50f5343552ddbf02b9e40d5f4d8534acc8e",
+  "phase_boundary": "stopped before Phase 4; no classifier, calibration, policy, or generation logic",
+  "reproducibility": {
+    "physical_hashes_equal": true,
+    "prior_completed_run_available": true,
+    "semantic_hashes_equal": true
+  },
+  "run_id": "phase03-e2562c50a697a675",
+  "schema_version": "phase03-label-manifest-v1",
+  "second_annotator_status": "pending",
+  "test_aggregate_label_statistics_calculated": false
+}

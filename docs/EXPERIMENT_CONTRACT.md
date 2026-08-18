@@ -365,38 +365,40 @@ Reference answers and gold evidence are used only to construct labels. Reference
 embeddings, answer length/hash, gold filename/rank, global `is_impossible`, evidence spans, and
 manual decisions are forbidden prediction features.
 
-The hierarchy is applied as follows.
+The frozen Phase 3 hierarchy is applied as follows.
 
-1. **Benchmark-impossible initialization.** For `is_impossible == true`, initialize every
-   retrieval condition to `y_suff=0` with provenance `benchmark_impossible_initialization`, because
-   the benchmark supplies no supported answer/evidence. Retain this provenance. This is a
-   benchmark-supported negative, not a claim that the question is universally unanswerable.
-   A stratified manual audit oversamples high-retrieval-score, high-NLI-support, and diverse
-   retriever/k cases. Confirmed annotation anomalies become explicit manual overrides and are
-   reported; agreement statistics never erase the original provenance.
-2. **Gold evidence alignment for benchmark-answerable rows.** Normalize the reference answer and
-   attached gold corpus document using Unicode NFKC, HTML entity decoding, casefolding,
-   punctuation-to-space, canonicalized-but-retained URLs, and whitespace collapse. Store all
-   exact raw/source-word evidence intervals. Where an answer requires multiple non-contiguous
-   spans, store them as one required evidence set. A condition is positive only when the union of
-   its actual retrieved chunk intervals covers every required span in at least one admissible set.
-3. **Explicit alternative evidence containment.** If the complete normalized answer/evidence is
-   present in retrieved chunks from a different official document, record
-   `alternate_exact_evidence` and allow a positive label. Filename equality is neither necessary
-   nor sufficient; the retrieved chunk text must contain the evidence.
-4. **Manual evidence alignment for non-exact or incomplete references.** Rows with no exact
-   alignment, conflicting candidates, or incomplete references are reviewed against the official
-   corpus. Unambiguous manually identified spans are persisted with annotator, rationale, source
-   offsets, and provenance `manual_evidence_alignment`; no location is inferred or fabricated.
-5. **NLI disagreement screen.** For an answerable condition preliminarily negative because no
-   aligned evidence is covered, the pinned
-   `cross-encoder/nli-deberta-v3-base` model at revision
-   `6c749ce3425cd33b46d187e45b92bbf96ee12ec7` screens for plausible paraphrased/alternative
-   support. Screen-positive disagreements are manually adjudicated rather than automatically
-   promoted. The threshold is learned only from development annotations.
-6. **Unresolved status.** If defensible evidence cannot be established, store `y_suff=NA`, a
-   reason code, and `label_status=unresolved`. Exclude that example only from analyses requiring a
-   gold retrieval/sufficiency target, and report exclusions by split, question, retriever, and k.
+1. **Confirmed-gold alignment.** TechQA's source annotation selected a shortest contiguous span
+   sufficient to answer the question and excluded questions requiring multiple separate spans or
+   multiple Technotes. For every benchmark-answerable row with a confirmed source document, first
+   retain all literal source-text occurrences of the reference answer. If none exists, apply the
+   deterministic normalization (HTML entity decoding, Unicode NFKC, casefolding,
+   punctuation-to-space while retaining canonical URL text, and whitespace collapse) with a
+   reversible map to source character offsets. Retain every defensible normalized occurrence,
+   including occurrences across multiple confirmed gold documents; never select one duplicate
+   arbitrarily. Semantic similarity, fuzzy matching, embeddings, NLI, and LLM output cannot create
+   a gold span.
+2. **Primary automatic condition label.** For each accepted document/span alternative, merge
+   overlapping or adjacent source-character intervals belonging to retrieved chunks from that
+   document. Set `y_suff=1` exactly when this union fully covers at least one complete accepted
+   span, otherwise set `y_suff=0` for an aligned answerable question. The span may be covered by
+   more than one retrieved chunk. A correct-document hit, topical chunk, or partial overlap is not
+   sufficient. Persist coverage diagnostics as label-construction metadata that are forbidden
+   classifier features.
+3. **Benchmark-impossible preliminary negatives.** For `is_impossible == true`, store `y_suff=0`,
+   `label_method=benchmark_impossible`, and
+   `label_status=preliminary_benchmark_negative`. This is benchmark-relative provenance: the
+   original annotation found no answer in its candidate Technotes, but the complete 28,481-file
+   research corpus could contain related or supporting material. Phase 4 must report a sensitivity
+   excluding these preliminary negatives without rebuilding Phase 3.
+4. **Unresolved status.** If an answerable row has no defensible alignment, store `y_suff=NA`, an
+   explicit exclusion reason, and `label_status=unresolved`; never force it to zero or drop its
+   retrieval-condition rows. `DEV_Q014` and `DEV_Q094` remain governed by this rule unless a
+   separate unambiguous manual alignment is persisted.
+5. **Optional disagreement screening only.** The already pinned
+   `cross-encoder/nli-deberta-v3-base` revision may later flag development disagreements, but it
+   cannot replace or automatically promote the gold-span label. Because its threshold requires
+   human development annotations, Phase 3 automatic construction does not enable the screen when
+   those annotations are absent and does not inspect test disagreements.
 
 The two known answerable rows with empty references, `DEV_Q014` and `DEV_Q094`, are explicitly
 flagged as `reference_status=empty_answerable`. If manual review unambiguously aligns the required
@@ -425,32 +427,17 @@ Before any manual labels are created, an explicit versioned annotation guideline
 The guideline is frozen before the validation sample and its version/hash is stored with every
 annotation.
 
-Before test evaluation:
-
-- select 120 seeded, question-disjoint training examples to refine the rule and guideline;
-- select a separate 120 seeded validation examples for the frozen-rule accuracy and inter-
-  annotator audit;
-- stratify across automatic positives, answerable automatic negatives, benchmark-impossible
-  initial negatives, NLI/disagreement cases, retrievers, and k;
-- include at least 30 benchmark-impossible initial negatives in the 120-example validation sample,
-  with anomaly-focused oversampling by high retrieval score/NLI support and coverage across
-  retriever/k conditions; this is the required benchmark-impossible annotation audit;
-- prevent more than one condition from a question entering the validation sample unless the
-  declared purpose is a paired k judgement;
-- target independent double annotation of all 120 validation examples by two annotators, which is
-  within the approved approximately 100-150 range;
-- calculate raw percentage agreement and Cohen’s kappa on the unadjudicated categorical labels,
-  report the label distribution and confidence interval where feasible, then adjudicate
-  disagreements for the reference audit label; and
-- require frozen-rule validation macro-F1 of at least 0.85 and class-specific precision/recall of
-  at least 0.80. Failure blocks model fitting until the rule is revised using development data and
-  evaluated on a new validation sample.
-
-A preselected 100-example blind test audit estimates residual label error after the rule is frozen
-and cannot change the primary method. If a second independent annotator is ultimately unavailable,
-the implementation remains valid: one annotator applies the frozen guideline, agreement and kappa
-are stored as NA, no agreement value is inferred, and the limitation is recorded in the manifest
-and thesis.
+Before classifier development, create a seeded, approximately 150-condition, question-disjoint
+manual validation sample from train and validation only. Stratify across automatic positives,
+answerable automatic negatives, partial overlaps, correct-document/insufficient-chunk cases,
+retrieval failures, benchmark-impossible preliminary negatives, retrieval strategies, and
+`k={1,3,5,10}`. Present the question, actual retrieved text, benchmark answer where applicable, and
+necessary provenance in a blinded artifact that excludes automatic labels and future model/policy
+outputs. Keep the automatic answer key programmatically separate. Target independent annotation by
+two humans using `sufficient`, `insufficient`, or `ambiguous`; compute raw agreement and Cohen's
+kappa only when two genuine human files exist. If human annotations are unavailable during Phase 3,
+produce the complete pack and evaluation tooling but leave validation accuracy/agreement pending.
+No manual test sample is drawn or inspected during Phase 3 development.
 
 ## 7. Initial prediction features
 
@@ -799,7 +786,23 @@ ordered_chunk_ids_json, ordered_doc_ids_json, bm25_scores_json, dense_scores_jso
 gold_doc_id, first_gold_rank, doc_recall_at_k, reciprocal_rank_at_10, context_words, context_chars,
 retrieval_config_sha256`
 
-`artifacts/data/techqa_evidence_alignments.csv` — one row per required evidence span:
+**Phase 3 implemented-schema amendment (frozen before label construction).** The planned CSV
+schemas below are retained as historical design notes but are superseded for Phase 3 by the
+canonically sorted, dual-hashed artifacts in `docs/PHASE_03_ARTIFACT_SCHEMAS.md`:
+
+- `artifacts/data/techqa_evidence_alignments.parquet` stores every accepted candidate span plus an
+  explicit row for each unresolved answerable question. Literal matches retain raw source offsets;
+  every accepted span uses the canonical normalized-source character coordinates shared with
+  Phase 2 chunks.
+- `artifacts/data/context_sufficiency_labels.parquet` stores exactly one row per frozen condition,
+  with distinct `gold_span_coverage`, `benchmark_impossible`, and unresolved/NA provenance.
+- the manual pack is separated into a seeded sample manifest, blinded Parquet/CSV material, and a
+  separate automatic answer key. Human agreement outputs are created only from genuine completed
+  annotation files.
+- `artifacts/data/phase03_column_governance.json` classifies every evidence/label column and limits
+  future Phase 4 feature selection from the Phase 3 label table to `retrieval_strategy` and `k`.
+
+`artifacts/data/techqa_evidence_alignments.csv` — superseded planned schema:
 
 `schema_version, alignment_id, question_id, reference_status, evidence_set_id, gold_doc_id,
 start_word, end_word, evidence_text_sha256, alignment_method, alignment_provenance, annotator_id,
