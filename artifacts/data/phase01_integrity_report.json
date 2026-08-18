@@ -1,0 +1,439 @@
+{
+  "checks": [
+    {
+      "check_id": "persisted_required_artifacts",
+      "description": "All required persisted artifacts exist",
+      "details": null,
+      "expected": [],
+      "observed": [],
+      "severity": "P0",
+      "status": "pass"
+    },
+    {
+      "check_id": "persisted_assignments_schema",
+      "description": "assignments exact column order",
+      "details": null,
+      "expected": [
+        "schema_version",
+        "dataset_revision",
+        "question_id",
+        "provenance_partition",
+        "question_sha256",
+        "normalized_question_sha256",
+        "is_impossible",
+        "reference_status",
+        "gold_doc_ids_json",
+        "gold_evidence_analysis_status",
+        "split_group_id",
+        "split",
+        "split_seed",
+        "split_algorithm_version",
+        "component_manifest_sha256",
+        "split_frozen_at"
+      ],
+      "observed": [
+        "schema_version",
+        "dataset_revision",
+        "question_id",
+        "provenance_partition",
+        "question_sha256",
+        "normalized_question_sha256",
+        "is_impossible",
+        "reference_status",
+        "gold_doc_ids_json",
+        "gold_evidence_analysis_status",
+        "split_group_id",
+        "split",
+        "split_seed",
+        "split_algorithm_version",
+        "component_manifest_sha256",
+        "split_frozen_at"
+      ],
+      "severity": "P0",
+      "status": "pass"
+    },
+    {
+      "check_id": "persisted_components_schema",
+      "description": "components exact column order",
+      "details": null,
+      "expected": [
+        "schema_version",
+        "dataset_revision",
+        "split_group_id",
+        "component_size",
+        "member_question_ids_json",
+        "shared_gold_filenames_json",
+        "normalized_question_hashes_json",
+        "answerable_count",
+        "impossible_count",
+        "assigned_split",
+        "split_seed",
+        "split_algorithm_version",
+        "component_sha256"
+      ],
+      "observed": [
+        "schema_version",
+        "dataset_revision",
+        "split_group_id",
+        "component_size",
+        "member_question_ids_json",
+        "shared_gold_filenames_json",
+        "normalized_question_hashes_json",
+        "answerable_count",
+        "impossible_count",
+        "assigned_split",
+        "split_seed",
+        "split_algorithm_version",
+        "component_sha256"
+      ],
+      "severity": "P0",
+      "status": "pass"
+    },
+    {
+      "check_id": "persisted_corpus_schema",
+      "description": "corpus exact column order",
+      "details": null,
+      "expected": [
+        "schema_version",
+        "dataset_revision",
+        "corpus_archive_sha256",
+        "doc_id",
+        "archive_path",
+        "filename",
+        "raw_sha256",
+        "normalized_sha256",
+        "raw_bytes",
+        "normalized_chars",
+        "encoding",
+        "cleaning_version",
+        "removed_payload_count",
+        "status"
+      ],
+      "observed": [
+        "schema_version",
+        "dataset_revision",
+        "corpus_archive_sha256",
+        "doc_id",
+        "archive_path",
+        "filename",
+        "raw_sha256",
+        "normalized_sha256",
+        "raw_bytes",
+        "normalized_chars",
+        "encoding",
+        "cleaning_version",
+        "removed_payload_count",
+        "status"
+      ],
+      "severity": "P0",
+      "status": "pass"
+    },
+    {
+      "check_id": "persisted_ragtruth_schema",
+      "description": "ragtruth exact column order",
+      "details": null,
+      "expected": [
+        "schema_version",
+        "dataset_revision",
+        "response_id",
+        "source_id",
+        "official_split",
+        "task_type",
+        "source_name",
+        "model",
+        "temperature",
+        "quality",
+        "response_sha256",
+        "prompt_sha256",
+        "source_info_sha256",
+        "label_count",
+        "has_unsupported_span",
+        "implicit_true_count",
+        "due_to_null_count",
+        "label_types_json",
+        "primary_grounding_eligible"
+      ],
+      "observed": [
+        "schema_version",
+        "dataset_revision",
+        "response_id",
+        "source_id",
+        "official_split",
+        "task_type",
+        "source_name",
+        "model",
+        "temperature",
+        "quality",
+        "response_sha256",
+        "prompt_sha256",
+        "source_info_sha256",
+        "label_count",
+        "has_unsupported_span",
+        "implicit_true_count",
+        "due_to_null_count",
+        "label_types_json",
+        "primary_grounding_eligible"
+      ],
+      "severity": "P0",
+      "status": "pass"
+    },
+    {
+      "check_id": "persisted_manual_schema",
+      "description": "manual exact column order",
+      "details": null,
+      "expected": [
+        "schema_version",
+        "question_id",
+        "status",
+        "manually_aligned_document",
+        "evidence_start",
+        "evidence_end",
+        "annotator",
+        "rationale",
+        "timestamp",
+        "provenance"
+      ],
+      "observed": [
+        "schema_version",
+        "question_id",
+        "status",
+        "manually_aligned_document",
+        "evidence_start",
+        "evidence_end",
+        "annotator",
+        "rationale",
+        "timestamp",
+        "provenance"
+      ],
+      "severity": "P0",
+      "status": "pass"
+    },
+    {
+      "check_id": "persisted_manifest_counts",
+      "description": "Pinned manifest row counts",
+      "details": null,
+      "expected": {
+        "assignments": 910,
+        "corpus": 28481,
+        "manual": 2,
+        "ragtruth": 17790
+      },
+      "observed": {
+        "assignments": 910,
+        "corpus": 28481,
+        "manual": 2,
+        "ragtruth": 17790
+      },
+      "severity": "P0",
+      "status": "pass"
+    },
+    {
+      "check_id": "persisted_unique_critical_ids",
+      "description": "Manifest critical IDs are unique",
+      "details": null,
+      "expected": {
+        "archive_path": true,
+        "doc_id": true,
+        "question_id": true,
+        "response_id": true,
+        "split_group_id": true
+      },
+      "observed": {
+        "archive_path": true,
+        "doc_id": true,
+        "question_id": true,
+        "response_id": true,
+        "split_group_id": true
+      },
+      "severity": "P0",
+      "status": "pass"
+    },
+    {
+      "check_id": "persisted_critical_values",
+      "description": "No unexpected missing critical values",
+      "details": null,
+      "expected": true,
+      "observed": true,
+      "severity": "P0",
+      "status": "pass"
+    },
+    {
+      "check_id": "persisted_component_leakage",
+      "description": "No persisted component crosses splits",
+      "details": [],
+      "expected": 0,
+      "observed": 0,
+      "severity": "P0",
+      "status": "pass"
+    },
+    {
+      "check_id": "persisted_filename_leakage",
+      "description": "No persisted gold filename crosses splits",
+      "details": [],
+      "expected": 0,
+      "observed": 0,
+      "severity": "P0",
+      "status": "pass"
+    },
+    {
+      "check_id": "persisted_duplicate_leakage",
+      "description": "No persisted duplicate hash crosses splits",
+      "details": [],
+      "expected": 0,
+      "observed": 0,
+      "severity": "P0",
+      "status": "pass"
+    },
+    {
+      "check_id": "persisted_assignment_component_match",
+      "description": "Assignments agree with component splits",
+      "details": null,
+      "expected": true,
+      "observed": true,
+      "severity": "P0",
+      "status": "pass"
+    },
+    {
+      "check_id": "persisted_component_members",
+      "description": "Component members exactly cover assignments",
+      "details": null,
+      "expected": {
+        "duplicates": 0,
+        "members": 910,
+        "missing": [],
+        "unexpected": []
+      },
+      "observed": {
+        "duplicates": 0,
+        "members": 910,
+        "missing": [],
+        "unexpected": []
+      },
+      "severity": "P0",
+      "status": "pass"
+    },
+    {
+      "check_id": "persisted_ragtruth_source_leakage",
+      "description": "No RAGTruth source crosses official split",
+      "details": [],
+      "expected": 0,
+      "observed": 0,
+      "severity": "P0",
+      "status": "pass"
+    },
+    {
+      "check_id": "persisted_ragtruth_response_distribution",
+      "description": "Six responses per source",
+      "details": null,
+      "expected": {
+        "6": 2965
+      },
+      "observed": {
+        "6": 2965
+      },
+      "severity": "P0",
+      "status": "pass"
+    },
+    {
+      "check_id": "persisted_manual_anomalies",
+      "description": "Both empty-reference rows remain unresolved",
+      "details": null,
+      "expected": {
+        "DEV_Q014": "unresolved",
+        "DEV_Q094": "unresolved"
+      },
+      "observed": {
+        "DEV_Q014": "unresolved",
+        "DEV_Q094": "unresolved"
+      },
+      "severity": "P0",
+      "status": "pass"
+    },
+    {
+      "check_id": "persisted_no_fabricated_alignment",
+      "description": "Unresolved rows contain no fabricated location",
+      "details": null,
+      "expected": true,
+      "observed": true,
+      "severity": "P0",
+      "status": "pass"
+    },
+    {
+      "check_id": "persisted_split_sha256",
+      "description": "Frozen semantic split SHA-256 matches assignments",
+      "details": null,
+      "expected": "4e84c5bdce2d6649f7e9eb8a22271faf0ffb51a5c934fbb642721237cb4292e7",
+      "observed": "4e84c5bdce2d6649f7e9eb8a22271faf0ffb51a5c934fbb642721237cb4292e7",
+      "severity": "P0",
+      "status": "pass"
+    },
+    {
+      "check_id": "persisted_split_config_hash",
+      "description": "Split config records semantic hash",
+      "details": null,
+      "expected": "4e84c5bdce2d6649f7e9eb8a22271faf0ffb51a5c934fbb642721237cb4292e7",
+      "observed": "4e84c5bdce2d6649f7e9eb8a22271faf0ffb51a5c934fbb642721237cb4292e7",
+      "severity": "P0",
+      "status": "pass"
+    },
+    {
+      "check_id": "persisted_artifact_hashes",
+      "description": "Metadata artifact hashes match files",
+      "details": null,
+      "expected": {},
+      "observed": {},
+      "severity": "P0",
+      "status": "pass"
+    },
+    {
+      "check_id": "persisted_split_count_diagnostic",
+      "description": "Question/class counts by split",
+      "details": null,
+      "expected": {
+        "classes": {
+          "test": {
+            "answerable": 91,
+            "impossible": 45
+          },
+          "train": {
+            "answerable": 427,
+            "impossible": 210
+          },
+          "validation": {
+            "answerable": 92,
+            "impossible": 45
+          }
+        },
+        "questions": {
+          "test": 136,
+          "train": 637,
+          "validation": 137
+        }
+      },
+      "observed": {
+        "classes": {
+          "test": {
+            "answerable": 91,
+            "impossible": 45
+          },
+          "train": {
+            "answerable": 427,
+            "impossible": 210
+          },
+          "validation": {
+            "answerable": 92,
+            "impossible": 45
+          }
+        },
+        "questions": {
+          "test": 136,
+          "train": 637,
+          "validation": 137
+        }
+      },
+      "severity": "diagnostic",
+      "status": "pass"
+    }
+  ],
+  "overall_status": "pass"
+}

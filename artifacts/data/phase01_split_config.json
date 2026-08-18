@@ -1,0 +1,114 @@
+{
+  "algorithm_version": "connected-component-lexicographic-milp-v1",
+  "component_manifest_sha256": "be474a6b88da73da789620bef66aec6c2421294beedfa90eb1363be16f5b13e1",
+  "freeze_policy": "immutable; replacement requires an explicit pre-test contract decision",
+  "normalization_version": "nfkc-casefold-punctuation-space-whitespace-v1",
+  "ratios": {
+    "test": 0.15,
+    "train": 0.7,
+    "validation": 0.15
+  },
+  "schema_version": "phase01-data-v1",
+  "seed": 42,
+  "solver": {
+    "achieved": {
+      "test": {
+        "answerable": 91,
+        "components": 85,
+        "impossible": 45,
+        "total": 136
+      },
+      "train": {
+        "answerable": 427,
+        "components": 602,
+        "impossible": 210,
+        "total": 637
+      },
+      "validation": {
+        "answerable": 92,
+        "components": 97,
+        "impossible": 45,
+        "total": 137
+      }
+    },
+    "aggregate_allocations": {
+      "(1, 0, 1)": {
+        "test": 45,
+        "train": 199,
+        "validation": 43
+      },
+      "(1, 1, 0)": {
+        "test": 0,
+        "train": 380,
+        "validation": 17
+      },
+      "(2, 0, 2)": {
+        "test": 0,
+        "train": 0,
+        "validation": 1
+      },
+      "(2, 1, 1)": {
+        "test": 0,
+        "train": 11,
+        "validation": 0
+      },
+      "(2, 2, 0)": {
+        "test": 38,
+        "train": 0,
+        "validation": 35
+      },
+      "(3, 3, 0)": {
+        "test": 0,
+        "train": 12,
+        "validation": 0
+      },
+      "(5, 5, 0)": {
+        "test": 0,
+        "train": 0,
+        "validation": 1
+      },
+      "(6, 6, 0)": {
+        "test": 1,
+        "train": 0,
+        "validation": 0
+      },
+      "(9, 9, 0)": {
+        "test": 1,
+        "train": 0,
+        "validation": 0
+      }
+    },
+    "aggregate_component_vectors": 9,
+    "algorithm_version": "connected-component-lexicographic-milp-v1",
+    "primary_objective_max_normalized_deviation": 0.00546448087431694,
+    "secondary_objective_sum_normalized_deviation": 0.018254969074641206,
+    "seed": 42,
+    "solver": "scipy.optimize.milp/HiGHS",
+    "solver_primary_objective": 0.005464480874316939,
+    "solver_secondary_objective": 0.018254969074641206,
+    "solver_status": "optimal",
+    "solver_version": "1.18.0",
+    "targets": {
+      "test": {
+        "answerable": 91.5,
+        "impossible": 45.0,
+        "total": 136.5
+      },
+      "train": {
+        "answerable": 427.0,
+        "impossible": 210.0,
+        "total": 637.0
+      },
+      "validation": {
+        "answerable": 91.5,
+        "impossible": 45.0,
+        "total": 136.5
+      }
+    },
+    "tie_objective": 284.6427762768761,
+    "tie_rule": "aggregate-vector-milp-then-sha256(seed,component_signature)-allocation-v1"
+  },
+  "split_frozen_at": "2026-08-18T09:20:02Z",
+  "split_semantic_sha256": "4e84c5bdce2d6649f7e9eb8a22271faf0ffb51a5c934fbb642721237cb4292e7",
+  "tie_rule": "aggregate-vector-milp-then-sha256(seed,component_signature)-allocation-v1"
+}

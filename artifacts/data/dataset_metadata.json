@@ -1,0 +1,649 @@
+{
+  "artifacts": {
+    "manual_alignments": {
+      "path": "artifacts/data/manual_evidence_alignments.csv",
+      "rows": 2,
+      "sha256": "366b44aff28d3ad5d530e68f2831f3748248d0e93e5549aadae86e3d8eb2ff9e"
+    },
+    "ragtruth": {
+      "path": "artifacts/data/ragtruth_manifest.csv",
+      "rows": 17790,
+      "sha256": "8225f99ae0620b6fff137157d625ff70b804399c51d3221081f430aad267e160"
+    },
+    "split_config": {
+      "path": "artifacts/data/phase01_split_config.json",
+      "rows": null,
+      "sha256": "6cce3d814d5c82c2083d4eb75abb093e6c20cb117923e02656bbf04194d46445"
+    },
+    "split_hash": {
+      "path": "artifacts/data/techqa_split.sha256",
+      "rows": null,
+      "sha256": "ddf5f45543bc3e70869ca4cdc4bcc30b94ee760aa0399059a5faaadf1ff0807b"
+    },
+    "techqa_assignments": {
+      "path": "artifacts/data/techqa_split_assignments.csv",
+      "rows": 910,
+      "sha256": "c28ed087683f76b5dd625b308af917f0f92fac9435e8ec87f5aa8cf89d060dba"
+    },
+    "techqa_components": {
+      "path": "artifacts/data/techqa_split_components.csv",
+      "rows": 784,
+      "sha256": "be474a6b88da73da789620bef66aec6c2421294beedfa90eb1363be16f5b13e1"
+    },
+    "techqa_corpus": {
+      "path": "artifacts/data/techqa_corpus_manifest.csv",
+      "rows": 28481,
+      "sha256": "f43938932ee648c4fd194f7b83cdac6a9ffaedbe4fbf9a663b133afdd26ec222"
+    }
+  },
+  "command": "python scripts/prepare_phase01_data.py --config configs/phase01_data.json",
+  "config_sha256": "2d5e329e475d9fcb76ba8d874dbc67dc4b92ab6071c74f42beff648adeb902c3",
+  "deviations_from_contract": [],
+  "environment": {
+    "data_loader": "python-standard-library-json-csv-urllib-v1",
+    "packages": {
+      "answerability-aware-rag": null,
+      "datasets": null,
+      "huggingface-hub": null,
+      "numpy": "2.5.2",
+      "scipy": "1.18.0"
+    },
+    "platform": "Windows-10-10.0.19045-SP0",
+    "python": "3.14.3",
+    "python_implementation": "CPython"
+  },
+  "inputs": {
+    "ragtruth/response.jsonl": {
+      "bytes": 21458735,
+      "path": "data/raw/ragtruth/c103204b9ce28d6bbad859304bf30de72b8ed8fe/response.jsonl",
+      "resolved_url": "https://raw.githubusercontent.com/ParticleMedia/RAGTruth/c103204b9ce28d6bbad859304bf30de72b8ed8fe/dataset/response.jsonl",
+      "retrieved_at": "2026-08-18T09:25:48Z",
+      "revision": "c103204b9ce28d6bbad859304bf30de72b8ed8fe",
+      "sha256": "e4c2e4ac24fff676d8984cc61c35d791612fadc58015335d97dd632375e18073",
+      "url": "https://raw.githubusercontent.com/ParticleMedia/RAGTruth/c103204b9ce28d6bbad859304bf30de72b8ed8fe/dataset/response.jsonl"
+    },
+    "ragtruth/source_info.jsonl": {
+      "bytes": 15117971,
+      "path": "data/raw/ragtruth/c103204b9ce28d6bbad859304bf30de72b8ed8fe/source_info.jsonl",
+      "resolved_url": "https://raw.githubusercontent.com/ParticleMedia/RAGTruth/c103204b9ce28d6bbad859304bf30de72b8ed8fe/dataset/source_info.jsonl",
+      "retrieved_at": "2026-08-18T09:25:48Z",
+      "revision": "c103204b9ce28d6bbad859304bf30de72b8ed8fe",
+      "sha256": "0dffc26ea9f3c1c3d7c7e8336b56ef1646e3cec876edffcca3c9c624d12d578b",
+      "url": "https://raw.githubusercontent.com/ParticleMedia/RAGTruth/c103204b9ce28d6bbad859304bf30de72b8ed8fe/dataset/source_info.jsonl"
+    },
+    "techqa/README.md": {
+      "bytes": 2113,
+      "path": "data/raw/techqa/0b5bbc84b7f07d6d09d063130e90b716d8d4a32a/README.md",
+      "resolved_url": "https://huggingface.co/datasets/nvidia/TechQA-RAG-Eval/resolve/0b5bbc84b7f07d6d09d063130e90b716d8d4a32a/README.md?download=true",
+      "retrieved_at": "2026-08-18T09:25:48Z",
+      "revision": "0b5bbc84b7f07d6d09d063130e90b716d8d4a32a",
+      "sha256": "8d85191f81a748f2a66bb32cecb972727e69fcc0541c1f936c4debfa4823190b",
+      "url": "https://huggingface.co/datasets/nvidia/TechQA-RAG-Eval/resolve/0b5bbc84b7f07d6d09d063130e90b716d8d4a32a/README.md?download=true"
+    },
+    "techqa/corpus.zip": {
+      "bytes": 45814227,
+      "path": "data/raw/techqa/0b5bbc84b7f07d6d09d063130e90b716d8d4a32a/corpus.zip",
+      "resolved_url": "https://huggingface.co/datasets/nvidia/TechQA-RAG-Eval/resolve/0b5bbc84b7f07d6d09d063130e90b716d8d4a32a/corpus.zip?download=true",
+      "retrieved_at": "2026-08-18T09:25:48Z",
+      "revision": "0b5bbc84b7f07d6d09d063130e90b716d8d4a32a",
+      "sha256": "c06aa287dcc1abf8db6b49b8495df095db73342d729f6451ac330785245d10be",
+      "url": "https://huggingface.co/datasets/nvidia/TechQA-RAG-Eval/resolve/0b5bbc84b7f07d6d09d063130e90b716d8d4a32a/corpus.zip?download=true"
+    },
+    "techqa/train.json": {
+      "bytes": 4019332,
+      "path": "data/raw/techqa/0b5bbc84b7f07d6d09d063130e90b716d8d4a32a/train.json",
+      "resolved_url": "https://huggingface.co/datasets/nvidia/TechQA-RAG-Eval/resolve/0b5bbc84b7f07d6d09d063130e90b716d8d4a32a/train.json?download=true",
+      "retrieved_at": "2026-08-18T09:25:48Z",
+      "revision": "0b5bbc84b7f07d6d09d063130e90b716d8d4a32a",
+      "sha256": "69d97231509482ed6bd5ec1c4bc0607acb82a88d11169eb8383592d0ca8b93c7",
+      "url": "https://huggingface.co/datasets/nvidia/TechQA-RAG-Eval/resolve/0b5bbc84b7f07d6d09d063130e90b716d8d4a32a/train.json?download=true"
+    }
+  },
+  "loading_timestamp": "2026-08-18T09:25:48Z",
+  "phase": 1,
+  "ragtruth": {
+    "observed_label_meta_nullable": true,
+    "observed_label_schema_fields": [
+      "start",
+      "end",
+      "text",
+      "meta",
+      "label_type",
+      "implicit_true",
+      "due_to_null"
+    ],
+    "observed_response_schema_fields": [
+      "id",
+      "source_id",
+      "model",
+      "temperature",
+      "labels",
+      "split",
+      "quality",
+      "response"
+    ],
+    "observed_responses": 17790,
+    "observed_source_schema_fields": [
+      "source_id",
+      "task_type",
+      "source",
+      "source_info",
+      "prompt"
+    ],
+    "observed_sources": 2965,
+    "official_test_responses": 2700,
+    "official_train_responses": 15090,
+    "qa_responses": 5934,
+    "qa_sources": 989,
+    "repository": "ParticleMedia/RAGTruth",
+    "responses_per_source_distribution": {
+      "6": 2965
+    },
+    "revision": "c103204b9ce28d6bbad859304bf30de72b8ed8fe"
+  },
+  "schema_version": "phase01-data-v1",
+  "techqa": {
+    "components": {
+      "count": 784,
+      "largest_size": 9,
+      "size_distribution": {
+        "1": 684,
+        "2": 85,
+        "3": 12,
+        "5": 1,
+        "6": 1,
+        "9": 1
+      }
+    },
+    "config": "default",
+    "corpus": {
+      "document_count": 28481,
+      "documents_with_removed_payloads": 10,
+      "duplicate_basename_groups": 0,
+      "duplicate_content_groups": 2
+    },
+    "empty_answerable_references": [
+      "DEV_Q014",
+      "DEV_Q094"
+    ],
+    "exposed_split": "train",
+    "observed_answerable": 610,
+    "observed_impossible": 300,
+    "observed_rows": 910,
+    "observed_schema_fields": [
+      "id",
+      "question",
+      "answer",
+      "is_impossible",
+      "contexts"
+    ],
+    "readme_executable_discrepancy": "README reports 908; pinned executable train.json contains 910 and is operational truth.",
+    "readme_reported_rows": 908,
+    "repository": "nvidia/TechQA-RAG-Eval",
+    "revision": "0b5bbc84b7f07d6d09d063130e90b716d8d4a32a",
+    "split": {
+      "achieved": {
+        "test": {
+          "answerable": 91,
+          "components": 85,
+          "impossible": 45,
+          "total": 136
+        },
+        "train": {
+          "answerable": 427,
+          "components": 602,
+          "impossible": 210,
+          "total": 637
+        },
+        "validation": {
+          "answerable": 92,
+          "components": 97,
+          "impossible": 45,
+          "total": 137
+        }
+      },
+      "aggregate_allocations": {
+        "(1, 0, 1)": {
+          "test": 45,
+          "train": 199,
+          "validation": 43
+        },
+        "(1, 1, 0)": {
+          "test": 0,
+          "train": 380,
+          "validation": 17
+        },
+        "(2, 0, 2)": {
+          "test": 0,
+          "train": 0,
+          "validation": 1
+        },
+        "(2, 1, 1)": {
+          "test": 0,
+          "train": 11,
+          "validation": 0
+        },
+        "(2, 2, 0)": {
+          "test": 38,
+          "train": 0,
+          "validation": 35
+        },
+        "(3, 3, 0)": {
+          "test": 0,
+          "train": 12,
+          "validation": 0
+        },
+        "(5, 5, 0)": {
+          "test": 0,
+          "train": 0,
+          "validation": 1
+        },
+        "(6, 6, 0)": {
+          "test": 1,
+          "train": 0,
+          "validation": 0
+        },
+        "(9, 9, 0)": {
+          "test": 1,
+          "train": 0,
+          "validation": 0
+        }
+      },
+      "aggregate_component_vectors": 9,
+      "algorithm_version": "connected-component-lexicographic-milp-v1",
+      "component_manifest_sha256": "be474a6b88da73da789620bef66aec6c2421294beedfa90eb1363be16f5b13e1",
+      "primary_objective_max_normalized_deviation": 0.00546448087431694,
+      "secondary_objective_sum_normalized_deviation": 0.018254969074641206,
+      "seed": 42,
+      "solver": "scipy.optimize.milp/HiGHS",
+      "solver_primary_objective": 0.005464480874316939,
+      "solver_secondary_objective": 0.018254969074641206,
+      "solver_status": "optimal",
+      "solver_version": "1.18.0",
+      "split_frozen_at": "2026-08-18T09:20:02Z",
+      "split_semantic_sha256": "4e84c5bdce2d6649f7e9eb8a22271faf0ffb51a5c934fbb642721237cb4292e7",
+      "targets": {
+        "test": {
+          "answerable": 91.5,
+          "impossible": 45.0,
+          "total": 136.5
+        },
+        "train": {
+          "answerable": 427.0,
+          "impossible": 210.0,
+          "total": 637.0
+        },
+        "validation": {
+          "answerable": 91.5,
+          "impossible": 45.0,
+          "total": 136.5
+        }
+      },
+      "tie_objective": 284.6427762768761,
+      "tie_rule": "aggregate-vector-milp-then-sha256(seed,component_signature)-allocation-v1"
+    }
+  },
+  "validation": {
+    "checks": [
+      {
+        "check_id": "techqa_row_count",
+        "description": "Pinned executable row count",
+        "details": null,
+        "expected": 910,
+        "observed": 910,
+        "severity": "P0",
+        "status": "pass"
+      },
+      {
+        "check_id": "techqa_unique_ids",
+        "description": "Question IDs are unique",
+        "details": null,
+        "expected": 910,
+        "observed": 910,
+        "severity": "P0",
+        "status": "pass"
+      },
+      {
+        "check_id": "techqa_nonempty_ids_questions",
+        "description": "IDs/questions are non-empty",
+        "details": null,
+        "expected": true,
+        "observed": true,
+        "severity": "P0",
+        "status": "pass"
+      },
+      {
+        "check_id": "techqa_answerable_count",
+        "description": "Answerable count",
+        "details": null,
+        "expected": 610,
+        "observed": 610,
+        "severity": "P0",
+        "status": "pass"
+      },
+      {
+        "check_id": "techqa_impossible_count",
+        "description": "Impossible count",
+        "details": null,
+        "expected": 300,
+        "observed": 300,
+        "severity": "P0",
+        "status": "pass"
+      },
+      {
+        "check_id": "techqa_context_cardinality",
+        "description": "Answerable rows have one context; impossible rows none",
+        "details": null,
+        "expected": true,
+        "observed": true,
+        "severity": "P0",
+        "status": "pass"
+      },
+      {
+        "check_id": "techqa_impossible_answer_sentinel",
+        "description": "Impossible answers use '-'",
+        "details": null,
+        "expected": true,
+        "observed": true,
+        "severity": "P0",
+        "status": "pass"
+      },
+      {
+        "check_id": "techqa_empty_answerable_ids",
+        "description": "Only frozen empty-reference anomalies exist",
+        "details": null,
+        "expected": [
+          "DEV_Q014",
+          "DEV_Q094"
+        ],
+        "observed": [
+          "DEV_Q014",
+          "DEV_Q094"
+        ],
+        "severity": "P0",
+        "status": "pass"
+      },
+      {
+        "check_id": "techqa_provenance_prefixes",
+        "description": "Provenance prefixes are recognized",
+        "details": null,
+        "expected": true,
+        "observed": true,
+        "severity": "P0",
+        "status": "pass"
+      },
+      {
+        "check_id": "techqa_attached_context_count",
+        "description": "Attached gold contexts",
+        "details": null,
+        "expected": 610,
+        "observed": 610,
+        "severity": "P0",
+        "status": "pass"
+      },
+      {
+        "check_id": "techqa_context_unique_resolution",
+        "description": "Every context filename resolves once",
+        "details": [],
+        "expected": 0,
+        "observed": 0,
+        "severity": "P0",
+        "status": "pass"
+      },
+      {
+        "check_id": "techqa_context_exact_match",
+        "description": "Attached texts exactly match official corpus",
+        "details": [],
+        "expected": 0,
+        "observed": 0,
+        "severity": "P0",
+        "status": "pass"
+      },
+      {
+        "check_id": "techqa_corpus_link_diagnostic",
+        "description": "Official corpus linked/unlinked counts",
+        "details": null,
+        "expected": {
+          "linked": 496,
+          "unlinked": 27985
+        },
+        "observed": {
+          "linked": 496,
+          "unlinked": 27985
+        },
+        "severity": "diagnostic",
+        "status": "pass"
+      },
+      {
+        "check_id": "split_unique_question_ids",
+        "description": "No question ID appears twice",
+        "details": null,
+        "expected": 910,
+        "observed": 910,
+        "severity": "P0",
+        "status": "pass"
+      },
+      {
+        "check_id": "split_complete_question_coverage",
+        "description": "All eligible TechQA rows are assigned",
+        "details": null,
+        "expected": {
+          "assigned": 910,
+          "missing": [],
+          "unexpected": []
+        },
+        "observed": {
+          "assigned": 910,
+          "missing": [],
+          "unexpected": []
+        },
+        "severity": "P0",
+        "status": "pass"
+      },
+      {
+        "check_id": "split_component_leakage",
+        "description": "No component crosses splits",
+        "details": [],
+        "expected": 0,
+        "observed": 0,
+        "severity": "P0",
+        "status": "pass"
+      },
+      {
+        "check_id": "split_gold_filename_leakage",
+        "description": "No gold/source filename crosses splits",
+        "details": [],
+        "expected": 0,
+        "observed": 0,
+        "severity": "P0",
+        "status": "pass"
+      },
+      {
+        "check_id": "split_duplicate_question_leakage",
+        "description": "No normalized duplicate crosses splits",
+        "details": [],
+        "expected": 0,
+        "observed": 0,
+        "severity": "P0",
+        "status": "pass"
+      },
+      {
+        "check_id": "split_component_question_sum",
+        "description": "Component sizes sum to all questions",
+        "details": null,
+        "expected": 910,
+        "observed": 910,
+        "severity": "P0",
+        "status": "pass"
+      },
+      {
+        "check_id": "split_class_count_sum",
+        "description": "Split class counts sum correctly",
+        "details": null,
+        "expected": {
+          "answerable": 610,
+          "impossible": 300
+        },
+        "observed": {
+          "answerable": 610,
+          "impossible": 300
+        },
+        "severity": "P0",
+        "status": "pass"
+      },
+      {
+        "check_id": "split_component_count_sum",
+        "description": "Split component counts sum correctly",
+        "details": null,
+        "expected": 784,
+        "observed": 784,
+        "severity": "P0",
+        "status": "pass"
+      },
+      {
+        "check_id": "split_solver_optimal",
+        "description": "Lexicographic optimizer proved optimal",
+        "details": null,
+        "expected": "optimal",
+        "observed": "optimal",
+        "severity": "P0",
+        "status": "pass"
+      },
+      {
+        "check_id": "ragtruth_source_count",
+        "description": "Pinned source count",
+        "details": null,
+        "expected": 2965,
+        "observed": 2965,
+        "severity": "P0",
+        "status": "pass"
+      },
+      {
+        "check_id": "ragtruth_response_count",
+        "description": "Pinned response count",
+        "details": null,
+        "expected": 17790,
+        "observed": 17790,
+        "severity": "P0",
+        "status": "pass"
+      },
+      {
+        "check_id": "ragtruth_unique_source_ids",
+        "description": "Source IDs are unique",
+        "details": null,
+        "expected": 2965,
+        "observed": 2965,
+        "severity": "P0",
+        "status": "pass"
+      },
+      {
+        "check_id": "ragtruth_unique_response_ids",
+        "description": "Response IDs are unique",
+        "details": null,
+        "expected": 17790,
+        "observed": 17790,
+        "severity": "P0",
+        "status": "pass"
+      },
+      {
+        "check_id": "ragtruth_responses_per_source",
+        "description": "Exactly six responses per source",
+        "details": null,
+        "expected": {
+          "6": 2965
+        },
+        "observed": {
+          "6": 2965
+        },
+        "severity": "P0",
+        "status": "pass"
+      },
+      {
+        "check_id": "ragtruth_source_join",
+        "description": "All and only source IDs join",
+        "details": null,
+        "expected": {
+          "joined_sources": 2965,
+          "missing_response_group": [],
+          "orphan_response_group": []
+        },
+        "observed": {
+          "joined_sources": 2965,
+          "missing_response_group": [],
+          "orphan_response_group": []
+        },
+        "severity": "P0",
+        "status": "pass"
+      },
+      {
+        "check_id": "ragtruth_official_split_counts",
+        "description": "Official response split counts",
+        "details": null,
+        "expected": {
+          "test": 2700,
+          "train": 15090
+        },
+        "observed": {
+          "test": 2700,
+          "train": 15090
+        },
+        "severity": "P0",
+        "status": "pass"
+      },
+      {
+        "check_id": "ragtruth_source_split_leakage",
+        "description": "No source_id crosses official train/test",
+        "details": [],
+        "expected": 0,
+        "observed": 0,
+        "severity": "P0",
+        "status": "pass"
+      },
+      {
+        "check_id": "ragtruth_qa_counts",
+        "description": "Pinned QA subset/source split counts",
+        "details": null,
+        "expected": {
+          "qa_responses": 5934,
+          "qa_sources": 989,
+          "qa_test_responses": 900,
+          "qa_test_sources": 150,
+          "qa_train_responses": 5034,
+          "qa_train_sources": 839
+        },
+        "observed": {
+          "qa_responses": 5934,
+          "qa_sources": 989,
+          "qa_test_responses": 900,
+          "qa_test_sources": 150,
+          "qa_train_responses": 5034,
+          "qa_train_sources": 839
+        },
+        "severity": "P0",
+        "status": "pass"
+      },
+      {
+        "check_id": "ragtruth_label_offsets",
+        "description": "Label offsets/text match response",
+        "details": [],
+        "expected": 0,
+        "observed": 0,
+        "severity": "P0",
+        "status": "pass"
+      },
+      {
+        "check_id": "ragtruth_task_join",
+        "description": "Every response has source task metadata",
+        "details": null,
+        "expected": true,
+        "observed": true,
+        "severity": "P0",
+        "status": "pass"
+      }
+    ],
+    "overall_status": "pass"
+  },
+  "warnings": [
+    "TechQA README count 908 differs from executable pinned row count 910."
+  ]
+}

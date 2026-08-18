@@ -1,0 +1,64 @@
+{
+  "schema_version": "phase01-config-v1",
+  "dataset_schema_version": "phase01-data-v1",
+  "techqa": {
+    "repository": "nvidia/TechQA-RAG-Eval",
+    "revision": "0b5bbc84b7f07d6d09d063130e90b716d8d4a32a",
+    "config": "default",
+    "split": "train",
+    "expected_rows": 910,
+    "expected_answerable": 610,
+    "expected_impossible": 300,
+    "expected_corpus_documents": 28481,
+    "files": {
+      "README.md": {
+        "url": "https://huggingface.co/datasets/nvidia/TechQA-RAG-Eval/resolve/0b5bbc84b7f07d6d09d063130e90b716d8d4a32a/README.md?download=true",
+        "sha256": null
+      },
+      "train.json": {
+        "url": "https://huggingface.co/datasets/nvidia/TechQA-RAG-Eval/resolve/0b5bbc84b7f07d6d09d063130e90b716d8d4a32a/train.json?download=true",
+        "sha256": "69d97231509482ed6bd5ec1c4bc0607acb82a88d11169eb8383592d0ca8b93c7"
+      },
+      "corpus.zip": {
+        "url": "https://huggingface.co/datasets/nvidia/TechQA-RAG-Eval/resolve/0b5bbc84b7f07d6d09d063130e90b716d8d4a32a/corpus.zip?download=true",
+        "sha256": "c06aa287dcc1abf8db6b49b8495df095db73342d729f6451ac330785245d10be"
+      }
+    }
+  },
+  "ragtruth": {
+    "repository": "ParticleMedia/RAGTruth",
+    "revision": "c103204b9ce28d6bbad859304bf30de72b8ed8fe",
+    "expected_sources": 2965,
+    "expected_responses": 17790,
+    "expected_train_responses": 15090,
+    "expected_test_responses": 2700,
+    "expected_qa_sources": 989,
+    "expected_qa_responses": 5934,
+    "expected_qa_train_sources": 839,
+    "expected_qa_test_sources": 150,
+    "expected_qa_train_responses": 5034,
+    "expected_qa_test_responses": 900,
+    "files": {
+      "response.jsonl": {
+        "url": "https://raw.githubusercontent.com/ParticleMedia/RAGTruth/c103204b9ce28d6bbad859304bf30de72b8ed8fe/dataset/response.jsonl",
+        "sha256": "e4c2e4ac24fff676d8984cc61c35d791612fadc58015335d97dd632375e18073"
+      },
+      "source_info.jsonl": {
+        "url": "https://raw.githubusercontent.com/ParticleMedia/RAGTruth/c103204b9ce28d6bbad859304bf30de72b8ed8fe/dataset/source_info.jsonl",
+        "sha256": "0dffc26ea9f3c1c3d7c7e8336b56ef1646e3cec876edffcca3c9c624d12d578b"
+      }
+    }
+  },
+  "split": {
+    "seed": 42,
+    "ratios": {"train": 0.70, "validation": 0.15, "test": 0.15},
+    "algorithm_version": "connected-component-lexicographic-milp-v1",
+    "normalization_version": "nfkc-casefold-punctuation-space-whitespace-v1",
+    "tie_rule": "aggregate-vector-milp-then-sha256(seed,component_signature)-allocation-v1"
+  },
+  "paths": {
+    "raw_root": "data/raw",
+    "derived_root": "data/derived",
+    "artifact_root": "artifacts/data"
+  }
+}
