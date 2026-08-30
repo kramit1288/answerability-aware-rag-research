@@ -1,5 +1,44 @@
 # Phase 3 evidence alignment and sufficiency construction
 
+## Phase 3.6c expanded strict-preserving rescue completion (2026-08-30)
+
+All frozen Phase 1, Phase 2, Phase 3, Phase 3.6, and Phase 3.6b checkers passed before Phase 3.6c.
+The Phase 3.6b grid, candidate results, development report, artifact manifest, strict labels,
+semantic artifacts, and both human annotation files remained byte-identical. Phase 3.6c reused
+the existing selected MoritzLaurer condition aggregates; no NLI inference ran.
+
+The final-iteration hard stop was entered in `RESEARCH_DECISIONS.md` before any new candidate
+outcome. The expanded grid was then frozen at canonical SHA-256
+`253caf6047cd1516161e572d566b30419a6006228e8658185bdb4359e5b1d83d` with 77 candidates (5
+coverage-only, 12 NLI-only, and 60 combined; 74 new and 3 historical comparisons).
+
+| Family | Thresholds | Precision | Recall | F1 | Weighted precision | Weighted recall | Weighted F1 | Confusion |
+|---|---|---:|---:|---:|---:|---:|---:|---|
+| coverage-only | `T_cov=0.20` | 0.9831 | 0.7436 | 0.8467 | 0.9873 | 0.7576 | 0.8573 | TN=41, FP=1, FN=20, TP=58 |
+| NLI-only | `T_mean=0.45`, `T_min=0.00`, contradiction `<0.50` | 0.9737 | 0.4744 | 0.6379 | 0.9552 | 0.5511 | 0.6990 | TN=41, FP=1, FN=41, TP=37 |
+| combined | `T_cov=0.20`, `T_mean=0.35`, `T_min=0.05`, contradiction `<0.50` | 0.9833 | 0.7564 | 0.8551 | 0.9874 | 0.7651 | 0.8622 | TN=41, FP=1, FN=19, TP=59 |
+
+The combined candidate maximized weighted F1 among precision-eligible rules and passed both
+unchanged gates. Its ordinary precision 95% Wilson interval is 0.9114-0.9971, reported
+descriptively. Per-stratum confusion is: automatic-positive `TP=30`; partial-overlap `TN=1,
+FP=1, TP=28`; correct-document-insufficient `TN=15, FN=14, TP=1`; wrong-document-retrieval
+`TN=25, FN=5`.
+
+The final target configuration SHA-256 is
+`5b9a394e5e97776844054f3282af815462148adc62b528c77245d61707406977`. The primary target contains
+6,156 conditions from 513 questions: 1,686 strict positives, 1,116 rescued positives, 2,802 final
+positives, and 3,354 final negatives. Coverage fires for 969 rescued conditions, NLI fires for
+208, and 61 are rescued by both mechanisms. Twenty-four semantic-unevaluable conditions remain
+NA and excluded with the frozen reason `claim_exceeds_frozen_nli_pair_budget`.
+
+The final blinded confirmation package contains 50 unique questions with category counts 17
+strict-positive retained, 17 strict-negative rescued, and 16 strict-negative not rescued;
+strategy counts are BM25 16, dense 17, hybrid 17; depth counts are k=1:12, k=3:13, k=5:12,
+k=10:13. All 50 are train because the original-150 and superseded-100 question exclusions leave
+293 eligible train questions and zero eligible validation questions. It has zero prior-question
+overlap, zero benchmark-impossible/semantic-unevaluable/TEST rows, and blank human fields. Phase
+3.6c stops for genuine human annotation; Phase 4 was not started.
+
 ## Phase 3.6b strict-preserving rescue checkpoint (2026-08-30)
 
 Before evaluation, the annotation paths were corrected with an atomic filename swap. The

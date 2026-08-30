@@ -1,5 +1,26 @@
 # Experiment Contract
 
+## Phase 3.6c final automatic rescue refinement
+
+Phase 3.6c is the final automatic threshold-refinement iteration. Its 77-candidate expanded grid
+was frozen before DEVELOPMENT outcomes at canonical SHA-256
+`253caf6047cd1516161e572d566b30419a6006228e8658185bdb4359e5b1d83d`; 74 candidates are new and
+three reproduce historical Phase 3.6b points. Every rule preserves strict positives and uses only
+already persisted coverage and selected-model NLI aggregates. TEST, identifiers, retrieval
+strategy, retrieval depth, split provenance, new models, embeddings, and LLM judges are excluded
+from rule construction.
+
+The selected combined rule (`coverage>=0.20` OR (`mean entailment>=0.35` AND `minimum
+entailment>=0.05` AND contradiction `<0.50`)) passed the unchanged DEVELOPMENT precision and
+weighted-F1 gates. The final target is therefore frozen separately as `y_suff_final`, while
+`y_suff_strict` and `y_suff_semantic` remain preserved. Benchmark-impossible, unresolved-evidence,
+and semantic-unevaluable rows cannot enter the primary target export.
+
+The independent confirmation pack contains exactly 50 unique, blinded TRAIN+VALIDATION questions
+with zero overlap with either prior reviewed-question set. Its human fields remain blank and its
+answer key sealed. The confirmation precision and prevalence-weighted-F1 gates remain 0.90 and
+0.85. Phase 4 cannot begin until the confirmation is genuinely annotated and evaluated.
+
 ## Phase 3.6b strict-preserving rescue amendment
 
 The final context-sufficiency target may be constructed only as a strict-preserving union:

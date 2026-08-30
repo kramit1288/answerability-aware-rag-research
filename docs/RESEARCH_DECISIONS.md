@@ -1,5 +1,53 @@
 # Research Decisions Log
 
+## Phase 3.6c pre-evaluation decision (2026-08-30)
+
+- Phase 3.6c is the final automatic threshold-refinement iteration. It is justified by the frozen
+  Phase 3.6b finding that the best combined strict-preserving rule remained precision-perfect on
+  development (`precision=1.0000`) but recall-limited (`recall=0.6795`, weighted F1 `0.8282`,
+  `TN=42, FP=0, FN=25, TP=53`). Its remaining false negatives comprised 6 partial-overlap, 14
+  correct-document/incomplete-evidence, and 5 wrong-document-retrieval cases.
+- Before any Phase 3.6c candidate outcome is calculated, the terminal rule is frozen: a candidate
+  must achieve ordinary automatic-sufficient precision at least 0.90 and prevalence-weighted F1
+  at least 0.85. Neither gate may be weakened. If no member of the predeclared expanded grid
+  reaches both gates, automatic label refinement stops. No further threshold search, pretrained
+  model, or automatic rescue iteration may be launched autonomously; a new methodological
+  decision is required.
+- Phase 3.6c remains DEVELOPMENT-only. It preserves every strict positive, uses only existing
+  strict-span/coverage and selected-model NLI aggregates, excludes benchmark-impossible and
+  semantic-unevaluable cases from primary selection, and forbids TEST information, retrieval
+  strategy, retrieval depth, identifiers, and split provenance as rescue-rule inputs.
+
+## Phase 3.6c completed development outcome (2026-08-30)
+
+- The expanded grid was frozen before outcome calculation at canonical SHA-256
+  `253caf6047cd1516161e572d566b30419a6006228e8658185bdb4359e5b1d83d`. It contains 77 total
+  candidates: 74 new settings and three exact Phase 3.6b comparison points. No NLI inference or
+  new model was used.
+- The selected combined strict-preserving rule uses `T_cov=0.20`, `T_mean=0.35`, `T_min=0.05`,
+  and selected-premise contradiction `<0.50`. On the 120-row primary DEVELOPMENT set it obtained
+  precision 0.9833 (95% Wilson CI 0.9114-0.9971), recall 0.7564, raw F1 0.8551, and prevalence-
+  weighted F1 0.8622 (`TN=41, FP=1, FN=19, TP=59`). It therefore passed both unchanged gates.
+  The Wilson interval is descriptive and did not create another gate.
+- The final target configuration SHA-256 is
+  `5b9a394e5e97776844054f3282af815462148adc62b528c77245d61707406977`. It mechanically preserves
+  all 1,686 strict positives and rescues 1,116 additional positives, producing 2,802 final
+  positives and 3,354 final negatives across 6,156 eligible TRAIN+VALIDATION conditions from 513
+  questions. The 24 semantic-unevaluable conditions from DEV_Q066 and TRAIN_Q526 remain NA and
+  excluded; benchmark-impossible and unresolved-evidence cases remain excluded.
+- A final 50-row/50-question blinded confirmation pack was frozen after target selection. It has
+  zero overlap with the original 150 development questions and the superseded 100-question
+  semantic-only sample, and contains zero benchmark-impossible, semantic-unevaluable, or TEST
+  rows. After both question-disjoint exclusions, all 293 remaining eligible questions are in the
+  train split and no validation question remains; the resulting all-train allocation is therefore
+  the only feasible split allocation. Strategy, depth, and final-label categories remain closely
+  balanced. Human fields are blank and the answer key remains sealed.
+- Independent confirmation gates remain precision at least 0.90 and prevalence-weighted F1 at
+  least 0.85. Recall, raw F1, accuracy, confusion matrix, ambiguous rate, and appropriate Wilson or
+  bootstrap intervals will also be reported. No second genuine human annotator is required;
+  unavailable inter-annotator agreement remains a stated limitation. Phase 4 remains blocked
+  pending this confirmation.
+
 ## Phase 3.6b decisions (2026-08-30)
 
 - Corrected the two human-annotation filenames atomically so their paths match the frozen

@@ -1,0 +1,176 @@
+{
+  "schema_version": "phase03-expanded-strict-preserving-rescue-grid-v1",
+  "decision_date": "2026-08-30",
+  "decision_timing": "frozen before calculating any Phase 3.6c development outcome",
+  "iteration_governance": {
+    "iteration": "phase03_6c",
+    "final_automatic_threshold_refinement_iteration": true,
+    "if_development_gates_fail": "stop_automatic_label_refinement_and_require_new_methodological_decision",
+    "allow_further_autonomous_threshold_search": false,
+    "allow_new_pretrained_model": false
+  },
+  "rule_structure": {
+    "strict_positive_action": "retain_positive",
+    "strict_negative_action": "apply_rescue_candidate",
+    "strict_positive_demotion_permitted": false
+  },
+  "candidate_families": {
+    "coverage_only": {
+      "rule": "maximum_span_coverage_fraction >= T_cov",
+      "coverage_thresholds": [0.20, 0.30, 0.40, 0.45, 0.50]
+    },
+    "nli_only": {
+      "rule": "mean_claim_entailment >= T_mean AND minimum_claim_entailment >= T_min AND maximum_selected_premise_contradiction < 0.50",
+      "mean_entailment_thresholds": [0.30, 0.35, 0.40, 0.45],
+      "minimum_entailment_thresholds": [0.00, 0.05, 0.10],
+      "maximum_selected_premise_contradiction": 0.50
+    },
+    "combined": {
+      "rule": "coverage_only OR nli_only",
+      "coverage_thresholds": [0.20, 0.30, 0.40, 0.45, 0.50],
+      "mean_entailment_thresholds": [0.30, 0.35, 0.40, 0.45],
+      "minimum_entailment_thresholds": [0.00, 0.05, 0.10],
+      "maximum_selected_premise_contradiction": 0.50
+    }
+  },
+  "candidate_count": 77,
+  "historically_evaluated_candidate_count": 3,
+  "new_candidate_count": 74,
+  "historical_phase03_6b_overlaps": [
+    {"family": "coverage_only", "T_cov": 0.50, "T_mean": null, "T_min": null, "T_contradiction": null},
+    {"family": "nli_only", "T_cov": null, "T_mean": 0.45, "T_min": 0.10, "T_contradiction": 0.50},
+    {"family": "combined", "T_cov": 0.50, "T_mean": 0.45, "T_min": 0.10, "T_contradiction": 0.50}
+  ],
+  "input_signals": [
+    "y_suff_strict",
+    "maximum_span_coverage_fraction",
+    "partial_overlap",
+    "mean_claim_entailment",
+    "minimum_claim_entailment",
+    "maximum_selected_premise_contradiction"
+  ],
+  "rule_boundary_signals": [
+    "y_suff_strict",
+    "maximum_span_coverage_fraction",
+    "mean_claim_entailment",
+    "minimum_claim_entailment",
+    "maximum_selected_premise_contradiction"
+  ],
+  "forbidden_boundary_inputs": [
+    "retrieval_strategy",
+    "k",
+    "question_id",
+    "example_id",
+    "sample_id",
+    "split",
+    "split_group_id",
+    "benchmark_is_impossible"
+  ],
+  "development": {
+    "selection_annotation_path": "artifacts/results/phase03_annotation_annotator_1_adjudicated.csv",
+    "selection_annotation_sha256": "3e7a87f2da694cbb40930c142549cd70dde86c0d89429885711549cf91b99cc4",
+    "historical_annotation_path": "artifacts/results/phase03_annotation_annotator_1.csv",
+    "historical_annotation_sha256": "04c0f33db4ca3ac9d2a58322f6399c1688ef66a48855bbb7c7546ca7d5851959",
+    "eligible_splits": ["train", "validation"],
+    "benchmark_answerable_only": true,
+    "semantic_evaluable_only": true,
+    "non_ambiguous_only": true,
+    "primary_strata": [
+      "automatic_positive",
+      "partial_overlap",
+      "correct_document_insufficient",
+      "wrong_document_retrieval"
+    ],
+    "frozen_population_stratum_counts": {
+      "automatic_positive": 1686,
+      "partial_overlap": 1014,
+      "correct_document_insufficient": 787,
+      "wrong_document_retrieval": 2693
+    }
+  },
+  "selection": {
+    "minimum_ordinary_precision": 0.90,
+    "primary_objective": "maximize_prevalence_weighted_f1",
+    "first_tie_breaker": "maximize_ordinary_recall",
+    "effective_tie_absolute_tolerance": 1e-12,
+    "simplicity_order": ["coverage_only", "nli_only", "combined"]
+  },
+  "development_gates": {
+    "minimum_ordinary_precision": 0.90,
+    "minimum_prevalence_weighted_f1": 0.85
+  },
+  "precision_interval": {
+    "method": "wilson_score_without_continuity_correction",
+    "confidence_level": 0.95,
+    "z": 1.959963984540054,
+    "descriptive_only": true,
+    "creates_additional_gate": false
+  },
+  "confirmation": {
+    "target_size": 50,
+    "unique_questions": true,
+    "seed": 44,
+    "version": "phase03-final-confirmation-question-disjoint-v1",
+    "exclude_original_development_questions": true,
+    "exclude_superseded_semantic_confirmation_questions": true,
+    "exclude_benchmark_impossible": true,
+    "exclude_semantic_unevaluable": true,
+    "human_gate_minimum_ordinary_precision": 0.90,
+    "human_gate_minimum_prevalence_weighted_f1": 0.85,
+    "report_later": [
+      "recall",
+      "raw_f1",
+      "accuracy",
+      "confusion_matrix",
+      "ambiguous_rate",
+      "wilson_or_bootstrap_confidence_intervals"
+    ],
+    "second_human_annotator_required": false,
+    "inter_annotator_agreement_limitation": "No second genuine human annotator currently exists.",
+    "sample_size_limitation": "Fifty unique questions were frozen before confirmation outcomes because of project time constraints."
+  },
+  "frozen_phase03_6b": {
+    "candidate_grid_canonical_sha256": "4112de919a857992a52c077d54d7c64594778c1c9732eb37be69990c17709f78",
+    "candidate_grid_physical_sha256": "54e2e5a0273b166acdb6e0e13aa6b8d10a5c6f1f1a656715b567040dc3ad575a",
+    "candidate_results_physical_sha256": "ec3e8cbd7f2df2d3f73cc405ea95f8a123d9bd5f3666b7fa35c84719c75025c0",
+    "development_report_physical_sha256": "daa845257b078a03a530d344d66c94c61295fea450c9e8701826ff1e89a3f0aa",
+    "artifact_manifest_physical_sha256": "54e554cd85db2c9752c69567dde0ec7f656f1a4b33d38774aafe8ab04f58bbd3",
+    "best_combined": {
+      "T_cov": 0.50,
+      "T_mean": 0.45,
+      "T_min": 0.10,
+      "T_contradiction": 0.50,
+      "precision": 1.0,
+      "recall": 0.6794871794871795,
+      "f1": 0.8091603053435115,
+      "weighted_f1": 0.8281951696577619,
+      "tn": 42,
+      "fp": 0,
+      "fn": 25,
+      "tp": 53
+    }
+  },
+  "upstream": {
+    "phase01_split_sha256": "4e84c5bdce2d6649f7e9eb8a22271faf0ffb51a5c934fbb642721237cb4292e7",
+    "phase02_chunk_config_sha256": "5f2931faf3ced37054430bf78b755200657799d857a284f563532fc67290dc94",
+    "phase02_retrieval_config_sha256": "f1854ae6f73fddb36da2c407505c05396491771b00d2b97710c2de22d9add4ca",
+    "phase03_configuration_sha256": "8a10e8fd037751f92750a14364a3f50f5343552ddbf02b9e40d5f4d8534acc8e",
+    "phase03_strict_labels_physical_sha256": "00862e10ba6d0eb8661d68df1206381e4712b7731b48ce8cbee18ac5c906fc42",
+    "phase03_semantic_labels_physical_sha256": "b9f7a687f883e4001c43866f0fe14a1a8ac1233868eef6390d0fc6c1a0b1c0e4",
+    "phase03_semantic_development_scores_physical_sha256": "94b6462027bc7c2cdd66b6a5a931a4841fa5b87bb98612621f59d9723d862d74",
+    "phase03_semantic_scoring_sha256": "98f7279821921d825470ee64efa810777e5b331d4c978e6234e7b689b6657fdf",
+    "phase03_semantic_label_governance_sha256": "233c61c45c7ad75b876e81deeb290d546a13f034f1d18c82787aea678ba0f533",
+    "semantic_model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "semantic_model_revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb"
+  },
+  "primary_export_exclusions": [
+    "benchmark_impossible",
+    "unresolved_reference_or_evidence",
+    "semantic_unevaluable"
+  ],
+  "test_seal": {
+    "allow_test_load": false,
+    "allow_test_aggregate_outcomes": false
+  },
+  "phase4_started": false
+}

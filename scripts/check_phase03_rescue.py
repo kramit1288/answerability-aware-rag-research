@@ -89,8 +89,16 @@ def main() -> None:
         ROOT / "artifacts/results/phase03_final_confirmation_answer_key.parquet",
         ROOT / "artifacts/results/phase03_final_confirmation_sample_manifest.csv",
     ]
-    require(not any(path.exists() for path in forbidden_outputs),
-            "gate failure produced no final target or replacement confirmation sample", checks)
+    if any(path.exists() for path in forbidden_outputs):
+        successor_path = ROOT / "artifacts/results/phase03_rescue_expanded_development_report.json"
+        require(successor_path.exists(),
+                "later final artifacts are attributable to a separately frozen successor iteration", checks)
+        successor = json.loads(successor_path.read_text(encoding="utf-8"))
+        require(successor["development_gates_passed"] is True
+                and successor["final_automatic_threshold_refinement_iteration"] is True,
+                "Phase 3.6c, not failed Phase 3.6b, produced the later final artifacts", checks)
+    else:
+        require(True, "gate failure produced no final target or replacement confirmation sample", checks)
     require((ROOT / "docs/PHASE_03_6B_DECISION_REQUEST.md").exists(),
             "gate failure produced the required decision request", checks)
     print(json.dumps({"status": "pass", "checks": checks,

@@ -1,0 +1,65 @@
+{
+  "benchmark_impossible_primary_exclusion": true,
+  "confirmation_gates": {
+    "minimum_ordinary_precision": 0.9,
+    "minimum_prevalence_weighted_f1": 0.85
+  },
+  "expanded_candidate_grid_sha256": "253caf6047cd1516161e572d566b30419a6006228e8658185bdb4359e5b1d83d",
+  "final_target_config_sha256": "5b9a394e5e97776844054f3282af815462148adc62b528c77245d61707406977",
+  "frozen_phase03_6b_hashes": {
+    "artifact_manifest_physical_sha256": "54e554cd85db2c9752c69567dde0ec7f656f1a4b33d38774aafe8ab04f58bbd3",
+    "best_combined": {
+      "T_contradiction": 0.5,
+      "T_cov": 0.5,
+      "T_mean": 0.45,
+      "T_min": 0.1,
+      "f1": 0.8091603053435115,
+      "fn": 25,
+      "fp": 0,
+      "precision": 1.0,
+      "recall": 0.6794871794871795,
+      "tn": 42,
+      "tp": 53,
+      "weighted_f1": 0.8281951696577619
+    },
+    "candidate_grid_canonical_sha256": "4112de919a857992a52c077d54d7c64594778c1c9732eb37be69990c17709f78",
+    "candidate_grid_physical_sha256": "54e2e5a0273b166acdb6e0e13aa6b8d10a5c6f1f1a656715b567040dc3ad575a",
+    "candidate_results_physical_sha256": "ec3e8cbd7f2df2d3f73cc405ea95f8a123d9bd5f3666b7fa35c84719c75025c0",
+    "development_report_physical_sha256": "daa845257b078a03a530d344d66c94c61295fea450c9e8701826ff1e89a3f0aa"
+  },
+  "input_signals": [
+    "y_suff_strict",
+    "maximum_span_coverage_fraction",
+    "mean_claim_entailment",
+    "minimum_claim_entailment",
+    "maximum_selected_premise_contradiction"
+  ],
+  "phase4_started": false,
+  "schema_version": "phase03-final-context-sufficiency-target-config-v1",
+  "selected_rescue_family": "combined",
+  "selected_thresholds": {
+    "T_contradiction": 0.5,
+    "T_cov": 0.2,
+    "T_mean": 0.35,
+    "T_min": 0.05
+  },
+  "selection_iteration": "phase03_6c_final_automatic_threshold_refinement",
+  "semantic_unevaluable_exclusion_rule": "claim_exceeds_frozen_nli_pair_budget",
+  "strict_positive_demotion_permitted": false,
+  "strict_preserving_rule": "if y_suff_strict == 1 then y_suff_final = 1 else apply the frozen selected rescue rule",
+  "test_outcomes_sealed": true,
+  "unresolved_reference_or_evidence_primary_exclusion": true,
+  "upstream_configuration_hashes": {
+    "phase01_split_sha256": "4e84c5bdce2d6649f7e9eb8a22271faf0ffb51a5c934fbb642721237cb4292e7",
+    "phase02_chunk_config_sha256": "5f2931faf3ced37054430bf78b755200657799d857a284f563532fc67290dc94",
+    "phase02_retrieval_config_sha256": "f1854ae6f73fddb36da2c407505c05396491771b00d2b97710c2de22d9add4ca",
+    "phase03_configuration_sha256": "8a10e8fd037751f92750a14364a3f50f5343552ddbf02b9e40d5f4d8534acc8e",
+    "phase03_semantic_development_scores_physical_sha256": "94b6462027bc7c2cdd66b6a5a931a4841fa5b87bb98612621f59d9723d862d74",
+    "phase03_semantic_label_governance_sha256": "233c61c45c7ad75b876e81deeb290d546a13f034f1d18c82787aea678ba0f533",
+    "phase03_semantic_labels_physical_sha256": "b9f7a687f883e4001c43866f0fe14a1a8ac1233868eef6390d0fc6c1a0b1c0e4",
+    "phase03_semantic_scoring_sha256": "98f7279821921d825470ee64efa810777e5b331d4c978e6234e7b689b6657fdf",
+    "phase03_strict_labels_physical_sha256": "00862e10ba6d0eb8661d68df1206381e4712b7731b48ce8cbee18ac5c906fc42",
+    "semantic_model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "semantic_model_revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb"
+  }
+}

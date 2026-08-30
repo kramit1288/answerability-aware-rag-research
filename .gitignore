@@ -79,6 +79,10 @@ artifacts/results/*
 !artifacts/results/phase03_final_confirmation_template.csv
 !artifacts/results/phase03_final_confirmation_answer_key.parquet
 !artifacts/results/phase03_final_confirmation_status.json
+!artifacts/results/phase03_rescue_expanded_candidate_grid_freeze.json
+!artifacts/results/phase03_rescue_expanded_candidate_results.csv
+!artifacts/results/phase03_rescue_expanded_development_report.json
+!artifacts/results/phase03_rescue_expanded_artifact_manifest.json
 artifacts/figures/*
 !artifacts/figures/.gitkeep
 

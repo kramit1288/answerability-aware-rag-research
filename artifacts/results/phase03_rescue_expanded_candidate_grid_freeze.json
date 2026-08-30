@@ -1,0 +1,14 @@
+{
+  "schema_version": "phase03-expanded-rescue-candidate-grid-freeze-v1",
+  "candidate_grid_path": "configs/phase03_rescue_grid_expanded.json",
+  "candidate_grid_physical_sha256": "46f63d5061176fc0806f32ced1638750d9b9c04d13ce42947c94e85a2b17b4d8",
+  "candidate_grid_canonical_sha256": "253caf6047cd1516161e572d566b30419a6006228e8658185bdb4359e5b1d83d",
+  "candidate_count": 77,
+  "historically_evaluated_candidate_count": 3,
+  "new_candidate_count": 74,
+  "frozen_before_development_outcome_calculation": true,
+  "frozen_at_utc": "2026-08-30T07:46:53Z",
+  "final_automatic_threshold_refinement_iteration": true,
+  "test_outcomes_sealed": true,
+  "phase4_started": false
+}

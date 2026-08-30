@@ -1,5 +1,36 @@
 # Phase 3 artifact schemas
 
+## Phase 3.6c final rescue and confirmation artifacts
+
+- `configs/phase03_rescue_grid_expanded.json`: final-iteration governance, the exact 77-rule grid,
+  historical/new-candidate flags, fixed gates, Wilson interval definition, exclusions, and all
+  upstream hashes.
+- `phase03_rescue_expanded_candidate_grid_freeze.json`: physical/canonical grid hashes and proof
+  of pre-outcome freezing.
+- `phase03_rescue_expanded_candidate_results.csv`: 77 rows with thresholds, historical/new status,
+  confusion matrices, ordinary/weighted metrics, rescue-mechanism counts, and per-stratum JSON.
+- `phase03_rescue_expanded_development_report.json`: selected rule, family leaders, Wilson precision
+  interval, per-stratum metrics, error patterns, original/adjudicated transparency, gate result,
+  final population counts, and confirmation status.
+- `configs/phase03_final_target.json`: strict-preserving final rule and SHA-256, exact thresholds,
+  signal definitions, exclusions, confirmation gates, and upstream Phase 1/2/3/3.6/3.6b hashes.
+- `artifacts/data/context_sufficiency_final_labels.parquet`: all 6,180 initially eligible
+  TRAIN+VALIDATION conditions with preserved `y_suff_strict`, preserved/NA `y_suff_semantic`,
+  `y_suff_final`, eligibility/exclusion status, rescue diagnostics, and configuration hashes.
+- `artifacts/data/phase03_final_primary_target.parquet`: only the 6,156 eligible primary target
+  rows. Semantic-unevaluable, benchmark-impossible, and unresolved-evidence rows cannot enter it.
+- `phase03_final_confirmation_sample_manifest.csv`: 50 frozen sample identities and allocation
+  strata, separate from the blinded annotator view.
+- `phase03_final_confirmation_blinded.parquet` and
+  `phase03_final_confirmation_template.csv`: identical 50-row blinded material with blank human
+  fields and no strict/semantic/final label, coverage/NLI score, prediction, or answer-key field.
+- `phase03_final_confirmation_answer_key.parquet`: separate sealed automatic labels and diagnostic
+  values; its values are not read before valid human annotation is complete.
+- `phase03_final_confirmation_status.json`: pending/unannotated state, unchanged confirmation
+  gates, balance counts, overlap/exclusion checks, and study limitations.
+- `phase03_rescue_expanded_artifact_manifest.json`: hashes and run state for the completed
+  DEVELOPMENT pass checkpoint. It records that TEST remained sealed and Phase 4 unstarted.
+
 ## Phase 3.6b rescue decision artifacts
 
 - `configs/phase03_rescue_grid.json` is the pre-evaluation machine-readable declaration of all

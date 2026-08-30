@@ -1,5 +1,15 @@
 # Phase 3.6 interrupted-run recovery
 
+## Phase 3.6c reuse verification
+
+Before the final expanded threshold refinement, all recovered Phase 3.6 caches and Phase 3.6b
+artifacts passed their existing integrity checkers. The selected-model development aggregate had
+450 persisted condition rows (150 per frozen candidate), the primary semantic label artifact had
+6,180 rows, and the active selected-model checkpoints remained complete at 482/482 development
+pairs and 15,999/15,999 evaluable primary pairs. Phase 3.6c consumed only the persisted condition
+aggregates and did not invoke NLI inference. Historical Phase 3.6b artifact hashes remained
+unchanged. TEST was not loaded and Phase 4 was not started.
+
 ## Phase 3.6b provenance follow-up
 
 On 2026-08-30 the two annotation files were found to have correct, preserved contents under

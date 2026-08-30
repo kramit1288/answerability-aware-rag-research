@@ -1,0 +1,37 @@
+{
+  "answer_key_evaluation_status": "sealed_until_complete_genuine_human_confirmation",
+  "automatic_sufficient_precision_gate": 0.9,
+  "benchmark_impossible_rows": 0,
+  "depth_counts": {
+    "1": 12,
+    "10": 13,
+    "3": 13,
+    "5": 12
+  },
+  "final_target_config_sha256": "5b9a394e5e97776844054f3282af815462148adc62b528c77245d61707406977",
+  "inter_annotator_agreement_limitation": "No second genuine human annotator currently exists.",
+  "overlap_original_development_questions": 0,
+  "overlap_superseded_confirmation_questions": 0,
+  "prevalence_weighted_f1_gate": 0.85,
+  "sample_rows": 50,
+  "sample_size_limitation": "Fifty unique questions were frozen before confirmation outcomes because of project time constraints.",
+  "sample_strata": {
+    "strict_negative_not_rescued": 16,
+    "strict_negative_rescued": 17,
+    "strict_positive_retained": 17
+  },
+  "schema_version": "phase03-final-confirmation-status-v1",
+  "second_human_annotator_required": false,
+  "semantic_unevaluable_rows": 0,
+  "split_counts": {
+    "train": 50
+  },
+  "status": "pending_unannotated",
+  "strategy_counts": {
+    "bm25": 16,
+    "dense": 17,
+    "hybrid": 17
+  },
+  "test_rows": 0,
+  "unique_questions": 50
+}
