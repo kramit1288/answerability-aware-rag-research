@@ -1,5 +1,45 @@
 # Phase 3 evidence alignment and sufficiency construction
 
+## Final independent human confirmation and Phase 3 freeze (2026-08-30)
+
+The corrected completed file `phase03_final_confirmation_annotator_1.csv` passed the frozen
+pre-answer-key validation: 50 rows, 50 exact frozen sample IDs/questions, complete permitted
+labels and valid single-annotator metadata, no duplicates, no forbidden automatic fields, no
+TEST/benchmark-impossible/semantic-unevaluable rows, and zero overlap with both prior reviewed-
+question sets. Its SHA-256 is
+`1e643fd2e6a9e746f2c1f81033000c638a9008d6b6931b3f2fcb8bbd80141c4a`. Only after this pass was
+the frozen answer key opened.
+
+One human annotator initially annotated all 50 rows. Before that answer-key access, the human
+annotations were reviewed with AI assistance against the already frozen material-completeness
+definition, and `DEV_Q012` changed from sufficient to insufficient. At this review point no
+automatic target label, NLI score, span-coverage score, prediction, or answer-key value had been
+exposed. This was single-human annotation with AI-assisted pre-key adjudication, not a second
+independent human annotation or inter-annotator validation.
+
+The 34 sufficient, 16 insufficient, and zero ambiguous judgments produced `TN=13, FP=3, FN=3,
+TP=31`: precision 0.9118 (95% Wilson CI 0.7704-0.9695), recall 0.9118, raw F1 0.9118, and accuracy
+0.8800. Weighting within the three frozen confirmation strata by their PRIMARY TRAIN+VALIDATION
+condition frequencies produced weighted precision 0.9297, weighted recall 0.8055, weighted F1
+0.8632, and weighted accuracy 0.8659. The sample is stratified and is not reported as a direct
+natural-prevalence estimate.
+
+Both unchanged confirmation gates passed: precision >=0.90 and prevalence-weighted F1 >=0.85.
+No rule, threshold, NLI artifact, segmentation, human label, or target row was modified. The final
+target configuration remains
+`5b9a394e5e97776844054f3282af815462148adc62b528c77245d61707406977`; the PRIMARY census remains
+513 questions/6,156 conditions, with 2,802 positives and 3,354 negatives. Six disagreements (three
+false positives and three false negatives) are persisted separately for transparent error
+analysis.
+
+Phase 3 is now complete and frozen. Only one genuine human annotator was available; the AI-assisted
+pre-key review was not another human annotation, so inter-annotator agreement was not measured and
+remains a study limitation. The 50 confirmation questions are all TRAIN because prior
+question-disjoint sampling exhausted eligible VALIDATION questions. Benchmark-impossible rows
+remain excluded from primary training and retained for sensitivity analysis; `DEV_Q066` and
+`TRAIN_Q526` remain semantic-unevaluable and excluded. TEST aggregate outcomes remain sealed and
+Phase 4 was not started.
+
 ## Phase 3.6c expanded strict-preserving rescue completion (2026-08-30)
 
 All frozen Phase 1, Phase 2, Phase 3, Phase 3.6, and Phase 3.6b checkers passed before Phase 3.6c.

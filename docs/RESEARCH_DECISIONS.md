@@ -1,5 +1,33 @@
 # Research Decisions Log
 
+## Final Phase 3 independent confirmation decision (2026-08-30)
+
+- The completed, corrected 50-row human file was validated against the frozen blinded package
+  before the separate answer key was opened. It contained one genuine annotator, 34 sufficient,
+  16 insufficient, and zero ambiguous labels; all identities, metadata, exclusions, blinding, and
+  question-disjointness checks passed. No human label was modified during evaluation.
+- Before that automatic answer-key access, the initially completed single-human annotations were
+  reviewed with AI assistance against the already frozen material-completeness definition. One
+  annotation, `DEV_Q012`, changed from sufficient to insufficient during this pre-key review. No
+  automatic target label, NLI score, span-coverage score, prediction, or answer-key value had been
+  exposed. This is recorded as single-human annotation with AI-assisted pre-key adjudication, not
+  as two independent human annotators; inter-annotator agreement was not measured.
+- The frozen final rule and canonical configuration SHA-256
+  `5b9a394e5e97776844054f3282af815462148adc62b528c77245d61707406977` were not altered. Independent
+  confirmation obtained precision 0.9118 and prevalence-weighted F1 0.8632, so both predeclared
+  gates (0.90 and 0.85 respectively) passed. Recall and raw F1 were 0.9118, accuracy was 0.8800,
+  and the confusion matrix was `TN=13, FP=3, FN=3, TP=31`.
+- Phase 3 is therefore complete. `y_suff_strict`, `y_suff_semantic`, `y_suff_final`, the rescue
+  rule, semantic-unevaluable exclusions, benchmark-impossible primary exclusion, human
+  development evidence, and this independent confirmation result are frozen. The six observed
+  disagreements are diagnostic only and did not trigger tuning or relabelling.
+- Study limitations are explicit: only one genuine annotator was available and inter-annotator
+  agreement was not measured; the 50-question sample uses remaining TRAIN questions because
+  prior question-disjoint samples exhausted eligible VALIDATION questions; benchmark-impossible
+  examples remain outside primary training but available for sensitivity analysis; and two
+  semantic-unevaluable questions remain excluded under the frozen NLI pair-budget rule. TEST
+  aggregates remain sealed and Phase 4 requires separate review.
+
 ## Phase 3.6c pre-evaluation decision (2026-08-30)
 
 - Phase 3.6c is the final automatic threshold-refinement iteration. It is justified by the frozen

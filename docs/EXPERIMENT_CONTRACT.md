@@ -1,5 +1,14 @@
 # Experiment Contract
 
+## Final Phase 3 confirmation status
+
+The genuinely completed 50-question independent confirmation passed its frozen pre-key schema,
+blinding, identity, exclusion, and question-disjointness validation. Only then was the separate
+answer key opened. Ordinary automatic-sufficient precision was 0.9118 and prevalence-weighted F1
+was 0.8632, passing the unchanged 0.90 and 0.85 gates. The final strict-preserving rule,
+thresholds, and configuration SHA-256 remain unchanged. Phase 3 is complete; all TEST aggregate
+outcomes remain sealed and Phase 4 has not started.
+
 ## Phase 3.6c final automatic rescue refinement
 
 Phase 3.6c is the final automatic threshold-refinement iteration. Its 77-candidate expanded grid
@@ -17,9 +26,9 @@ weighted-F1 gates. The final target is therefore frozen separately as `y_suff_fi
 and semantic-unevaluable rows cannot enter the primary target export.
 
 The independent confirmation pack contains exactly 50 unique, blinded TRAIN+VALIDATION questions
-with zero overlap with either prior reviewed-question set. Its human fields remain blank and its
-answer key sealed. The confirmation precision and prevalence-weighted-F1 gates remain 0.90 and
-0.85. Phase 4 cannot begin until the confirmation is genuinely annotated and evaluated.
+with zero overlap with either prior reviewed-question set. Its precision and prevalence-weighted-
+F1 gates remained 0.90 and 0.85. It was subsequently completed by one genuine human annotator and
+evaluated only after the pre-key validation passed, as recorded above.
 
 ## Phase 3.6b strict-preserving rescue amendment
 
