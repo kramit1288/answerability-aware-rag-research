@@ -1,0 +1,139 @@
+{
+  "artifacts": {
+    "confirmation_answer_key": {
+      "bytes": 9763,
+      "path": "artifacts/results/phase03_final_confirmation_answer_key.parquet",
+      "physical_sha256": "4e6fa50aac2cb8234c2032f65e09221cca7e81a8d100eaf8d5bbcd2af9bf7b4e"
+    },
+    "confirmation_blinded": {
+      "bytes": 88975,
+      "path": "artifacts/results/phase03_final_confirmation_blinded.parquet",
+      "physical_sha256": "41dd01cb3c0a8aca7495fab69b798b8fea23c4087132f6d8de5bc0b04aac1389"
+    },
+    "confirmation_disagreements": {
+      "bytes": 3070,
+      "path": "artifacts/results/phase03_final_confirmation_disagreements.csv",
+      "physical_sha256": "3231034f0df2664948650c7c8e11c56e6958e793ec9c2b86b6f2b4b886777359"
+    },
+    "confirmation_evaluation": {
+      "bytes": 3716,
+      "path": "artifacts/results/phase03_final_confirmation_evaluation.json",
+      "physical_sha256": "34adc2f91cb8bbcb44e72a405a09bf711f9818c760e75b6b28e3f58a16c7fdb9"
+    },
+    "confirmation_evaluation_status": {
+      "bytes": 344,
+      "path": "artifacts/results/phase03_final_confirmation_evaluation_status.json",
+      "physical_sha256": "48b86a5ee09e2d1b4731ec75abaa589061c9f5fcac3240b679b7b62ae2a669db"
+    },
+    "confirmation_frozen_status": {
+      "bytes": 1240,
+      "path": "artifacts/results/phase03_final_confirmation_status.json",
+      "physical_sha256": "9634185e010022d7be8eecbcff0d4d2ba5dfcd1a443c567247da0aed30513ccf"
+    },
+    "confirmation_sample_manifest": {
+      "bytes": 19573,
+      "path": "artifacts/results/phase03_final_confirmation_sample_manifest.csv",
+      "physical_sha256": "dfc17a07edf6090b49d018a7bc65226b7616ec47dd434ebbf48f3af8b9b016da"
+    },
+    "confirmation_template": {
+      "bytes": 313381,
+      "path": "artifacts/results/phase03_final_confirmation_template.csv",
+      "physical_sha256": "39e9bc433d867c0276d950eeff31e13a7862ae391d4e4ced049dff9bf0e4cdbd"
+    },
+    "expanded_rescue_grid": {
+      "bytes": 7338,
+      "path": "configs/phase03_rescue_grid_expanded.json",
+      "physical_sha256": "46f63d5061176fc0806f32ced1638750d9b9c04d13ce42947c94e85a2b17b4d8"
+    },
+    "experiment_contract": {
+      "bytes": 68249,
+      "path": "docs/EXPERIMENT_CONTRACT.md",
+      "physical_sha256": "4529b5cb90c96909e2561ad4f3c31dade5b0ea8c0b2ec8be1f28b8369bbf9559"
+    },
+    "final_confirmation_checker": {
+      "bytes": 4529,
+      "path": "scripts/check_phase03_final_confirmation.py",
+      "physical_sha256": "7f1c39c54cb0dd1d66db8f939b919126ddd2edecf443fd9ef53e1047b2e2c9d9"
+    },
+    "final_confirmation_implementation": {
+      "bytes": 30172,
+      "path": "src/answerability_rag/sufficiency/final_confirmation.py",
+      "physical_sha256": "a377fdef237f5e410fe676ed29edf815766e3a41c467301838a5a90853609898"
+    },
+    "final_confirmation_runner": {
+      "bytes": 915,
+      "path": "scripts/evaluate_phase03_final_confirmation.py",
+      "physical_sha256": "959e8992e0c79e9275c4ef7ca73aa9a515626a1bda94d9215c75fb7b7d09f869"
+    },
+    "final_labels": {
+      "bytes": 364760,
+      "path": "artifacts/data/context_sufficiency_final_labels.parquet",
+      "physical_sha256": "19f4cd142b0a4f12cd68f18da5054071186f9ae903555569bceb52381e04d8c0"
+    },
+    "final_primary_target": {
+      "bytes": 272541,
+      "path": "artifacts/data/phase03_final_primary_target.parquet",
+      "physical_sha256": "b775276ace9113286a8e35fd29acaee5623d83be60400537e6902027b8cc07c1"
+    },
+    "final_target_config": {
+      "bytes": 3370,
+      "path": "configs/phase03_final_target.json",
+      "physical_sha256": "6528b7ee163b3612d81d2f7d439022502d3e456538822266ce9d638d08863416"
+    },
+    "final_validation_document": {
+      "bytes": 5682,
+      "path": "docs/PHASE_03_FINAL_VALIDATION.md",
+      "physical_sha256": "f32ee7ccbb648d0c0cdbc0f449abf19f8fb10d91d4dad4df045ffb63c8bd04ca"
+    },
+    "human_confirmation": {
+      "bytes": 323929,
+      "path": "artifacts/results/phase03_final_confirmation_annotator_1.csv",
+      "physical_sha256": "1e643fd2e6a9e746f2c1f81033000c638a9008d6b6931b3f2fcb8bbd80141c4a"
+    },
+    "original_prototype": {
+      "bytes": 680005,
+      "path": "notebooks/original_prototype.ipynb",
+      "physical_sha256": "406a3c0d4781592dcf9824691147c6a271082a368efb0a9c949b8fcf43dd4b73"
+    },
+    "phase03_execution_document": {
+      "bytes": 16980,
+      "path": "docs/PHASE_03_EXECUTION.md",
+      "physical_sha256": "c54f9bd93da7e09fcd624569f04ccc734932e4251934908e44ce559954410705"
+    },
+    "prekey_validation": {
+      "bytes": 1089,
+      "path": "artifacts/results/phase03_final_confirmation_prekey_validation.json",
+      "physical_sha256": "ea3609f4be14a7c0f0f90652ffcc948addecaa2b11536996d86f26cbab462ae5"
+    },
+    "research_decisions_document": {
+      "bytes": 30553,
+      "path": "docs/RESEARCH_DECISIONS.md",
+      "physical_sha256": "f149b8678c16c0998c7ceb369831005c7e9c49ddb6a1a0372435f43280921ada"
+    },
+    "semantic_label_governance": {
+      "bytes": 2274,
+      "path": "configs/phase03_semantic_label_governance.json",
+      "physical_sha256": "b1c08944f3533304e51ed3bfa659c98020318efb90917665bf124dd5f6b16021"
+    },
+    "semantic_labels": {
+      "bytes": 612200,
+      "path": "artifacts/data/context_sufficiency_semantic_labels.parquet",
+      "physical_sha256": "b9f7a687f883e4001c43866f0fe14a1a8ac1233868eef6390d0fc6c1a0b1c0e4"
+    },
+    "strict_labels": {
+      "bytes": 483695,
+      "path": "artifacts/data/context_sufficiency_labels.parquet",
+      "physical_sha256": "00862e10ba6d0eb8661d68df1206381e4712b7731b48ce8cbee18ac5c906fc42"
+    },
+    "target_population_manifest": {
+      "bytes": 1005,
+      "path": "artifacts/results/phase03_final_target_population_manifest.json",
+      "physical_sha256": "87f579511705b1c61c344c46d5d6b0b6ed02558a1e2bb32df9b47a79e5de73a8"
+    }
+  },
+  "final_target_config_sha256": "5b9a394e5e97776844054f3282af815462148adc62b528c77245d61707406977",
+  "phase03_status": "complete_pending_phase4_review",
+  "phase4_started": false,
+  "schema_version": "phase03-final-artifact-hash-manifest-v1",
+  "test_outcomes_sealed": true
+}

@@ -90,3 +90,10 @@ semantic-unevaluable questions remain excluded under the frozen input-budget pol
 
 Phase 3 is complete. Aggregate TEST outcomes remain sealed. Phase 4 was not started and requires
 separate review before work begins.
+
+## Documentation-manifest reconciliation
+
+On 2026-08-30, the final artifact manifest was deterministically regenerated after the
+documentation-only clarification of the one-human, AI-assisted pre-answer-key adjudication
+provenance. No scientific artifact, label, metric, threshold, configuration, or TEST outcome
+changed, and Phase 4 remained unstarted.

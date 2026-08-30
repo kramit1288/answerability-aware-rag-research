@@ -1,0 +1,69 @@
+{
+  "changed_documentation": [
+    {
+      "current_physical_sha256": "f32ee7ccbb648d0c0cdbc0f449abf19f8fb10d91d4dad4df045ffb63c8bd04ca",
+      "path": "docs/PHASE_03_FINAL_VALIDATION.md",
+      "previous_manifest_physical_sha256": "32260ac9e78ea5cdbe9b5409cf67a47913220177131e60e1dfdf79acbb5e527a"
+    },
+    {
+      "current_physical_sha256": "c54f9bd93da7e09fcd624569f04ccc734932e4251934908e44ce559954410705",
+      "path": "docs/PHASE_03_EXECUTION.md",
+      "previous_manifest_physical_sha256": "3139e8d535fca0b979462e8c5187f250cf1594a9c349a4f6005c899ab134560e"
+    },
+    {
+      "current_physical_sha256": "f149b8678c16c0998c7ceb369831005c7e9c49ddb6a1a0372435f43280921ada",
+      "path": "docs/RESEARCH_DECISIONS.md",
+      "previous_manifest_physical_sha256": "9fe76980d72eb2e11e7eb5d46e6f8f04e7152b12f0b5090cb2d519597d19927e"
+    }
+  ],
+  "confirmation_evaluation_changed": false,
+  "disagreement_artifact_changed": false,
+  "label_changed": false,
+  "new_phase03_final_manifest_sha256": "b02a0ca0e3352798c8d38ef4942fdca59e23d8d24c662493a1249d2864ca9879",
+  "non_documentation_manifest_entries": {
+    "all_byte_identical": true,
+    "previous_manifest_sha256_by_artifact": {
+      "confirmation_answer_key": "4e6fa50aac2cb8234c2032f65e09221cca7e81a8d100eaf8d5bbcd2af9bf7b4e",
+      "confirmation_blinded": "41dd01cb3c0a8aca7495fab69b798b8fea23c4087132f6d8de5bc0b04aac1389",
+      "confirmation_disagreements": "3231034f0df2664948650c7c8e11c56e6958e793ec9c2b86b6f2b4b886777359",
+      "confirmation_evaluation": "34adc2f91cb8bbcb44e72a405a09bf711f9818c760e75b6b28e3f58a16c7fdb9",
+      "confirmation_evaluation_status": "48b86a5ee09e2d1b4731ec75abaa589061c9f5fcac3240b679b7b62ae2a669db",
+      "confirmation_frozen_status": "9634185e010022d7be8eecbcff0d4d2ba5dfcd1a443c567247da0aed30513ccf",
+      "confirmation_sample_manifest": "dfc17a07edf6090b49d018a7bc65226b7616ec47dd434ebbf48f3af8b9b016da",
+      "confirmation_template": "39e9bc433d867c0276d950eeff31e13a7862ae391d4e4ced049dff9bf0e4cdbd",
+      "expanded_rescue_grid": "46f63d5061176fc0806f32ced1638750d9b9c04d13ce42947c94e85a2b17b4d8",
+      "final_confirmation_checker": "7f1c39c54cb0dd1d66db8f939b919126ddd2edecf443fd9ef53e1047b2e2c9d9",
+      "final_confirmation_implementation": "a377fdef237f5e410fe676ed29edf815766e3a41c467301838a5a90853609898",
+      "final_confirmation_runner": "959e8992e0c79e9275c4ef7ca73aa9a515626a1bda94d9215c75fb7b7d09f869",
+      "final_labels": "19f4cd142b0a4f12cd68f18da5054071186f9ae903555569bceb52381e04d8c0",
+      "final_primary_target": "b775276ace9113286a8e35fd29acaee5623d83be60400537e6902027b8cc07c1",
+      "final_target_config": "6528b7ee163b3612d81d2f7d439022502d3e456538822266ce9d638d08863416",
+      "human_confirmation": "1e643fd2e6a9e746f2c1f81033000c638a9008d6b6931b3f2fcb8bbd80141c4a",
+      "original_prototype": "406a3c0d4781592dcf9824691147c6a271082a368efb0a9c949b8fcf43dd4b73",
+      "prekey_validation": "ea3609f4be14a7c0f0f90652ffcc948addecaa2b11536996d86f26cbab462ae5",
+      "semantic_label_governance": "b1c08944f3533304e51ed3bfa659c98020318efb90917665bf124dd5f6b16021",
+      "semantic_labels": "b9f7a687f883e4001c43866f0fe14a1a8ac1233868eef6390d0fc6c1a0b1c0e4",
+      "strict_labels": "00862e10ba6d0eb8661d68df1206381e4712b7731b48ce8cbee18ac5c906fc42",
+      "target_population_manifest": "87f579511705b1c61c344c46d5d6b0b6ed02558a1e2bb32df9b47a79e5de73a8"
+    },
+    "status": "all previous manifest hashes equal observed current hashes",
+    "verified_count": 22
+  },
+  "phase03_final_target_config_sha256": "5b9a394e5e97776844054f3282af815462148adc62b528c77245d61707406977",
+  "phase4_started": false,
+  "previous_phase03_final_manifest_sha256": "7665c94542f7601c410174abac2d37c681371e5fffd96fac1dc31ae1c9572e87",
+  "prior_frozen_commit": "87fa9a55ff14551e0ef4528bc9e0f9ea29a66bcb",
+  "reason": "The final Phase 3 documentation was intentionally clarified after the first manifest was generated to record the one-human annotation with AI-assisted pre-answer-key adjudication provenance. Scientific artifacts and outcomes were unchanged, so the canonical manifest was regenerated against the committed documentation state.",
+  "reconciliation_type": "documentation_manifest_reconciliation",
+  "schema_version": "phase03-final-manifest-reconciliation-v1",
+  "test_accessed": false,
+  "test_outcomes_sealed": true,
+  "threshold_or_configuration_changed": false,
+  "timestamp": "2026-08-30T16:18:31.4905300+05:30",
+  "unchanged_documentation_manifest_entry": {
+    "observed_current_sha256": "4529b5cb90c96909e2561ad4f3c31dade5b0ea8c0b2ec8be1f28b8369bbf9559",
+    "path": "docs/EXPERIMENT_CONTRACT.md",
+    "previous_manifest_sha256": "4529b5cb90c96909e2561ad4f3c31dade5b0ea8c0b2ec8be1f28b8369bbf9559",
+    "status": "match"
+  }
+}
