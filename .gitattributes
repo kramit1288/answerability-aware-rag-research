@@ -1,0 +1,3 @@
+# Byte-hashed frozen research artifacts require deterministic LF checkout.
+artifacts/results/phase03_final_artifact_manifest.json text eol=lf
+docs/PHASE_03_FINAL_VALIDATION.md text eol=lf
