@@ -12,6 +12,7 @@ __pycache__/
 .tmp_*.log
 artifacts/models/*
 !artifacts/models/.gitkeep
+!artifacts/models/phase04_selected_model.joblib
 artifacts/data/*
 !artifacts/data/.gitkeep
 !artifacts/data/techqa_split_assignments.csv
@@ -36,6 +37,7 @@ artifacts/data/*
 !artifacts/data/phase03_final_primary_target.parquet
 artifacts/results/*
 !artifacts/results/.gitkeep
+!artifacts/results/phase04_*
 !artifacts/results/phase02_dependency_manifest.json
 !artifacts/results/phase02_metrics_train_validation.csv
 !artifacts/results/phase02_integrity_report.json
@@ -85,9 +87,19 @@ artifacts/results/*
 !artifacts/results/phase03_rescue_expanded_artifact_manifest.json
 artifacts/figures/*
 !artifacts/figures/.gitkeep
+!artifacts/figures/phase04_reliability_diagram.svg
 
 # Phase 1 raw releases and the extracted 28,481-document corpus are reproducible
 # from immutable, checksum-verified sources and must never be committed.
 data/raw/
 data/derived/
 data/downloads/
+
+# Phase 4 deterministic evidence is small enough to retain; all other derived
+# caches remain ignored and reproducible from the frozen upstream artifacts.
+!data/derived/
+data/derived/*
+!data/derived/phase04/
+data/derived/phase04/*
+!data/derived/phase04/phase04_inference_features.parquet
+!data/derived/phase04/phase04_benchmark_impossible_features.parquet

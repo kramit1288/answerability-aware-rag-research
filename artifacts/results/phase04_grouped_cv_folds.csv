@@ -1,0 +1,11 @@
+purpose,fold,train_question_count,train_condition_count,train_positive_count,train_negative_count,heldout_question_count,heldout_condition_count,heldout_positive_count,heldout_negative_count,question_overlap_count,zero_question_overlap
+hyperparameter_selection,0,339,4068,1875,2193,85,1020,450,570,0,True
+hyperparameter_selection,1,339,4068,1825,2243,85,1020,500,520,0,True
+hyperparameter_selection,2,339,4068,1895,2173,85,1020,430,590,0,True
+hyperparameter_selection,3,339,4068,1845,2223,85,1020,480,540,0,True
+hyperparameter_selection,4,340,4080,1860,2220,84,1008,465,543,0,True
+rf_oof_calibration,0,339,4068,1875,2193,85,1020,450,570,0,True
+rf_oof_calibration,1,339,4068,1825,2243,85,1020,500,520,0,True
+rf_oof_calibration,2,339,4068,1895,2173,85,1020,430,590,0,True
+rf_oof_calibration,3,339,4068,1845,2223,85,1020,480,540,0,True
+rf_oof_calibration,4,340,4080,1860,2220,84,1008,465,543,0,True

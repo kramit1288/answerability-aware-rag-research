@@ -1,0 +1,7 @@
+{
+  "aurc": 0.3784805394600604,
+  "integration": "right-endpoint rectangular over ascending observed coverage",
+  "model_config_sha256": "efb07f98b8e73a5f277bd89591badf1d64f486354de8e4caccdad7672463a019",
+  "schema_version": "phase04-aurc-v1",
+  "unit": "eligible validation retrieval condition"
+}

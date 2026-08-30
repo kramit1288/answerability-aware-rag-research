@@ -1,0 +1,244 @@
+{
+  "schema_version": "phase04-modeling-config-v1",
+  "phase": "phase04_answerability_model",
+  "purpose": "Predict the frozen retrieval-conditioned context-sufficiency target using leakage-safe inference-time features; freeze a selective retrieval-expansion policy without generation.",
+  "random_seed": 42,
+  "upstream_freeze": {
+    "phase03_tag": "phase-03-context-sufficiency-v3",
+    "phase03_commit": "04e901e68937f0f149ab12e2d2f44055b00b8fad",
+    "phase03_final_manifest_sha256": "b02a0ca0e3352798c8d38ef4942fdca59e23d8d24c662493a1249d2864ca9879",
+    "phase03_final_target_config_sha256": "5b9a394e5e97776844054f3282af815462148adc62b528c77245d61707406977",
+    "primary_target_sha256": "b775276ace9113286a8e35fd29acaee5623d83be60400537e6902027b8cc07c1",
+    "phase01_split_semantic_sha256": "4e84c5bdce2d6649f7e9eb8a22271faf0ffb51a5c934fbb642721237cb4292e7",
+    "phase02_chunk_config_sha256": "5f2931faf3ced37054430bf78b755200657799d857a284f563532fc67290dc94",
+    "phase02_retrieval_config_sha256": "f1854ae6f73fddb36da2c407505c05396491771b00d2b97710c2de22d9add4ca"
+  },
+  "population": {
+    "primary_splits": ["train", "validation"],
+    "train_questions": 424,
+    "train_conditions": 5088,
+    "validation_questions": 89,
+    "validation_conditions": 1068,
+    "total_questions": 513,
+    "total_conditions": 6156,
+    "total_positive": 2802,
+    "total_negative": 3354,
+    "excluded": [
+      "benchmark-impossible questions",
+      "unresolved-evidence questions",
+      "DEV_Q066 under the frozen semantic input-budget rule",
+      "TRAIN_Q526 under the frozen semantic input-budget rule"
+    ],
+    "excluded_condition_target_representation": "NA, never negative"
+  },
+  "feature_registry": {
+    "path": "configs/phase04_feature_registry.json",
+    "allowed_model_category": "inference_available_feature",
+    "unknown_column_policy": "fail",
+    "wrong_category_policy": "fail",
+    "retrieval_strategy": "inference-available categorical predictor with fixed one-hot levels bm25,dense,hybrid",
+    "k": "inference-available numeric predictor",
+    "reciprocal_rank_agreement_included": false,
+    "benchmark_or_label_construction_inputs_allowed": false
+  },
+  "feature_computation": {
+    "query_character_count": "Python Unicode code-point length of the unmodified question string",
+    "lexical_tokenizer": {
+      "source": "frozen Phase 2 BM25 tokenizer",
+      "normalization": ["NFKC", "casefold"],
+      "token_pattern": "(?u)\\w+(?:[./:-]+\\w+)*"
+    },
+    "digit_token_definition": "normalized lexical token for which str.isdigit() is true",
+    "identifier_like_regex": "(?i)^(?:.*[_-].*|(?=.*[a-z])(?=.*\\d)[a-z0-9./:-]+|[a-z0-9_/-]+(?:\\.[a-z0-9_/-]+)+|v?\\d+(?:\\.\\d+)+)$",
+    "fraction_zero_denominator": "0.0 only when the mathematical denominator is an empty token set",
+    "idf": {
+      "source": "the frozen Phase 2 rank_bm25.BM25Okapi cache idf dictionary for in-vocabulary tokens",
+      "in_vocabulary_values": "exact cached Phase 2 values, including rank_bm25 epsilon adjustment for negative raw IDF",
+      "out_of_vocabulary_formula": "ln((N + 0.5) / 0.5), using frozen Phase 2 corpus size N and df=0",
+      "out_of_vocabulary_df": 0,
+      "coverage_denominator": "sum of IDF weights over unique query tokens",
+      "zero_weight_denominator": "0.0"
+    },
+    "lexical_overlap": "intersection size divided by unique query-token count",
+    "semantic_model": {
+      "name": "sentence-transformers/all-MiniLM-L6-v2",
+      "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "normalize_embeddings": true,
+      "similarity": "cosine via exact dot product of normalized float32 embeddings",
+      "new_pretrained_semantic_model_allowed": false
+    },
+    "retrieval_score_standardization": {
+      "reason": "BM25, dense cosine, and RRF scores are not globally comparable",
+      "scope": "each of the eight retrieval-score columns separately within retrieval_strategy",
+      "formula": "(x - TRAIN-strategy mean) / TRAIN-strategy population standard deviation",
+      "fit_scope": "analysis TRAIN only; refit on each inner-CV training fold",
+      "zero_standard_deviation": "map observed values to 0.0",
+      "missing_values": "remain missing until imputation"
+    },
+    "aggregate_standard_deviation_ddof": 0,
+    "duplicate_document_ratio": "1 - retrieved_unique_document_count / retrieved_chunk_count",
+    "dominant_document_chunk_fraction": "largest per-document chunk count / retrieved_chunk_count",
+    "cross_retriever_agreement": "set overlap and Jaccard of frozen BM25 and dense top-k chunk-id lists for the same question and k"
+  },
+  "preprocessing": {
+    "continuous_missing_values": "median imputation fitted on TRAIN only with missing-indicator columns for features having missing values at fit time",
+    "undefined_quantities": "IEEE NaN in the feature artifact before preprocessing",
+    "categorical": "fixed one-hot encoding for retrieval_strategy levels bm25,dense,hybrid; unknown levels fail",
+    "logistic_regression_scaling": "StandardScaler fitted after imputation on TRAIN only",
+    "random_forest_scaling": "none after the identical score-normalization and imputation semantics",
+    "validation_fit_forbidden": true
+  },
+  "grouped_cross_validation": {
+    "splitter": "sklearn.model_selection.GroupKFold",
+    "n_splits": 5,
+    "group": "question_id",
+    "row_level_random_splitting_forbidden": true,
+    "persist_fold_counts": true,
+    "required_question_overlap": 0
+  },
+  "models": {
+    "B0": {
+      "name": "always_sufficient_reference",
+      "prediction": 1,
+      "constant_score_ranking_metrics": "NA"
+    },
+    "B1": {
+      "name": "single_feature_threshold",
+      "feature": "idf_weighted_query_token_context_coverage",
+      "candidate_thresholds": {"start": 0.0, "stop": 1.0, "step": 0.01, "inclusive": true},
+      "selection_data": "TRAIN grouped CV only",
+      "selection": ["highest mean F1", "highest mean precision", "higher threshold"]
+    },
+    "B2": {
+      "name": "logistic_regression",
+      "implementation": "sklearn.linear_model.LogisticRegression",
+      "solver": "lbfgs",
+      "max_iter": 5000,
+      "grid": {"C": [0.1, 1.0, 10.0], "class_weight": [null, "balanced"]},
+      "selection": ["highest mean grouped-CV AUPRC", "highest mean grouped-CV AUROC", "simpler choice"],
+      "simplicity_order": {"C": [0.1, 1.0, 10.0], "class_weight": [null, "balanced"]}
+    },
+    "B3": {
+      "name": "random_forest",
+      "implementation": "sklearn.ensemble.RandomForestClassifier",
+      "n_estimators": 500,
+      "grid": {
+        "max_depth": [4, 8, null],
+        "min_samples_leaf": [2, 5, 10],
+        "max_features": ["sqrt", 0.5],
+        "class_weight": [null, "balanced"]
+      },
+      "selection": ["highest mean grouped-CV AUPRC", "highest mean grouped-CV AUROC", "simpler model"],
+      "simplicity_order": {
+        "max_depth": [4, 8, null],
+        "min_samples_leaf": [10, 5, 2],
+        "max_features": ["sqrt", 0.5],
+        "class_weight": [null, "balanced"]
+      }
+    },
+    "B4": {
+      "name": "calibrated_selected_random_forest",
+      "methods": ["uncalibrated", "sigmoid", "isotonic"],
+      "oof_source": "5-fold grouped TRAIN predictions from selected B3 hyperparameters",
+      "sigmoid_mapping": "LogisticRegression(C=1000000, solver=lbfgs, max_iter=5000, random_state=42) on one raw-probability column",
+      "isotonic_mapping": "IsotonicRegression(out_of_bounds=clip)",
+      "validation_labels_fit_mapping": false,
+      "selection": ["lowest VALIDATION Brier score", "lowest VALIDATION ECE", "uncalibrated permitted if calibration worsens both"]
+    }
+  },
+  "classification_evaluation": {
+    "decision_threshold": 0.5,
+    "metrics": ["accuracy", "precision", "recall", "f1", "auroc", "auprc", "brier", "ece"],
+    "zero_division": 0,
+    "ece": {
+      "bins": 10,
+      "binning": "equal-width probability bins [0,.1),...,[.9,1.0]",
+      "formula": "sum_b (n_b/n) * abs(empirical_positive_fraction_b - mean_probability_b)",
+      "empty_bins": "persist with count 0 and null empirical quantities"
+    },
+    "bootstrap": {
+      "unit": "question_id",
+      "replicates": 1000,
+      "seed": 42,
+      "interval": "2.5th and 97.5th percentiles",
+      "metrics": ["auroc", "auprc", "f1", "brier"],
+      "duplicate_group_handling": "include every condition row once per sampled occurrence of its question"
+    },
+    "model_family_selection": ["highest VALIDATION AUPRC", "highest VALIDATION AUROC", "lowest VALIDATION Brier", "simpler model"],
+    "family_simplicity_order": ["logistic_regression", "random_forest"]
+  },
+  "feature_analysis": {
+    "logistic_regression": "signed standardized coefficients ranked by absolute magnitude",
+    "random_forest": "VALIDATION permutation importance using AUPRC scoring, 30 repeats, random seed 42",
+    "causal_claims_allowed": false
+  },
+  "ablations": {
+    "A": ["retrieval_score"],
+    "B": ["query_context_lexical", "query_context_semantic"],
+    "C": ["retrieval_score", "query_context_lexical", "query_context_semantic"],
+    "D": ["query", "retrieval_score", "query_context_lexical", "query_context_semantic", "context_composition", "cross_retriever_agreement", "retrieval_condition_metadata"],
+    "metadata_handling": "retrieval_strategy and k appear only in D/full; A-C contain only their named evidence families",
+    "retune_hyperparameters": false,
+    "metrics": ["auroc", "auprc", "f1"]
+  },
+  "risk_coverage": {
+    "answer_rule": "p_suff >= threshold",
+    "coverage": "answered eligible conditions / all eligible conditions",
+    "selective_risk": "answered conditions with y_suff_final=0 / all answered conditions",
+    "zero_answer_risk": null,
+    "curve_thresholds": "all distinct selected-model VALIDATION probabilities in descending order, preceded by nextafter(max_probability,+infinity) and followed by 0.0 if absent; ties enter together",
+    "aurc": "right-endpoint rectangular integration over ascending coverage, with origin (coverage=0,risk=NA) omitted from area and each observed risk applied over its coverage increment",
+    "operating_risk_constraints": [0.05, 0.1, 0.2],
+    "operating_selection": ["risk at or below constraint", "maximum coverage", "higher probability threshold"]
+  },
+  "three_way_policy": {
+    "retrieval_strategy": "hybrid",
+    "initial_k": 5,
+    "expanded_k": 10,
+    "maximum_expansions": 1,
+    "threshold_grid": {"start": 0.0, "stop": 1.0, "step": 0.02, "inclusive": true},
+    "pairs": "all t_low,t_high with 0 <= t_low < t_high <= 1",
+    "boundary_rules": {
+      "answer_at_k5": "p5 >= t_high",
+      "immediate_abstain": "p5 < t_low",
+      "expand": "t_low <= p5 < t_high",
+      "answer_at_k10": "p10 >= t_high"
+    },
+    "selection_by_risk_constraint": ["final_selective_risk <= constraint", "maximum final_answer_coverage", "minimum retrieval_expansion_rate", "larger t_high", "larger t_low"],
+    "primary_risk_constraint": 0.1,
+    "relative_retrieval_depth_cost_proxy": "mean_retrieved_k / 5",
+    "false_abstention_denominator": "trajectories where frozen hybrid-k10 y_suff_final=1",
+    "baselines": ["P0_always_answer_hybrid_k5", "P1_two_way_hybrid_k5", "P2_always_retrieve_hybrid_k10_then_two_way"]
+  },
+  "sensitivity_analysis": {
+    "timing": "only after primary feature architecture, model, calibration, and policy are frozen",
+    "change": "add benchmark-impossible preliminary-negative rows to TRAIN",
+    "mechanical_retraining_only": true,
+    "retune_hyperparameters": false,
+    "reselect_family": false,
+    "change_primary_thresholds": false,
+    "report_separately": true
+  },
+  "test_seal": {
+    "test_feature_generation": false,
+    "test_inference": false,
+    "test_aggregate_reporting": false,
+    "test_query_prediction_inspection": false,
+    "guard": "any Phase 4 request whose split equals TEST fails before reading target rows or producing features, probabilities, metrics, summaries, importance, risk-coverage, or policy outputs"
+  },
+  "governance": {
+    "phase03_research_decisions_immutable": true,
+    "phase04_decision_log": "docs/PHASE_04_RESEARCH_DECISIONS.md",
+    "phase04_governance_files": [
+      "configs/phase04_modeling.json",
+      "configs/phase04_feature_registry.json",
+      "docs/PHASE_04_RESEARCH_DECISIONS.md",
+      "docs/PHASE_04_EXECUTION.md",
+      "docs/PHASE_04_ARTIFACT_SCHEMAS.md"
+    ],
+    "configuration_hash_location": "artifacts/results/phase04_modeling_config_freeze.json",
+    "hash_algorithm": "SHA-256 over physical bytes for each file and SHA-256 over canonical JSON for the modeling configuration",
+    "freeze_before_validation_performance": true,
+    "methodology_change_after_validation": "forbidden; implementation defects require documentation and STOP for review"
+  }
+}

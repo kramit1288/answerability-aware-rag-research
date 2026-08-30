@@ -1,0 +1,17 @@
+{
+  "calibration_method": "uncalibrated",
+  "expanded_k": 10,
+  "feature_registry_sha256": "850a29b2493e481f93fabdbc9374a2ee64a971cd6e6f045699f046f7424decfb",
+  "initial_k": 5,
+  "maximum_expansions": 1,
+  "phase04_modeling_config_sha256": "f0a0377e4001e6401e4cce77ad15e0904ec13e87719d56660a40171341a6801e",
+  "retrieval_strategy": "hybrid",
+  "risk_constraint": 0.1,
+  "rule": "answer if p5>=t_high; abstain if p5<t_low; otherwise expand once to k10 and answer iff p10>=t_high",
+  "schema_version": "phase04-selected-policy-v1",
+  "selected_model_config_sha256": "efb07f98b8e73a5f277bd89591badf1d64f486354de8e4caccdad7672463a019",
+  "selected_policy_config_sha256": "455b11f36c2bcef93d6a2ff9a2323ebc72ebdafe34c7a0b5c0ae82cd1e70b0d5",
+  "t_high": 0.82,
+  "t_low": 0.78,
+  "test_adjustment_permitted": false
+}

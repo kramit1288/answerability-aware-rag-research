@@ -1,0 +1,36 @@
+{
+  "canonicalization": "UTF-8 JSON with sorted keys, compact separators, and ensure_ascii=false",
+  "freeze_precedes_validation_performance": true,
+  "frozen_at": "2026-08-30T18:10:06+05:30",
+  "governance_files": [
+    {
+      "path": "configs/phase04_feature_registry.json",
+      "physical_sha256": "850a29b2493e481f93fabdbc9374a2ee64a971cd6e6f045699f046f7424decfb"
+    },
+    {
+      "path": "configs/phase04_modeling.json",
+      "physical_sha256": "1b2ab58bcb80f83f965ce1f0d09d5deb68b82fa5b3b2041115f10f1e2bafab0e"
+    },
+    {
+      "path": "docs/PHASE_04_ARTIFACT_SCHEMAS.md",
+      "physical_sha256": "89ef831d11371239bece15f176520bda1d476c89edca21802124e2d1326cc67e"
+    },
+    {
+      "path": "docs/PHASE_04_EXECUTION.md",
+      "physical_sha256": "afb64dcf870ba3cc26f57c0a1e64b557074f52206a5fbd95f173af9898725588"
+    },
+    {
+      "path": "docs/PHASE_04_RESEARCH_DECISIONS.md",
+      "physical_sha256": "0ec523f48338fbc81434113ee18d7a093954aacec731d7aa1721306c86112dd0"
+    }
+  ],
+  "phase03_immutable_upstream": {
+    "final_manifest_sha256": "b02a0ca0e3352798c8d38ef4942fdca59e23d8d24c662493a1249d2864ca9879",
+    "final_target_config_sha256": "5b9a394e5e97776844054f3282af815462148adc62b528c77245d61707406977",
+    "primary_target_sha256": "b775276ace9113286a8e35fd29acaee5623d83be60400537e6902027b8cc07c1"
+  },
+  "phase04_modeling_canonical_sha256": "f0a0377e4001e6401e4cce77ad15e0904ec13e87719d56660a40171341a6801e",
+  "phase04_modeling_physical_sha256": "1b2ab58bcb80f83f965ce1f0d09d5deb68b82fa5b3b2041115f10f1e2bafab0e",
+  "schema_version": "phase04-modeling-config-freeze-v1",
+  "validation_results_observed_before_freeze": false
+}

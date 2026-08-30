@@ -1,0 +1,41 @@
+{
+  "feature_count": 39,
+  "feature_leakage_check": "pass",
+  "generated_at": "2026-08-30T18:39:33+05:30",
+  "grouped_cv_fold_count": 5,
+  "grouped_cv_zero_question_overlap": true,
+  "library_versions": {
+    "joblib": "1.5.3",
+    "numpy": "2.5.2",
+    "pandas": "3.0.5",
+    "pyarrow": "25.0.1",
+    "scikit-learn": "1.9.0",
+    "sentence-transformers": "5.7.0"
+  },
+  "phase03_manifest_immutable": true,
+  "phase5_started": false,
+  "policy_grid_pairs": 1275,
+  "primary_population": {
+    "conditions": 6156,
+    "negative": 3354,
+    "positive": 2802,
+    "questions": 513
+  },
+  "schema_version": "phase04-integrity-report-v1",
+  "selected_model_config_sha256": "efb07f98b8e73a5f277bd89591badf1d64f486354de8e4caccdad7672463a019",
+  "selected_policy_config_sha256": "455b11f36c2bcef93d6a2ff9a2323ebc72ebdafe34c7a0b5c0ae82cd1e70b0d5",
+  "status": "pass",
+  "test_aggregate_results": false,
+  "test_inference_run": false,
+  "test_rows": 0,
+  "test_sealed": true,
+  "train_population": {
+    "conditions": 5088,
+    "questions": 424
+  },
+  "upstream_verified": true,
+  "validation_population": {
+    "conditions": 1068,
+    "questions": 89
+  }
+}

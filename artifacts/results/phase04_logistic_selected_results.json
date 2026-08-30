@@ -1,0 +1,37 @@
+{
+  "grouped_cv_selection": {
+    "C": 1.0,
+    "candidate_order": 2,
+    "class_weight": null,
+    "fold_auprc_json": "[0.7843726587303139,0.6963170440439972,0.6898754774694845,0.7513098887357403,0.696655758379278]",
+    "fold_auroc_json": "[0.810475633528265,0.7301730769230769,0.7433307055577453,0.746099537037037,0.7670567734014535]",
+    "max_depth": null,
+    "max_features": null,
+    "mean_auprc": 0.7237061654717627,
+    "mean_auroc": 0.7594271452895154,
+    "min_samples_leaf": null,
+    "model_family": "logistic_regression",
+    "selected": true
+  },
+  "model_family": "logistic_regression",
+  "schema_version": "phase04-family-selected-result-v1",
+  "selected_hyperparameters": {
+    "C": 1.0,
+    "class_weight": null
+  },
+  "selected_primary_family": false,
+  "validation_metrics": {
+    "accuracy": 0.6544943820224719,
+    "auprc": 0.6255539452440408,
+    "auroc": 0.7058107815698083,
+    "brier": 0.2198055784563578,
+    "decision_threshold": 0.5,
+    "ece": 0.0642641316867171,
+    "f1": 0.5743944636678201,
+    "model": "B2_logistic_regression",
+    "precision": 0.6384615384615384,
+    "probability_method": "uncalibrated",
+    "recall": 0.5220125786163522,
+    "selected_model": false
+  }
+}

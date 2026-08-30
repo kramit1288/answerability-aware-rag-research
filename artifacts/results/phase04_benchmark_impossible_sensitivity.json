@@ -1,0 +1,36 @@
+{
+  "added_impossible_train_conditions": 2520,
+  "added_impossible_train_questions": 210,
+  "added_impossible_validation_conditions": 540,
+  "added_impossible_validation_questions": 45,
+  "architecture_changed": false,
+  "augmented_train_conditions": 7608,
+  "augmented_train_questions": 634,
+  "calibration_method": "uncalibrated",
+  "combined_validation_metrics": {
+    "accuracy": 0.7039800995024875,
+    "auprc": 0.46667679612232155,
+    "auroc": 0.6973161540500513,
+    "brier": 0.19237376974843018,
+    "ece": 0.06543914285961128,
+    "f1": 0.29793510324483774,
+    "precision": 0.5024875621890548,
+    "recall": 0.21174004192872117
+  },
+  "evaluation_conditions": 1608,
+  "evaluation_questions": 134,
+  "family_reselected": false,
+  "hyperparameters_retuned": false,
+  "impossible_validation_predicted_sufficient_rate_at_0_5": 0.12222222222222222,
+  "influences_primary_conclusions": false,
+  "primary_thresholds_changed": false,
+  "schema_version": "phase04-benchmark-impossible-sensitivity-v1",
+  "selected_family": "random_forest",
+  "selected_hyperparameters": {
+    "class_weight": null,
+    "max_depth": 8,
+    "max_features": "sqrt",
+    "min_samples_leaf": 5
+  },
+  "timing": "after PRIMARY selected model and policy configurations were frozen"
+}

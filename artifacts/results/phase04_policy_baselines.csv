@@ -1,0 +1,10 @@
+policy,risk_constraint,feasible,final_answer_coverage,final_selective_risk,retrieval_expansion_rate,false_abstention_rate,unsafe_answer_count,safe_answer_count,abstention_count,mean_retrieved_k,mean_retrieved_chunk_count,relative_retrieval_depth_cost_proxy,at_k,threshold
+P0_always_answer_hybrid_k5,0.050000000000000003,False,1,0.47191011235955055,0,0,42,47,0,5,5,1,,
+P1_two_way_hybrid_k5,0.050000000000000003,False,,,,,,,,,,,5,
+P2_always_retrieve_hybrid_k10_then_two_way,0.050000000000000003,True,0.02247191011235955,0,1,0.96226415094339623,0,2,87,10,10,2,10,0.81999999999999995
+P0_always_answer_hybrid_k5,0.10000000000000001,False,1,0.47191011235955055,0,0,42,47,0,5,5,1,,
+P1_two_way_hybrid_k5,0.10000000000000001,False,,,,,,,,,,,5,
+P2_always_retrieve_hybrid_k10_then_two_way,0.10000000000000001,True,0.02247191011235955,0,1,0.96226415094339623,0,2,87,10,10,2,10,0.81999999999999995
+P0_always_answer_hybrid_k5,0.20000000000000001,False,1,0.47191011235955055,0,0,42,47,0,5,5,1,,
+P1_two_way_hybrid_k5,0.20000000000000001,False,,,,,,,,,,,5,
+P2_always_retrieve_hybrid_k10_then_two_way,0.20000000000000001,True,0.12359550561797752,0.18181818181818182,1,0.83018867924528306,2,9,78,10,10,2,10,0.78000000000000003
