@@ -1,5 +1,20 @@
 # Experiment Contract
 
+## Phase 3.6b strict-preserving rescue amendment
+
+The final context-sufficiency target may be constructed only as a strict-preserving union:
+`y_suff_final=1` for every strict positive, while a strict negative may be rescued by one member
+of the predeclared 59-rule coverage/NLI/combined grid. The grid is frozen and hashed before use of
+the adjudicated development labels. Candidate eligibility requires ordinary sufficient precision
+at least 0.90; selection then maximizes prevalence-weighted F1, ordinary recall breaks ties, and
+coverage-only precedes NLI-only and combined rules when effectively tied. Development precision
+must remain at least 0.90 and weighted F1 at least 0.85 before any final target or independent
+confirmation pack is created.
+
+Phase 3.6b failed that gate (best weighted F1 0.8282), so the contract requires a decision-request
+stop. No final target, replacement human-confirmation sample, TEST aggregate, or Phase 4 work can
+be produced under this run. The prior 100-row semantic-only pack is superseded while unannotated.
+
 ## 1. Purpose, status, and change control
 
 This contract defines the final experimental methodology before implementation. It replaces the
@@ -377,19 +392,26 @@ The frozen Phase 3 hierarchy is applied as follows.
    including occurrences across multiple confirmed gold documents; never select one duplicate
    arbitrarily. Semantic similarity, fuzzy matching, embeddings, NLI, and LLM output cannot create
    a gold span.
-2. **Primary automatic condition label.** For each accepted document/span alternative, merge
+2. **Strict span-coverage proxy (historical Phase 3 rule).** For each accepted document/span alternative, merge
    overlapping or adjacent source-character intervals belonging to retrieved chunks from that
-   document. Set `y_suff=1` exactly when this union fully covers at least one complete accepted
-   span, otherwise set `y_suff=0` for an aligned answerable question. The span may be covered by
+   document. Set `y_suff_strict=1` exactly when this union fully covers at least one complete accepted
+   span, otherwise set `y_suff_strict=0` for an aligned answerable question. The span may be covered by
    more than one retrieved chunk. A correct-document hit, topical chunk, or partial overlap is not
    sufficient. Persist coverage diagnostics as label-construction metadata that are forbidden
-   classifier features.
+   classifier features. Phase 3.5 human validation established that this rule is a high-precision
+   but low-recall proxy for semantic context sufficiency. It is retained as
+   `strict_span_sufficiency` for verified high-confidence positives, diagnostics, and comparison;
+   it is no longer described as the primary context-sufficiency ground truth.
 3. **Benchmark-impossible preliminary negatives.** For `is_impossible == true`, store `y_suff=0`,
    `label_method=benchmark_impossible`, and
    `label_status=preliminary_benchmark_negative`. This is benchmark-relative provenance: the
    original annotation found no answer in its candidate Technotes, but the complete 28,481-file
-   research corpus could contain related or supporting material. Phase 4 must report a sensitivity
-   excluding these preliminary negatives without rebuilding Phase 3.
+   research corpus could contain related or supporting material. The frozen Phase 3.5 audit found
+   8/30 (26.67%) human-sufficient cases, exceeding the predeclared 10% contamination trigger.
+   Benchmark-impossible rows are therefore permanently excluded from the PRIMARY Phase 4
+   classifier-training population. They remain available only for sensitivity analysis, separate
+   benchmark-impossible analysis, and robustness discussion. This exclusion cannot be reversed in
+   response to later model performance.
 4. **Unresolved status.** If an answerable row has no defensible alignment, store `y_suff=NA`, an
    explicit exclusion reason, and `label_status=unresolved`; never force it to zero or drop its
    retrieval-condition rows. `DEV_Q014` and `DEV_Q094` remain governed by this rule unless a
@@ -471,6 +493,76 @@ kappa use the original overlapping categorical decisions before adjudication. An
 model, embedding model, or other automatic evaluator is never represented as a human annotator.
 The separate automatic answer key is opened by the evaluation workflow only after the complete
 first-annotator file passes blinded-schema and completion checks.
+
+### 6.4 Phase 3.6 semantic context-sufficiency refinement
+
+The frozen strict-span rule was evaluated on 150 genuine primary-human annotations: precision
+1.0000, recall 0.3488, F1 0.5172, and prevalence-weighted F1 0.5642. It failed the predeclared
+weighted-F1 gate of 0.85 and cannot serve as the primary Phase 4 target.
+
+The original 150 annotations have been statistically examined and are now explicitly the
+development set for an offline semantic evidence-support procedure. They are not independent final
+validation of the revised semantic rule. The offline procedure may use the question, reference
+answer, and retrieved chunk text for label construction only; semantic scores, reference answers,
+gold metadata, and strict-span diagnostics remain forbidden runtime Phase 4 features.
+
+Before development scoring, the candidate NLI set is frozen to:
+
+1. `cross-encoder/nli-deberta-v3-base`;
+2. `MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli`; and
+3. `facebook/bart-large-mnli`.
+
+Every evaluated model uses a persisted immutable Hugging Face commit. A hard compatibility failure
+is recorded exactly and does not authorize a post-results substitute. Reference answers are split
+deterministically into sentence, bullet/list, and defensible semicolon-delimited claim units;
+claims are never generated or rewritten by an LLM. For each claim, sentence/list snippets from
+every retrieved chunk enter a deterministic claim-token-overlap ranking. One multi-chunk premise
+selects at most three source-preserving snippets, preferring distinct chunks before a second
+snippet from one chunk and resolving ties by retrieval rank, source-segment index, and chunk ID.
+Selected snippets are restored to source/rank order and receive an equal deterministic token
+budget with head-and-tail retention inside a 256-token NLI pair. Thus later chunks are considered
+and cross-chunk synthesis is possible without silently truncating the whole bundle by rank.
+Contradiction, neutral, and entailment scores, selected evidence units, and claim segmentation are
+persisted.
+
+Development selection is safety-first on benchmark-answerable rows: first require semantic
+automatic-sufficient precision at least 0.90; among eligible configurations maximize
+prevalence-weighted F1, then recall, with deterministic final ties. The finite threshold grid,
+claim/context aggregation, model revisions, and tie-breaking are persisted before scores are
+examined. All five original strata are reported diagnostically, but benchmark-impossible
+performance does not enter primary selection.
+
+For benchmark-answerable, defensibly aligned TRAIN+VALIDATION conditions, retain both
+`y_suff_strict` and the frozen semantic result `y_suff_semantic`. Exclude unresolved evidence rows
+and all benchmark-impossible rows from the primary population. `y_suff_semantic` becomes the Phase
+4 PRIMARY target only if a new independent confirmation sample passes the unchanged gates of
+precision at least 0.90 and prevalence-weighted F1 at least 0.85.
+
+The semantic scoring configuration SHA-256
+`98f7279821921d825470ee64efa810777e5b331d4c978e6234e7b689b6657fdf` retains its original
+meaning: selected model/revision, frozen claim segmentation, float32 NLI scoring, context
+handling, aggregation, and thresholds. A separate semantic-label-governance configuration adds a
+general pre-label exclusion rule. If any unchanged reference-answer claim has a tokenizer length
+such that the claim plus pair-special tokens cannot fit the selected model's frozen 256-token pair
+input, every condition for that question has `y_suff_semantic=NA`,
+`semantic_label_status=unevaluable`, and exclusion reason
+`claim_exceeds_frozen_nli_pair_budget`. Strict labels are preserved. These rows are not semantic
+negatives and are excluded from primary semantic-target training, calibration, threshold
+selection, primary evaluation, and confirmation sampling; they remain available for exclusion
+accounting and strict-label diagnostics. The rule is applied mechanically, never by question ID.
+It was frozen before semantic labels, confirmation sampling, Phase 4, or TEST evaluation. Claim
+truncation was rejected because it could remove evidence-bearing content, while new post-selection
+segmentation would change the selected procedure; explicit NA preserves that procedure and makes
+the small affected population transparent.
+
+Only after the semantic model, revision, segmentation, aggregation, thresholds, label definition,
+and configuration hash are frozen, draw exactly 100 new blinded TRAIN+VALIDATION conditions. They
+must be benchmark-answerable, non-overlapping with the original 150 conditions, and stratified
+across semantic labels, strict/semantic agreement, retrieval strategies, depths, and splits. The
+sample excludes every semantic-unevaluable question. The
+blinded artifact exposes neither automatic label nor semantic score. Phase 3.6 stops for genuine
+human confirmation after producing that pack; TEST semantic aggregates and Phase 4 training remain
+sealed.
 
 ## 7. Initial prediction features
 

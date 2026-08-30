@@ -1,0 +1,211 @@
+{
+  "annotator_results": [
+    {
+      "ambiguous_count": 0,
+      "ambiguous_rate": 0.0,
+      "annotator_id": "human_annotator_1",
+      "automatic_sufficient_precision": 1.0,
+      "automatic_sufficient_precision_ci_high_95": 0.9999999999999999,
+      "automatic_sufficient_precision_ci_low_95": 0.8864866068260312,
+      "benchmark_impossible_audit": {
+        "eligible_non_ambiguous_count": 30,
+        "human_context_sufficient_count": 8,
+        "human_context_sufficient_rate": 0.26666666666666666
+      },
+      "completed_count": 150,
+      "eligible_non_ambiguous_count": 150,
+      "metrics_by_sampling_stratum": [
+        {
+          "accuracy": 1.0,
+          "accuracy_ci_high_95": 0.9999999999999999,
+          "accuracy_ci_low_95": 0.8864866068260312,
+          "ambiguous_count": 0,
+          "ambiguous_rate": 0.0,
+          "completed_count": 30,
+          "confusion_matrix": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 30
+          },
+          "development_population_count": 1686,
+          "development_population_prevalence": 0.18246753246753247,
+          "eligible_non_ambiguous_count": 30,
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "sampling_stratum": "automatic_positive"
+        },
+        {
+          "accuracy": 0.06666666666666667,
+          "accuracy_ci_high_95": 0.2132345836261692,
+          "accuracy_ci_low_95": 0.018477023791270378,
+          "ambiguous_count": 0,
+          "ambiguous_rate": 0.0,
+          "completed_count": 30,
+          "confusion_matrix": {
+            "fn": 28,
+            "fp": 0,
+            "tn": 2,
+            "tp": 0
+          },
+          "development_population_count": 1014,
+          "development_population_prevalence": 0.10974025974025974,
+          "eligible_non_ambiguous_count": 30,
+          "f1": 0.0,
+          "precision": null,
+          "recall": 0.0,
+          "sampling_stratum": "partial_overlap"
+        },
+        {
+          "accuracy": 0.5,
+          "accuracy_ci_high_95": 0.6684587435946623,
+          "accuracy_ci_low_95": 0.33154125640533766,
+          "ambiguous_count": 0,
+          "ambiguous_rate": 0.0,
+          "completed_count": 30,
+          "confusion_matrix": {
+            "fn": 15,
+            "fp": 0,
+            "tn": 15,
+            "tp": 0
+          },
+          "development_population_count": 787,
+          "development_population_prevalence": 0.08517316017316018,
+          "eligible_non_ambiguous_count": 30,
+          "f1": 0.0,
+          "precision": null,
+          "recall": 0.0,
+          "sampling_stratum": "correct_document_insufficient"
+        },
+        {
+          "accuracy": 0.8333333333333334,
+          "accuracy_ci_high_95": 0.9266345762815145,
+          "accuracy_ci_low_95": 0.6643564949358398,
+          "ambiguous_count": 0,
+          "ambiguous_rate": 0.0,
+          "completed_count": 30,
+          "confusion_matrix": {
+            "fn": 5,
+            "fp": 0,
+            "tn": 25,
+            "tp": 0
+          },
+          "development_population_count": 2693,
+          "development_population_prevalence": 0.29145021645021646,
+          "eligible_non_ambiguous_count": 30,
+          "f1": 0.0,
+          "precision": null,
+          "recall": 0.0,
+          "sampling_stratum": "wrong_document_retrieval"
+        },
+        {
+          "accuracy": 0.7333333333333333,
+          "accuracy_ci_high_95": 0.8581733668040368,
+          "accuracy_ci_low_95": 0.555520383048111,
+          "ambiguous_count": 0,
+          "ambiguous_rate": 0.0,
+          "completed_count": 30,
+          "confusion_matrix": {
+            "fn": 8,
+            "fp": 0,
+            "tn": 22,
+            "tp": 0
+          },
+          "development_population_count": 3060,
+          "development_population_prevalence": 0.33116883116883117,
+          "eligible_non_ambiguous_count": 30,
+          "f1": 0.0,
+          "precision": null,
+          "recall": 0.0,
+          "sampling_stratum": "benchmark_impossible"
+        }
+      ],
+      "prevalence_weighted_metrics": {
+        "accuracy": 0.7181024531024531,
+        "ambiguous_rate": 0.0,
+        "development_population_total": 9240,
+        "estimated_confusion_proportions": {
+          "fn": 0.2818975468975469,
+          "fp": 0.0,
+          "tn": 0.5356349206349207,
+          "tp": 0.18246753246753247
+        },
+        "f1": 0.5641877948935314,
+        "method": "stratum-prevalence-weighted confusion-rate aggregation",
+        "precision": 1.0,
+        "recall": 0.3929398238063423,
+        "status": "available"
+      },
+      "sample_unweighted_metrics": {
+        "accuracy": 0.6266666666666667,
+        "accuracy_ci_high_95": 0.7000016861088478,
+        "accuracy_ci_low_95": 0.5470058519845729,
+        "confusion_matrix": {
+          "fn": 56,
+          "fp": 0,
+          "tn": 64,
+          "tp": 30
+        },
+        "f1": 0.5172413793103449,
+        "interpretation": "descriptive for the deliberately equal-allocation audit sample only; not an estimate of natural TRAIN+VALIDATION population performance",
+        "precision": 1.0,
+        "recall": 0.3488372093023256
+      }
+    }
+  ],
+  "completed_human_annotations": 150,
+  "development_population_stratum_counts": {
+    "automatic_positive": 1686,
+    "benchmark_impossible": 3060,
+    "correct_document_insufficient": 787,
+    "partial_overlap": 1014,
+    "wrong_document_retrieval": 2693
+  },
+  "disagreement_category_counts": {
+    "automatic_insufficient_human_sufficient": 56
+  },
+  "disagreement_records": {
+    "path": "artifacts/results/phase03_annotation_disagreements.csv",
+    "row_count": 56
+  },
+  "inter_annotator_agreement": {
+    "annotators": [
+      "human_annotator_1"
+    ],
+    "cohens_kappa": null,
+    "double_annotated": 0,
+    "overlap_limitation": "second genuine human annotation is unavailable",
+    "raw_agreement": null,
+    "status": "pending_second_human_annotator",
+    "target_double_annotated": 100
+  },
+  "predeclared_gate_report": {
+    "automatic_label_quality_status": "fail",
+    "automatic_sufficient_precision": {
+      "observed": 1.0,
+      "status": "pass",
+      "target_minimum": 0.9
+    },
+    "benchmark_impossible_human_sufficient_rate": {
+      "exclusion_trigger_strictly_greater_than": 0.1,
+      "observed": 0.26666666666666666,
+      "required_phase4_action": "exclude benchmark-impossible negatives from PRIMARY Phase 4 classifier training; retain only for separately reported sensitivity analysis",
+      "status": "exclusion_required"
+    },
+    "human_human_cohens_kappa": {
+      "desirable_minimum": 0.8,
+      "observed": null,
+      "status": "pending_second_human_annotator"
+    },
+    "prevalence_weighted_f1": {
+      "observed": 0.5641877948935314,
+      "status": "fail",
+      "target_minimum": 0.85
+    },
+    "purpose": "internal research-validity gates; not universal benchmark thresholds"
+  },
+  "primary_annotator_id": "human_annotator_1",
+  "schema_version": "phase03-human-validation-v2",
+  "stratified_sample_interpretation": "The 150-example equal-allocation sample is not self-weighting. Its unweighted overall accuracy is descriptive only and is not a natural development-population estimate."
+}

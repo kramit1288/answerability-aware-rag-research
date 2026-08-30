@@ -1,0 +1,559 @@
+{
+  "base_semantic_config_sha256": "3f4171a0e5c5edaa6c796f88bc97d7f74c4500c19955eeec09373f56c8f7b6ad",
+  "candidate_comparison": [
+    {
+      "model_id": "cross-encoder/nli-deberta-v3-base",
+      "revision": "6c749ce3425cd33b46d187e45b92bbf96ee12ec7",
+      "sample_f1": 0.32258064516129037,
+      "sample_precision": 1.0,
+      "sample_recall": 0.19230769230769232,
+      "selected_overall": false,
+      "selected_thresholds": {
+        "maximum_selected_premise_contradiction": 0.25,
+        "mean_claim_entailment": 0.5,
+        "minimum_claim_entailment": 0.5
+      },
+      "status": "evaluated",
+      "weighted_f1": 0.3650365444336397,
+      "weighted_precision": 1.0,
+      "weighted_recall": 0.2232689319084438
+    },
+    {
+      "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+      "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+      "sample_f1": 0.44000000000000006,
+      "sample_precision": 1.0,
+      "sample_recall": 0.28205128205128205,
+      "selected_overall": true,
+      "selected_thresholds": {
+        "maximum_selected_premise_contradiction": 0.5,
+        "mean_claim_entailment": 0.65,
+        "minimum_claim_entailment": 0.3
+      },
+      "status": "evaluated",
+      "weighted_f1": 0.49381949009890264,
+      "weighted_precision": 1.0,
+      "weighted_recall": 0.3278620901364134
+    },
+    {
+      "model_id": "facebook/bart-large-mnli",
+      "revision": "d7645e127eaf1aefc7862fd59a17a5aa8558b8ce",
+      "sample_f1": 0.42424242424242425,
+      "sample_precision": 1.0,
+      "sample_recall": 0.2692307692307692,
+      "selected_overall": false,
+      "selected_thresholds": {
+        "maximum_selected_premise_contradiction": 0.5,
+        "mean_claim_entailment": 0.3,
+        "minimum_claim_entailment": 0.3
+      },
+      "status": "evaluated",
+      "weighted_f1": 0.4852069286212508,
+      "weighted_precision": 1.0,
+      "weighted_recall": 0.32031235010840153
+    }
+  ],
+  "confirmation_sample": {
+    "answer_key_evaluation_status": "sealed_until_complete_genuine_human_confirmation",
+    "automatic_sufficient_precision_gate": 0.9,
+    "depth_counts": {
+      "1": 25,
+      "10": 25,
+      "3": 25,
+      "5": 25
+    },
+    "overlap_with_original_conditions": 0,
+    "overlap_with_original_questions": 0,
+    "prevalence_weighted_f1_gate": 0.85,
+    "primary_human_annotation": "pending",
+    "primary_population_strata": {
+      "strict_negative_semantic_negative": 4350,
+      "strict_negative_semantic_positive": 120,
+      "strict_positive_semantic_negative": 790,
+      "strict_positive_semantic_positive": 896
+    },
+    "sample_rows": 100,
+    "sample_strata": {
+      "strict_negative_semantic_negative": 42,
+      "strict_negative_semantic_positive": 24,
+      "strict_positive_semantic_negative": 10,
+      "strict_positive_semantic_positive": 24
+    },
+    "schema_version": "phase03-semantic-confirmation-status-v1",
+    "second_human_annotation": "desirable_not_required",
+    "semantic_label_governance_sha256": "233c61c45c7ad75b876e81deeb290d546a13f034f1d18c82787aea678ba0f533",
+    "semantic_unevaluable_rows_in_sample": 0,
+    "split_counts": {
+      "train": 71,
+      "validation": 29
+    },
+    "strategy_counts": {
+      "bm25": 33,
+      "dense": 33,
+      "hybrid": 34
+    },
+    "test_rows": 0,
+    "unique_questions": 100
+  },
+  "development_performance": {
+    "all_original_strata_diagnostic": [
+      {
+        "accuracy": 0.6,
+        "confusion_matrix": {
+          "fn": 12,
+          "fp": 0,
+          "tn": 0,
+          "tp": 18
+        },
+        "count": 30,
+        "f1": 0.7499999999999999,
+        "precision": 1.0,
+        "recall": 0.6,
+        "sampling_stratum": "automatic_positive",
+        "status": "available"
+      },
+      {
+        "accuracy": 0.16666666666666666,
+        "confusion_matrix": {
+          "fn": 25,
+          "fp": 0,
+          "tn": 2,
+          "tp": 3
+        },
+        "count": 30,
+        "f1": 0.19354838709677416,
+        "precision": 1.0,
+        "recall": 0.10714285714285714,
+        "sampling_stratum": "partial_overlap",
+        "status": "available"
+      },
+      {
+        "accuracy": 0.5333333333333333,
+        "confusion_matrix": {
+          "fn": 14,
+          "fp": 0,
+          "tn": 15,
+          "tp": 1
+        },
+        "count": 30,
+        "f1": 0.125,
+        "precision": 1.0,
+        "recall": 0.06666666666666667,
+        "sampling_stratum": "correct_document_insufficient",
+        "status": "available"
+      },
+      {
+        "accuracy": 0.8333333333333334,
+        "confusion_matrix": {
+          "fn": 5,
+          "fp": 0,
+          "tn": 25,
+          "tp": 0
+        },
+        "count": 30,
+        "f1": 0.0,
+        "precision": null,
+        "recall": 0.0,
+        "sampling_stratum": "wrong_document_retrieval",
+        "status": "available"
+      },
+      {
+        "human_audit_count": 30,
+        "human_sufficient_count": 8,
+        "human_sufficient_rate": 0.26666666666666666,
+        "sampling_stratum": "benchmark_impossible",
+        "status": "not_evaluable_no_reference_answer"
+      }
+    ],
+    "answerable_only_primary": {
+      "confusion_matrix": {
+        "fn": 56,
+        "fp": 0,
+        "tn": 42,
+        "tp": 22
+      },
+      "count": 120,
+      "prevalence_weighted_metrics": {
+        "accuracy": 0.6220873786407767,
+        "estimated_confusion_proportions": {
+          "fn": 0.37791262135922327,
+          "fp": 0.0,
+          "tn": 0.43774541531823086,
+          "tp": 0.18434196332254582
+        },
+        "f1": 0.49381949009890264,
+        "metrics_by_stratum": [
+          {
+            "accuracy": 0.6,
+            "completed_count": 30,
+            "confusion_matrix": {
+              "fn": 12,
+              "fp": 0,
+              "tn": 0,
+              "tp": 18
+            },
+            "development_population_count": 1686,
+            "f1": 0.7499999999999999,
+            "precision": 1.0,
+            "recall": 0.6,
+            "sampling_stratum": "automatic_positive"
+          },
+          {
+            "accuracy": 0.16666666666666666,
+            "completed_count": 30,
+            "confusion_matrix": {
+              "fn": 25,
+              "fp": 0,
+              "tn": 2,
+              "tp": 3
+            },
+            "development_population_count": 1014,
+            "f1": 0.19354838709677416,
+            "precision": 1.0,
+            "recall": 0.10714285714285714,
+            "sampling_stratum": "partial_overlap"
+          },
+          {
+            "accuracy": 0.5333333333333333,
+            "completed_count": 30,
+            "confusion_matrix": {
+              "fn": 14,
+              "fp": 0,
+              "tn": 15,
+              "tp": 1
+            },
+            "development_population_count": 787,
+            "f1": 0.125,
+            "precision": 1.0,
+            "recall": 0.06666666666666667,
+            "sampling_stratum": "correct_document_insufficient"
+          },
+          {
+            "accuracy": 0.8333333333333334,
+            "completed_count": 30,
+            "confusion_matrix": {
+              "fn": 5,
+              "fp": 0,
+              "tn": 25,
+              "tp": 0
+            },
+            "development_population_count": 2693,
+            "f1": 0.0,
+            "precision": null,
+            "recall": 0.0,
+            "sampling_stratum": "wrong_document_retrieval"
+          }
+        ],
+        "population_total": 6180,
+        "precision": 1.0,
+        "recall": 0.3278620901364134,
+        "status": "available"
+      },
+      "sample_metrics": {
+        "accuracy": 0.5333333333333333,
+        "f1": 0.44000000000000006,
+        "precision": 1.0,
+        "recall": 0.28205128205128205
+      }
+    },
+    "previous_strict_false_negatives_answerable": {
+      "by_stratum": {
+        "correct_document_insufficient": 1,
+        "partial_overlap": 3
+      },
+      "count": 48,
+      "recovered_semantic_positive": 4,
+      "retained_semantic_negative": 44
+    }
+  },
+  "git_commit_sha": "e6f455751a70936e04e725d877cf65180da12372",
+  "limitations": [
+    "The original 150 annotations are development-only after method selection.",
+    "Questions with any frozen-segmentation claim exceeding the selected model pair-input budget have y_suff_semantic missing and are excluded rather than described as insufficient.",
+    "Benchmark-impossible examples have no reference answer and are not semantically NLI-evaluable; their original human contamination audit remains diagnostic.",
+    "One primary human annotator was available, so inter-annotator agreement remains unavailable.",
+    "The revised semantic rule remains provisional until the new blinded confirmation sample passes unchanged gates."
+  ],
+  "phase4_started": false,
+  "primary_population": {
+    "condition_counts_by_split": {
+      "train": 5112,
+      "validation": 1068
+    },
+    "condition_rows": 6180,
+    "evaluable_condition_counts_by_split": {
+      "train": 5088,
+      "validation": 1068
+    },
+    "question_counts_by_split": {
+      "train": 426,
+      "validation": 89
+    },
+    "question_rows": 515,
+    "semantic_evaluable_condition_rows": 6156,
+    "semantic_evaluable_question_rows": 513,
+    "semantic_unevaluable_condition_rows": 24,
+    "semantic_unevaluable_exclusion_reasons": {
+      "claim_exceeds_frozen_nli_pair_budget": 24
+    },
+    "semantic_unevaluable_question_rows": 2
+  },
+  "run_id": "phase03-semantic-98f7279821921d82",
+  "schema_version": "phase03-semantic-refinement-results-v2",
+  "selected_method": {
+    "base_semantic_config_sha256": "3f4171a0e5c5edaa6c796f88bc97d7f74c4500c19955eeec09373f56c8f7b6ad",
+    "candidate_models": [
+      {
+        "candidate_order": 1,
+        "model_id": "cross-encoder/nli-deberta-v3-base",
+        "revision": "6c749ce3425cd33b46d187e45b92bbf96ee12ec7"
+      },
+      {
+        "candidate_order": 2,
+        "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+        "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb"
+      },
+      {
+        "candidate_order": 3,
+        "model_id": "facebook/bart-large-mnli",
+        "revision": "d7645e127eaf1aefc7862fd59a17a5aa8558b8ce"
+      }
+    ],
+    "claim_segmentation": {
+      "bullet_and_numbered_list_boundaries": true,
+      "html_unescape": true,
+      "llm_claim_rewriting": false,
+      "long_claim_policy": "fail_if_claim_exceeds_model_pair_budget",
+      "semicolon_independent_statement_rule": "both sides contain at least four alphanumeric tokens and a conservative finite-verb marker",
+      "sentence_boundaries": true,
+      "strip_html_tags": true,
+      "version": "reference-claims-sentence-list-semicolon-v1"
+    },
+    "compatibility": [
+      {
+        "device": "cpu",
+        "dtype": "float32",
+        "id2label": {
+          "0": "contradiction",
+          "1": "entailment",
+          "2": "neutral"
+        },
+        "max_sequence_length": 256,
+        "model_class": "DebertaV2ForSequenceClassification",
+        "model_id": "cross-encoder/nli-deberta-v3-base",
+        "revision": "6c749ce3425cd33b46d187e45b92bbf96ee12ec7",
+        "status": "compatible",
+        "tokenizer_class": "DebertaV2Tokenizer"
+      },
+      {
+        "device": "cpu",
+        "dtype": "float32",
+        "id2label": {
+          "0": "entailment",
+          "1": "neutral",
+          "2": "contradiction"
+        },
+        "max_sequence_length": 256,
+        "model_class": "DebertaV2ForSequenceClassification",
+        "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+        "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+        "status": "compatible",
+        "tokenizer_class": "DebertaV2Tokenizer"
+      },
+      {
+        "device": "cpu",
+        "dtype": "float32",
+        "id2label": {
+          "0": "contradiction",
+          "1": "neutral",
+          "2": "entailment"
+        },
+        "max_sequence_length": 256,
+        "model_class": "BartForSequenceClassification",
+        "model_id": "facebook/bart-large-mnli",
+        "revision": "d7645e127eaf1aefc7862fd59a17a5aa8558b8ce",
+        "status": "compatible",
+        "tokenizer_class": "RobertaTokenizer"
+      }
+    ],
+    "context_aggregation": {
+      "candidate_scope": "sentence and list snippets from every retrieved chunk participate in deterministic claim-token-overlap ranking",
+      "claim_aggregation": "entailment of the single deterministic claim-targeted multi-chunk window",
+      "claim_truncation": false,
+      "condition_aggregation": "all claim minima plus mean-support threshold and selected-premise contradiction veto",
+      "max_sequence_length": 256,
+      "pair_rendering": "selected snippets restored to retrieval-rank and source-segment order with explicit rank separators",
+      "per_chunk_maximum_snippets": 2,
+      "premise_truncation": "equal_budget_per_constituent_with_head_tail_retention",
+      "selected_snippet_maximum": 3,
+      "selection": "select up to three snippets, preferring distinct chunks before a second snippet from any chunk; ties use retrieval rank, source segment index, then chunk_id",
+      "unit_types": [
+        "claim_ranked_multi_chunk_window"
+      ],
+      "version": "claim-ranked-multi-chunk-window-v1"
+    },
+    "frozen_before_confirmation_sampling": true,
+    "incompatible_candidates": [],
+    "label_definition": "sufficient iff every deterministic reference claim meets the minimum entailment threshold, mean claim entailment meets its threshold, and the largest contradiction score attached to each claim's selected maximum-entailment premise remains below the contradiction threshold",
+    "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "model_revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+    "primary_population": {
+      "benchmark_answerable_only": true,
+      "exclude_benchmark_impossible": true,
+      "exclude_unresolved_reference_or_evidence": true,
+      "require_defensible_alignment": true,
+      "splits": [
+        "train",
+        "validation"
+      ]
+    },
+    "schema_version": "phase03-semantic-selected-method-v1",
+    "selected_development_objective": {
+      "fn": 56,
+      "fp": 0,
+      "sample_f1": 0.44000000000000006,
+      "sample_precision": 1.0,
+      "sample_recall": 0.28205128205128205,
+      "tn": 42,
+      "tp": 22,
+      "weighted_accuracy": 0.6220873786407767,
+      "weighted_f1": 0.49381949009890264,
+      "weighted_precision": 1.0,
+      "weighted_recall": 0.3278620901364134
+    },
+    "selection_objective": [
+      "precision_gate",
+      "prevalence_weighted_f1_desc",
+      "prevalence_weighted_recall_desc",
+      "prevalence_weighted_precision_desc",
+      "candidate_order_asc",
+      "minimum_claim_entailment_desc",
+      "mean_claim_entailment_desc",
+      "maximum_contradiction_asc"
+    ],
+    "semantic_config_sha256": "98f7279821921d825470ee64efa810777e5b331d4c978e6234e7b689b6657fdf",
+    "thresholds": {
+      "maximum_selected_premise_contradiction": 0.5,
+      "mean_claim_entailment": 0.65,
+      "minimum_claim_entailment": 0.3
+    },
+    "tie_breaking": "maximum entailment ties use lexicographically ascending context unit ID"
+  },
+  "semantic_config_sha256": "98f7279821921d825470ee64efa810777e5b331d4c978e6234e7b689b6657fdf",
+  "semantic_configuration_relationship": {
+    "label_governance_configuration_sha256": "233c61c45c7ad75b876e81deeb290d546a13f034f1d18c82787aea678ba0f533",
+    "scoring_configuration_changed_by_governance": false,
+    "scoring_configuration_sha256": "98f7279821921d825470ee64efa810777e5b331d4c978e6234e7b689b6657fdf"
+  },
+  "semantic_label_governance_sha256": "233c61c45c7ad75b876e81deeb290d546a13f034f1d18c82787aea678ba0f533",
+  "strict_vs_semantic": {
+    "agreement_conditions": 5246,
+    "all_conditions_strict_positive": 1686,
+    "by_strategy_and_k": [
+      {
+        "agreement": 485,
+        "conditions": 513,
+        "k": 1,
+        "retrieval_strategy": "bm25",
+        "semantic_positive": 87,
+        "strict_positive": 91
+      },
+      {
+        "agreement": 446,
+        "conditions": 513,
+        "k": 3,
+        "retrieval_strategy": "bm25",
+        "semantic_positive": 69,
+        "strict_positive": 118
+      },
+      {
+        "agreement": 434,
+        "conditions": 513,
+        "k": 5,
+        "retrieval_strategy": "bm25",
+        "semantic_positive": 69,
+        "strict_positive": 136
+      },
+      {
+        "agreement": 412,
+        "conditions": 513,
+        "k": 10,
+        "retrieval_strategy": "bm25",
+        "semantic_positive": 74,
+        "strict_positive": 161
+      },
+      {
+        "agreement": 483,
+        "conditions": 513,
+        "k": 1,
+        "retrieval_strategy": "dense",
+        "semantic_positive": 89,
+        "strict_positive": 87
+      },
+      {
+        "agreement": 437,
+        "conditions": 513,
+        "k": 3,
+        "retrieval_strategy": "dense",
+        "semantic_positive": 89,
+        "strict_positive": 141
+      },
+      {
+        "agreement": 417,
+        "conditions": 513,
+        "k": 5,
+        "retrieval_strategy": "dense",
+        "semantic_positive": 86,
+        "strict_positive": 160
+      },
+      {
+        "agreement": 390,
+        "conditions": 513,
+        "k": 10,
+        "retrieval_strategy": "dense",
+        "semantic_positive": 94,
+        "strict_positive": 195
+      },
+      {
+        "agreement": 484,
+        "conditions": 513,
+        "k": 1,
+        "retrieval_strategy": "hybrid",
+        "semantic_positive": 100,
+        "strict_positive": 101
+      },
+      {
+        "agreement": 442,
+        "conditions": 513,
+        "k": 3,
+        "retrieval_strategy": "hybrid",
+        "semantic_positive": 82,
+        "strict_positive": 143
+      },
+      {
+        "agreement": 419,
+        "conditions": 513,
+        "k": 5,
+        "retrieval_strategy": "hybrid",
+        "semantic_positive": 83,
+        "strict_positive": 161
+      },
+      {
+        "agreement": 397,
+        "conditions": 513,
+        "k": 10,
+        "retrieval_strategy": "hybrid",
+        "semantic_positive": 94,
+        "strict_positive": 192
+      }
+    ],
+    "comparison_scope": "semantic_evaluable_conditions_only",
+    "disagreement_conditions": 910,
+    "semantic_positive_conditions": 1016,
+    "strict_negative_semantic_positive_revisions": 120,
+    "strict_positive_conditions": 1686,
+    "strict_positive_semantic_negative_revisions": 790
+  },
+  "test_semantic_aggregates_calculated": false,
+  "test_semantic_scores_calculated": false
+}

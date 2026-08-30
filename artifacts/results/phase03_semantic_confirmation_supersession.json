@@ -1,0 +1,13 @@
+{
+  "answer_key_values_opened": false,
+  "human_annotations_present": false,
+  "phase4_started": false,
+  "prior_confirmation_answer_key_sha256": "db4014068b754211a445c008b1df3908596aeb91b0a3d386e31bd355e6dce9f0",
+  "prior_confirmation_blinded_sha256": "d83309af3bee48dbb409795bde4a8a6d7b5dda8f45a9d8efd0a2b0f1242cf1bb",
+  "prior_confirmation_manifest_sha256": "93539c41f032001b56150c24e3570f54e42dda1a217ede91eba7d518f17340b7",
+  "prior_confirmation_status": "superseded_unannotated",
+  "prior_confirmation_template_sha256": "a9cb572de743e337e590ead21a07e0ea29b3536ac391527c02a3305d33a23529",
+  "reason": "semantic-only target not accepted; superseded before annotation by the Phase 3.6b decision",
+  "schema_version": "phase03-semantic-confirmation-supersession-v1",
+  "test_outcomes_sealed": true
+}

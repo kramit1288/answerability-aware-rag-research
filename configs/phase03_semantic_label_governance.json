@@ -1,0 +1,49 @@
+{
+  "schema_version": "phase03-semantic-label-governance-config-v1",
+  "decision_date": "2026-08-30",
+  "decision_timing": "frozen before semantic label generation, independent confirmation sampling, Phase 4 training, and TEST evaluation",
+  "semantic_scoring_configuration": {
+    "sha256": "98f7279821921d825470ee64efa810777e5b331d4c978e6234e7b689b6657fdf",
+    "relationship": "unchanged selected model, revision, claim segmentation, NLI thresholds, aggregation, float32 inference, and context handling"
+  },
+  "semantic_unevaluable_policy": {
+    "rule": "If any reference-answer claim produced by the frozen deterministic claim-segmentation procedure exceeds the selected NLI model's valid pair-input budget, every retrieval condition for that question is semantic-unevaluable.",
+    "detection": "claim_token_count + model_pair_special_token_count >= model_max_sequence_length",
+    "scope": "mechanically applied to every matching question, without question-ID-specific exceptions",
+    "semantic_label_status": "unevaluable",
+    "exclusion_reason": "claim_exceeds_frozen_nli_pair_budget",
+    "y_suff_semantic": null,
+    "preserve_y_suff_strict": true,
+    "claim_truncation": false,
+    "post_hoc_claim_segmentation": false,
+    "exclude_from": [
+      "PRIMARY Phase 4 semantic-target training",
+      "calibration",
+      "threshold selection",
+      "primary evaluation",
+      "independent semantic confirmation sampling"
+    ],
+    "retain_for": [
+      "transparent exclusion accounting",
+      "strict-label diagnostics"
+    ],
+    "required_metadata": [
+      "claim token lengths",
+      "maximum claim token length",
+      "model maximum sequence length",
+      "model pair special-token count",
+      "maximum valid claim-only token count"
+    ]
+  },
+  "rationale": [
+    "Truncation could remove evidence-bearing content.",
+    "Introducing new segmentation after model and threshold selection would change the frozen semantic procedure.",
+    "An explicit missing semantic target and exclusion preserves methodological integrity.",
+    "The affected population is small and is reported transparently."
+  ],
+  "test_seal": {
+    "calculate_test_semantic_scores": false,
+    "calculate_test_semantic_aggregates": false
+  },
+  "phase4_started": false
+}

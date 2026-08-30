@@ -1,0 +1,42 @@
+{
+  "answer_key_evaluation_status": "sealed_until_complete_genuine_human_confirmation",
+  "automatic_sufficient_precision_gate": 0.9,
+  "depth_counts": {
+    "1": 25,
+    "10": 25,
+    "3": 25,
+    "5": 25
+  },
+  "overlap_with_original_conditions": 0,
+  "overlap_with_original_questions": 0,
+  "prevalence_weighted_f1_gate": 0.85,
+  "primary_human_annotation": "pending",
+  "primary_population_strata": {
+    "strict_negative_semantic_negative": 4350,
+    "strict_negative_semantic_positive": 120,
+    "strict_positive_semantic_negative": 790,
+    "strict_positive_semantic_positive": 896
+  },
+  "sample_rows": 100,
+  "sample_strata": {
+    "strict_negative_semantic_negative": 42,
+    "strict_negative_semantic_positive": 24,
+    "strict_positive_semantic_negative": 10,
+    "strict_positive_semantic_positive": 24
+  },
+  "schema_version": "phase03-semantic-confirmation-status-v1",
+  "second_human_annotation": "desirable_not_required",
+  "semantic_label_governance_sha256": "233c61c45c7ad75b876e81deeb290d546a13f034f1d18c82787aea678ba0f533",
+  "semantic_unevaluable_rows_in_sample": 0,
+  "split_counts": {
+    "train": 71,
+    "validation": 29
+  },
+  "strategy_counts": {
+    "bm25": 33,
+    "dense": 33,
+    "hybrid": 34
+  },
+  "test_rows": 0,
+  "unique_questions": 100
+}

@@ -1,0 +1,139 @@
+{
+  "base_semantic_config_sha256": "3f4171a0e5c5edaa6c796f88bc97d7f74c4500c19955eeec09373f56c8f7b6ad",
+  "candidate_models": [
+    {
+      "candidate_order": 1,
+      "model_id": "cross-encoder/nli-deberta-v3-base",
+      "revision": "6c749ce3425cd33b46d187e45b92bbf96ee12ec7"
+    },
+    {
+      "candidate_order": 2,
+      "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+      "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb"
+    },
+    {
+      "candidate_order": 3,
+      "model_id": "facebook/bart-large-mnli",
+      "revision": "d7645e127eaf1aefc7862fd59a17a5aa8558b8ce"
+    }
+  ],
+  "claim_segmentation": {
+    "bullet_and_numbered_list_boundaries": true,
+    "html_unescape": true,
+    "llm_claim_rewriting": false,
+    "long_claim_policy": "fail_if_claim_exceeds_model_pair_budget",
+    "semicolon_independent_statement_rule": "both sides contain at least four alphanumeric tokens and a conservative finite-verb marker",
+    "sentence_boundaries": true,
+    "strip_html_tags": true,
+    "version": "reference-claims-sentence-list-semicolon-v1"
+  },
+  "compatibility": [
+    {
+      "device": "cpu",
+      "dtype": "float32",
+      "id2label": {
+        "0": "contradiction",
+        "1": "entailment",
+        "2": "neutral"
+      },
+      "max_sequence_length": 256,
+      "model_class": "DebertaV2ForSequenceClassification",
+      "model_id": "cross-encoder/nli-deberta-v3-base",
+      "revision": "6c749ce3425cd33b46d187e45b92bbf96ee12ec7",
+      "status": "compatible",
+      "tokenizer_class": "DebertaV2Tokenizer"
+    },
+    {
+      "device": "cpu",
+      "dtype": "float32",
+      "id2label": {
+        "0": "entailment",
+        "1": "neutral",
+        "2": "contradiction"
+      },
+      "max_sequence_length": 256,
+      "model_class": "DebertaV2ForSequenceClassification",
+      "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+      "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+      "status": "compatible",
+      "tokenizer_class": "DebertaV2Tokenizer"
+    },
+    {
+      "device": "cpu",
+      "dtype": "float32",
+      "id2label": {
+        "0": "contradiction",
+        "1": "neutral",
+        "2": "entailment"
+      },
+      "max_sequence_length": 256,
+      "model_class": "BartForSequenceClassification",
+      "model_id": "facebook/bart-large-mnli",
+      "revision": "d7645e127eaf1aefc7862fd59a17a5aa8558b8ce",
+      "status": "compatible",
+      "tokenizer_class": "RobertaTokenizer"
+    }
+  ],
+  "context_aggregation": {
+    "candidate_scope": "sentence and list snippets from every retrieved chunk participate in deterministic claim-token-overlap ranking",
+    "claim_aggregation": "entailment of the single deterministic claim-targeted multi-chunk window",
+    "claim_truncation": false,
+    "condition_aggregation": "all claim minima plus mean-support threshold and selected-premise contradiction veto",
+    "max_sequence_length": 256,
+    "pair_rendering": "selected snippets restored to retrieval-rank and source-segment order with explicit rank separators",
+    "per_chunk_maximum_snippets": 2,
+    "premise_truncation": "equal_budget_per_constituent_with_head_tail_retention",
+    "selected_snippet_maximum": 3,
+    "selection": "select up to three snippets, preferring distinct chunks before a second snippet from any chunk; ties use retrieval rank, source segment index, then chunk_id",
+    "unit_types": [
+      "claim_ranked_multi_chunk_window"
+    ],
+    "version": "claim-ranked-multi-chunk-window-v1"
+  },
+  "frozen_before_confirmation_sampling": true,
+  "incompatible_candidates": [],
+  "label_definition": "sufficient iff every deterministic reference claim meets the minimum entailment threshold, mean claim entailment meets its threshold, and the largest contradiction score attached to each claim's selected maximum-entailment premise remains below the contradiction threshold",
+  "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+  "model_revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+  "primary_population": {
+    "benchmark_answerable_only": true,
+    "exclude_benchmark_impossible": true,
+    "exclude_unresolved_reference_or_evidence": true,
+    "require_defensible_alignment": true,
+    "splits": [
+      "train",
+      "validation"
+    ]
+  },
+  "schema_version": "phase03-semantic-selected-method-v1",
+  "selected_development_objective": {
+    "fn": 56,
+    "fp": 0,
+    "sample_f1": 0.44000000000000006,
+    "sample_precision": 1.0,
+    "sample_recall": 0.28205128205128205,
+    "tn": 42,
+    "tp": 22,
+    "weighted_accuracy": 0.6220873786407767,
+    "weighted_f1": 0.49381949009890264,
+    "weighted_precision": 1.0,
+    "weighted_recall": 0.3278620901364134
+  },
+  "selection_objective": [
+    "precision_gate",
+    "prevalence_weighted_f1_desc",
+    "prevalence_weighted_recall_desc",
+    "prevalence_weighted_precision_desc",
+    "candidate_order_asc",
+    "minimum_claim_entailment_desc",
+    "mean_claim_entailment_desc",
+    "maximum_contradiction_asc"
+  ],
+  "semantic_config_sha256": "98f7279821921d825470ee64efa810777e5b331d4c978e6234e7b689b6657fdf",
+  "thresholds": {
+    "maximum_selected_premise_contradiction": 0.5,
+    "mean_claim_entailment": 0.65,
+    "minimum_claim_entailment": 0.3
+  },
+  "tie_breaking": "maximum entailment ties use lexicographically ascending context unit ID"
+}

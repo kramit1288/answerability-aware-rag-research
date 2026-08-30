@@ -1,5 +1,25 @@
 # Phase 3 artifact schemas
 
+## Phase 3.6b rescue decision artifacts
+
+- `configs/phase03_rescue_grid.json` is the pre-evaluation machine-readable declaration of all
+  59 strict-preserving rescue candidates, input signals, forbidden boundary inputs, frozen
+  population weights, selection order, gates, confirmation exclusions, and upstream hashes.
+- `artifacts/results/phase03_rescue_candidate_grid_freeze.json` records its physical and canonical
+  SHA-256 values and confirms that the grid preceded development-label evaluation.
+- `artifacts/results/phase03_rescue_candidate_results.csv` contains one row per frozen candidate:
+  family/thresholds, ordinary and weighted metrics, confusion matrix, rescue-mechanism counts,
+  and JSON-encoded per-stratum metrics.
+- `artifacts/results/phase03_rescue_development_report.json` records the best member of each
+  family, the selected eligible rule, original/adjudicated transparency comparison, remaining
+  error patterns, frozen-gate outcome, and TEST/Phase 4 seals.
+- `artifacts/results/phase03_semantic_confirmation_supersession.json` marks the existing semantic-
+  only confirmation pack `superseded_unannotated` without modifying or reading its answer-key
+  values.
+- `docs/PHASE_03_6B_DECISION_REQUEST.md` is required when the development gate fails. In that
+  state, `context_sufficiency_final_labels.parquet`, the primary final-target export, and all
+  `phase03_final_confirmation_*` artifacts must not exist.
+
 All research-critical Parquet files use the frozen Phase 2 PyArrow writer settings and canonical
 row ordering. They receive physical and canonical-logical semantic SHA-256 hashes. Gold alignment
 metadata is deliberately separate from future inference features.
@@ -55,6 +75,72 @@ TRAIN+VALIDATION condition counts are read mechanically from
 `context_sufficiency_labels.parquet`; TEST rows and unresolved/null rows are excluded. The physical
 answer key remains separate from all blinded annotator inputs and is joined only by the evaluation
 script after the first-human file is complete.
+
+## Phase 3.6 semantic refinement artifacts
+
+The original 150-row human-validation sample is development-only for Phase 3.6. The semantic
+procedure does not replace or mutate those annotations, and the historical exact-span output is
+retained as `y_suff_strict`.
+
+- `artifacts/results/phase03_semantic_development_condition_scores.parquet` records one
+  condition-level support summary per compatible predeclared candidate and original development
+  condition. Benchmark-impossible rows have the explicit status
+  `not_evaluable_no_reference_answer`; no reference answer is invented for them.
+- `artifacts/results/phase03_semantic_development_claim_scores.parquet` persists deterministic
+  reference-answer claim units and their selected NLI support/contradiction scores.
+- `artifacts/results/phase03_semantic_threshold_search.csv` records every point in the finite,
+  predeclared threshold grid for every compatible candidate.
+- `artifacts/results/phase03_semantic_selected_config.json` freezes the selected model revision,
+  claim segmentation, context-unit aggregation, thresholds, tie-breaking, population definition,
+  and semantic configuration SHA-256 before confirmation sampling.
+- `artifacts/data/context_sufficiency_semantic_labels.parquet` has one row per initially eligible
+  benchmark-answerable TRAIN or VALIDATION retrieval condition. It retains `y_suff_strict` for
+  every row. Semantically evaluable rows have provisional binary `y_suff_semantic`; a question
+  containing any claim beyond the frozen pair-input budget instead has `y_suff_semantic=NA`,
+  `semantic_label_status=unevaluable`, exclusion reason
+  `claim_exceeds_frozen_nli_pair_budget`, and persisted claim-length/model-budget metadata on all
+  of its conditions. These NA rows are not insufficient examples and are not Phase 4 primary
+  semantic-target rows.
+- `artifacts/data/phase03_semantic_claim_scores.parquet` contains the persisted claim units and
+  NLI support evidence used to construct the provisional primary-population labels.
+- `artifacts/data/phase03_semantic_unevaluable_questions.parquet` contains one row per excluded
+  question, its split, condition count, unchanged claim-token lengths, exceeding claim indices,
+  model pair-budget metadata, explicit reason, scoring hash, and label-governance hash.
+- `configs/phase03_semantic_label_governance.json` freezes the mechanical input-budget exclusion
+  policy separately from the already selected semantic scoring configuration. Its canonical hash
+  is the final Phase 3.6 label-governance/configuration hash; it references, but does not redefine,
+  scoring SHA-256 `98f7279821921d825470ee64efa810777e5b331d4c978e6234e7b689b6657fdf`.
+- `artifacts/data/phase03_semantic_column_governance.json` marks reference-, answer-, strict-label-,
+  semantic-label-, score-, and provenance-derived fields as `label_only` or `evaluation_only` and
+  therefore unavailable to Phase 4 feature export. Its coverage includes the revised condition
+  labels, claim-score table, blinded confirmation view, and separate confirmation answer key.
+- `artifacts/results/phase03_semantic_refinement_results.json` contains TRAIN+VALIDATION-only
+  candidate comparison, selected development performance, primary-population counts, and strict
+  versus semantic diagnostics. It contains no aggregate TEST semantic result.
+- `artifacts/results/phase03_semantic_artifact_hashes.json` records physical hashes and semantic
+  hashes where row-oriented canonicalization is defined, plus frozen input and package versions.
+
+## Independent semantic confirmation pack
+
+The confirmation sample is created only after `phase03_semantic_selected_config.json` is frozen.
+It contains exactly 100 benchmark-answerable TRAIN+VALIDATION conditions, uses at most one
+condition per question, and excludes every question represented in the original 150-row
+development sample. It also excludes all semantic-unevaluable questions.
+
+- `phase03_semantic_confirmation_sample_manifest.csv`: seeded sample identities, allocation
+  strata, and frozen semantic configuration hash; separate from the annotator view.
+- `phase03_semantic_confirmation_blinded.parquet`: canonical blinded material with blank human
+  fields and no strict label, semantic label, NLI score, automatic prediction, or answer-key field.
+- `phase03_semantic_confirmation_template.csv`: human-editable CSV view of the same blinded rows.
+- `phase03_semantic_confirmation_answer_key.parquet`: separate automatic labels and semantic
+  diagnostics. It must remain unopened for evaluation until the human template is complete and
+  valid.
+- `phase03_semantic_confirmation_status.json`: sample size, stratum counts, seed, frozen gates,
+  blinding state, and the explicit pending-human-confirmation status.
+
+The confirmation gates are frozen at automatic-sufficient precision at least 0.90 and
+prevalence-weighted F1 at least 0.85. The template is not an evaluated result and must not be
+filled by an LLM or by the semantic procedure.
 
 ## Reports and governance
 

@@ -1,0 +1,113 @@
+{
+  "schema_version": "phase03-strict-preserving-rescue-grid-v1",
+  "decision_date": "2026-08-30",
+  "decision_timing": "frozen before evaluating the adjudicated development labels",
+  "rule_structure": {
+    "strict_positive_action": "retain_positive",
+    "strict_negative_action": "apply_rescue_candidate",
+    "strict_positive_demotion_permitted": false
+  },
+  "candidate_families": {
+    "coverage_only": {
+      "rule": "maximum_span_coverage_fraction >= T_cov",
+      "coverage_thresholds": [0.50, 0.60, 0.70, 0.80, 0.90]
+    },
+    "nli_only": {
+      "rule": "mean_claim_entailment >= T_mean AND minimum_claim_entailment >= T_min AND maximum_selected_premise_contradiction < 0.50",
+      "mean_entailment_thresholds": [0.45, 0.55, 0.65],
+      "minimum_entailment_thresholds": [0.10, 0.20, 0.30],
+      "maximum_selected_premise_contradiction": 0.50
+    },
+    "combined": {
+      "rule": "coverage_only OR nli_only",
+      "coverage_thresholds": [0.50, 0.60, 0.70, 0.80, 0.90],
+      "mean_entailment_thresholds": [0.45, 0.55, 0.65],
+      "minimum_entailment_thresholds": [0.10, 0.20, 0.30],
+      "maximum_selected_premise_contradiction": 0.50
+    }
+  },
+  "candidate_count": 59,
+  "input_signals": [
+    "y_suff_strict",
+    "maximum_span_coverage_fraction",
+    "mean_claim_entailment",
+    "minimum_claim_entailment",
+    "maximum_selected_premise_contradiction"
+  ],
+  "forbidden_boundary_inputs": [
+    "retrieval_strategy",
+    "k",
+    "question_id",
+    "example_id",
+    "sample_id",
+    "split",
+    "benchmark_is_impossible"
+  ],
+  "development": {
+    "selection_annotation_path": "artifacts/results/phase03_annotation_annotator_1_adjudicated.csv",
+    "selection_annotation_sha256": "3e7a87f2da694cbb40930c142549cd70dde86c0d89429885711549cf91b99cc4",
+    "transparency_annotation_path": "artifacts/results/phase03_annotation_annotator_1.csv",
+    "transparency_annotation_sha256": "04c0f33db4ca3ac9d2a58322f6399c1688ef66a48855bbb7c7546ca7d5851959",
+    "eligible_splits": ["train", "validation"],
+    "benchmark_answerable_only": true,
+    "semantic_evaluable_only": true,
+    "non_ambiguous_only": true,
+    "primary_strata": [
+      "automatic_positive",
+      "partial_overlap",
+      "correct_document_insufficient",
+      "wrong_document_retrieval"
+    ],
+    "frozen_population_stratum_counts": {
+      "automatic_positive": 1686,
+      "partial_overlap": 1014,
+      "correct_document_insufficient": 787,
+      "wrong_document_retrieval": 2693
+    }
+  },
+  "selection": {
+    "minimum_ordinary_precision": 0.90,
+    "primary_objective": "maximize_prevalence_weighted_f1",
+    "tie_breaker": "maximize_ordinary_recall",
+    "effective_tie_absolute_tolerance": 1e-12,
+    "simplicity_order": ["coverage_only", "nli_only", "combined"]
+  },
+  "development_gates": {
+    "minimum_ordinary_precision": 0.90,
+    "minimum_prevalence_weighted_f1": 0.85
+  },
+  "confirmation": {
+    "target_size": 50,
+    "unique_questions": true,
+    "seed": 44,
+    "version": "phase03-final-confirmation-question-disjoint-v1",
+    "exclude_original_development_questions": true,
+    "exclude_superseded_semantic_confirmation_questions": true,
+    "exclude_benchmark_impossible": true,
+    "exclude_semantic_unevaluable": true,
+    "human_gate_minimum_ordinary_precision": 0.90,
+    "human_gate_minimum_prevalence_weighted_f1": 0.85,
+    "sample_size_limitation": "Fifty unique questions were frozen before confirmation outcomes because of project time constraints."
+  },
+  "upstream": {
+    "phase01_split_sha256": "4e84c5bdce2d6649f7e9eb8a22271faf0ffb51a5c934fbb642721237cb4292e7",
+    "phase02_chunk_config_sha256": "5f2931faf3ced37054430bf78b755200657799d857a284f563532fc67290dc94",
+    "phase02_retrieval_config_sha256": "f1854ae6f73fddb36da2c407505c05396491771b00d2b97710c2de22d9add4ca",
+    "phase03_configuration_sha256": "8a10e8fd037751f92750a14364a3f50f5343552ddbf02b9e40d5f4d8534acc8e",
+    "phase03_strict_labels_physical_sha256": "00862e10ba6d0eb8661d68df1206381e4712b7731b48ce8cbee18ac5c906fc42",
+    "phase03_semantic_scoring_sha256": "98f7279821921d825470ee64efa810777e5b331d4c978e6234e7b689b6657fdf",
+    "phase03_semantic_label_governance_sha256": "233c61c45c7ad75b876e81deeb290d546a13f034f1d18c82787aea678ba0f533",
+    "semantic_model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "semantic_model_revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb"
+  },
+  "primary_export_exclusions": [
+    "benchmark_impossible",
+    "unresolved_reference_or_evidence",
+    "semantic_unevaluable"
+  ],
+  "test_seal": {
+    "allow_test_load": false,
+    "allow_test_aggregate_outcomes": false
+  },
+  "phase4_started": false
+}

@@ -1,0 +1,11 @@
+{
+  "schema_version": "phase03-rescue-candidate-grid-freeze-v1",
+  "candidate_grid_path": "configs/phase03_rescue_grid.json",
+  "candidate_grid_physical_sha256": "54e2e5a0273b166acdb6e0e13aa6b8d10a5c6f1f1a656715b567040dc3ad575a",
+  "candidate_grid_canonical_sha256": "4112de919a857992a52c077d54d7c64594778c1c9732eb37be69990c17709f78",
+  "candidate_count": 59,
+  "frozen_before_development_label_evaluation": true,
+  "frozen_at_utc": "2026-08-30T07:06:24Z",
+  "test_outcomes_sealed": true,
+  "phase4_started": false
+}

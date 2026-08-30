@@ -1,0 +1,60 @@
+{
+  "artifacts": {
+    "candidate_results": {
+      "bytes": 75326,
+      "columns": [
+        "candidate_order",
+        "family",
+        "T_cov",
+        "T_mean",
+        "T_min",
+        "T_contradiction",
+        "eligible_count",
+        "tn",
+        "fp",
+        "fn",
+        "tp",
+        "sample_accuracy",
+        "sample_precision",
+        "sample_recall",
+        "sample_f1",
+        "weighted_accuracy",
+        "weighted_precision",
+        "weighted_recall",
+        "weighted_f1",
+        "rescued_by_coverage",
+        "rescued_by_nli",
+        "rescue_mechanism_overlap",
+        "weighted_confusion_proportions_json",
+        "metrics_by_stratum_json"
+      ],
+      "path": "C:/answerability-aware-rag-research/artifacts/results/phase03_rescue_candidate_results.csv",
+      "physical_sha256": "ec3e8cbd7f2df2d3f73cc405ea95f8a123d9bd5f3666b7fa35c84719c75025c0",
+      "rows": 59,
+      "semantic_sha256": "7df1c49d608dad30b42e923ee11b48ebb52122362e5540ba2704b08bc403b6c7"
+    },
+    "decision_request": {
+      "path": "C:/answerability-aware-rag-research/docs/PHASE_03_6B_DECISION_REQUEST.md",
+      "physical_sha256": "384ef8e4f201941b13c3fbeb6a132ce4b97170e4445caee86f2c318c14001482"
+    },
+    "development_report": {
+      "bytes": 19159,
+      "path": "C:/answerability-aware-rag-research/artifacts/results/phase03_rescue_development_report.json",
+      "physical_sha256": "daa845257b078a03a530d344d66c94c61295fea450c9e8701826ff1e89a3f0aa"
+    },
+    "supersession": {
+      "bytes": 815,
+      "path": "C:/answerability-aware-rag-research/artifacts/results/phase03_semantic_confirmation_supersession.json",
+      "physical_sha256": "b30f87c681ece27cf4dddaa27060889afe38de7ee55ec58ed053c483abd2a7fd"
+    }
+  },
+  "candidate_count": 59,
+  "candidate_grid_sha256": "4112de919a857992a52c077d54d7c64594778c1c9732eb37be69990c17709f78",
+  "execution_timing": "resumed Phase 3.6b session; no NLI inference executed",
+  "generated_at_utc": "2026-08-30T07:24:05.772226+00:00",
+  "git_commit_sha": "e6f455751a70936e04e725d877cf65180da12372",
+  "phase4_started": false,
+  "run_status": "development_gates_failed_decision_request",
+  "schema_version": "phase03-rescue-artifact-manifest-v1",
+  "test_outcomes_sealed": true
+}

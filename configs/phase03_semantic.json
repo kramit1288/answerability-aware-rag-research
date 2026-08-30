@@ -1,0 +1,121 @@
+{
+  "schema_version": "phase03-semantic-config-v1",
+  "seed": 42,
+  "development_annotations": {
+    "path": "artifacts/results/phase03_annotation_annotator_1.csv",
+    "physical_sha256": "04c0f33db4ca3ac9d2a58322f6399c1688ef66a48855bbb7c7546ca7d5851959",
+    "role": "semantic_method_development_only",
+    "expected_rows": 150
+  },
+  "frozen_inputs": {
+    "phase01_split_sha256": "4e84c5bdce2d6649f7e9eb8a22271faf0ffb51a5c934fbb642721237cb4292e7",
+    "phase02_chunk_config_sha256": "5f2931faf3ced37054430bf78b755200657799d857a284f563532fc67290dc94",
+    "phase02_retrieval_config_sha256": "f1854ae6f73fddb36da2c407505c05396491771b00d2b97710c2de22d9add4ca",
+    "phase02_conditions_semantic_sha256": "8fab5965cd750e4ab694ddac8938a4b5fbe610cd200d8c7573c029e477ed1164",
+    "phase03_strict_labels_physical_sha256": "00862e10ba6d0eb8661d68df1206381e4712b7731b48ce8cbee18ac5c906fc42",
+    "phase03_strict_labels_semantic_sha256": "f1e8e48adae4f371525a2f285c0202177a182028b50f557c5abf018578ee1254",
+    "phase03_original_sample_semantic_sha256": "d02c5ceaab5a588ce9227fa3ccdbc4b616d89d0a3d88235162fa37ee58a6ee51",
+    "original_prototype_sha256": "406a3c0d4781592dcf9824691147c6a271082a368efb0a9c949b8fcf43dd4b73"
+  },
+  "primary_population": {
+    "splits": ["train", "validation"],
+    "benchmark_answerable_only": true,
+    "require_defensible_alignment": true,
+    "exclude_benchmark_impossible": true,
+    "exclude_unresolved_reference_or_evidence": true
+  },
+  "candidate_models": [
+    {
+      "model_id": "cross-encoder/nli-deberta-v3-base",
+      "revision": "6c749ce3425cd33b46d187e45b92bbf96ee12ec7",
+      "candidate_order": 1
+    },
+    {
+      "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+      "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+      "candidate_order": 2
+    },
+    {
+      "model_id": "facebook/bart-large-mnli",
+      "revision": "d7645e127eaf1aefc7862fd59a17a5aa8558b8ce",
+      "candidate_order": 3
+    }
+  ],
+  "claim_segmentation": {
+    "version": "reference-claims-sentence-list-semicolon-v1",
+    "html_unescape": true,
+    "strip_html_tags": true,
+    "sentence_boundaries": true,
+    "bullet_and_numbered_list_boundaries": true,
+    "semicolon_independent_statement_rule": "both sides contain at least four alphanumeric tokens and a conservative finite-verb marker",
+    "long_claim_policy": "fail_if_claim_exceeds_model_pair_budget",
+    "llm_claim_rewriting": false
+  },
+  "context_aggregation": {
+    "version": "claim-ranked-multi-chunk-window-v1",
+    "unit_types": ["claim_ranked_multi_chunk_window"],
+    "candidate_scope": "sentence and list snippets from every retrieved chunk participate in deterministic claim-token-overlap ranking",
+    "selection": "select up to three snippets, preferring distinct chunks before a second snippet from any chunk; ties use retrieval rank, source segment index, then chunk_id",
+    "per_chunk_maximum_snippets": 2,
+    "selected_snippet_maximum": 3,
+    "pair_rendering": "selected snippets restored to retrieval-rank and source-segment order with explicit rank separators",
+    "max_sequence_length": 256,
+    "premise_truncation": "equal_budget_per_constituent_with_head_tail_retention",
+    "claim_truncation": false,
+    "claim_aggregation": "entailment of the single deterministic claim-targeted multi-chunk window",
+    "condition_aggregation": "all claim minima plus mean-support threshold and selected-premise contradiction veto"
+  },
+  "threshold_search": {
+    "version": "finite-semantic-threshold-grid-v1",
+    "minimum_claim_entailment": [0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95],
+    "mean_claim_entailment": [0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95],
+    "mean_threshold_must_be_at_least_minimum_threshold": true,
+    "maximum_selected_premise_contradiction": [0.25, 0.50, 0.75, 1.01],
+    "primary_development_strata": ["automatic_positive", "partial_overlap", "correct_document_insufficient", "wrong_document_retrieval"],
+    "diagnostic_strata": ["automatic_positive", "partial_overlap", "correct_document_insufficient", "wrong_document_retrieval", "benchmark_impossible"],
+    "primary_population_stratum_counts": {
+      "automatic_positive": 1686,
+      "partial_overlap": 1014,
+      "correct_document_insufficient": 787,
+      "wrong_document_retrieval": 2693
+    },
+    "minimum_precision": 0.90,
+    "precision_gate_definition": "ordinary automatic-sufficient precision over non-ambiguous answerable development judgments; not prevalence weighted",
+    "selection_order": ["precision_gate", "prevalence_weighted_f1_desc", "prevalence_weighted_recall_desc", "prevalence_weighted_precision_desc", "candidate_order_asc", "minimum_claim_entailment_desc", "mean_claim_entailment_desc", "maximum_contradiction_asc"]
+  },
+  "inference": {
+    "device": "cpu",
+    "dtype": "float32",
+    "batch_size": 16,
+    "raw_score_checkpoint_pairs": 16,
+    "softmax": true,
+    "use_safetensors": true,
+    "cache_directory": ".cache/huggingface"
+  },
+  "confirmation_sampling": {
+    "version": "phase03-semantic-confirmation-sample-v1",
+    "seed": 43,
+    "target_size": 100,
+    "one_condition_per_question": true,
+    "exclude_original_sample_conditions": true,
+    "exclude_original_sample_questions": true,
+    "eligible_splits": ["train", "validation"],
+    "mutually_exclusive_strata_targets": {
+      "strict_negative_semantic_positive": 40,
+      "strict_positive_semantic_positive": 20,
+      "strict_negative_semantic_negative": 30,
+      "strict_positive_semantic_negative": 10
+    },
+    "balance_dimensions": ["retrieval_strategy", "k", "split"],
+    "annotation_guideline_version": "phase03-sufficiency-annotation-v1"
+  },
+  "confirmation_gates": {
+    "automatic_sufficient_precision_minimum": 0.90,
+    "prevalence_weighted_f1_minimum": 0.85,
+    "second_human_desirable_not_required": true
+  },
+  "test_seal": {
+    "calculate_test_semantic_scores": false,
+    "calculate_test_semantic_aggregates": false
+  }
+}
