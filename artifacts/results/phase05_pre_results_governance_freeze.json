@@ -1,0 +1,81 @@
+{
+  "freeze_timestamp": "2026-08-30T21:01:35+05:30",
+  "generator_infrastructure_smoke_test": {
+    "data_scope": "synthetic_only",
+    "device": "cpu",
+    "dtype": "float32",
+    "generation_seconds": 8.749371099998825,
+    "input_tokens": 109,
+    "load_seconds_including_first_download": 297.8150569999998,
+    "model_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "output_sha256": "5de7efd99e2b6fa6d0af339b7148ba087fa0d2a5204d74aa9a65c34e1d4ddd47",
+    "output_tokens": 7,
+    "status": "pass",
+    "techqa_content_used": false,
+    "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306"
+  },
+  "governance_files": [
+    {
+      "bytes": 18753,
+      "path": "configs/phase05_generation_grounding.json",
+      "physical_sha256": "4d5cf5aa6d799ec1f4dc96093eb930e75ba89b566cc68bc71883cab48971b3fa"
+    },
+    {
+      "bytes": 6095,
+      "path": "docs/PHASE_05_RESEARCH_DECISIONS.md",
+      "physical_sha256": "9254c06eed4b9376d70d4843c9161f588a3aaeeaf7dcab652822c55b15570822"
+    },
+    {
+      "bytes": 3827,
+      "path": "docs/PHASE_05_EXECUTION.md",
+      "physical_sha256": "e9a2338c16766064b5be8415fb353aa53cfdf2d16d1e341faa5eb6d92f8d33a6"
+    },
+    {
+      "bytes": 5808,
+      "path": "docs/PHASE_05_ARTIFACT_SCHEMAS.md",
+      "physical_sha256": "f24edce79ab08662425cc35a4a915b05530909de0718ff18c6e8ee3414779b1f"
+    },
+    {
+      "bytes": 362,
+      "path": "artifacts/governance/phase05_generation_prompt.txt",
+      "physical_sha256": "2db430ca27b5dec058b00815d07b21bcf9924f17b0d12006c1a07963ca17e8d1"
+    }
+  ],
+  "phase05_config_canonical_sha256": "b35ca88eccd8a24194a2976a12b31f82cc9ea243856c8c379001a84250972dd3",
+  "ragtruth_metric_results_observed_before_freeze": false,
+  "ragtruth_schema_audit_before_freeze": {
+    "all_qa_label_offsets_aligned": true,
+    "official_test_responses": 900,
+    "official_test_sources": 150,
+    "official_train_responses": 5034,
+    "official_train_sources": 839,
+    "source_id_crossings": 0
+  },
+  "schema_version": "phase05-pre-results-governance-freeze-v1",
+  "techqa_generation_results_observed_before_freeze": false,
+  "techqa_generation_started_before_freeze": false,
+  "techqa_metric_results_observed_before_freeze": false,
+  "techqa_test_sealed": true,
+  "upstream_audit": {
+    "all_phase03_manifest_entries_byte_identical": true,
+    "all_phase04_manifest_entries_byte_identical": true,
+    "phase03_final_manifest_sha256": "b02a0ca0e3352798c8d38ef4942fdca59e23d8d24c662493a1249d2864ca9879",
+    "phase03_final_target_config_sha256": "5b9a394e5e97776844054f3282af815462148adc62b528c77245d61707406977",
+    "phase03_primary_target_sha256": "b775276ace9113286a8e35fd29acaee5623d83be60400537e6902027b8cc07c1",
+    "phase04_final_manifest_sha256": "9afe8e988a14be4f8cf9eb032e71279b4154797ab16d6610e467f6da7cefccde",
+    "phase04_model_binary_sha256": "7d0f124cfea75d9b69e52ef83af066eae50afdf35b5d3f4a0d53f7785b36b9fd",
+    "phase04_selected_model_config_sha256": "efb07f98b8e73a5f277bd89591badf1d64f486354de8e4caccdad7672463a019",
+    "phase04_selected_policy_config_sha256": "455b11f36c2bcef93d6a2ff9a2323ebc72ebdafe34c7a0b5c0ae82cd1e70b0d5",
+    "primary_population": {
+      "conditions": 6156,
+      "insufficient": 3354,
+      "questions": 513,
+      "sufficient": 2802,
+      "train_conditions": 5088,
+      "train_questions": 424,
+      "validation_conditions": 1068,
+      "validation_questions": 89
+    },
+    "status": "pass"
+  }
+}

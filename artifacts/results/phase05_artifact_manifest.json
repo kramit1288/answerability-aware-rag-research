@@ -1,0 +1,317 @@
+{
+  "artifacts": [
+    {
+      "bytes": 53,
+      "path": "artifacts/governance/.gitattributes",
+      "physical_sha256": "b48098d8b5baf8fdb0dce97224e280fb4def5be57748e3b77d885f5054bb8ea2"
+    },
+    {
+      "bytes": 362,
+      "path": "artifacts/governance/phase05_generation_prompt.txt",
+      "physical_sha256": "2db430ca27b5dec058b00815d07b21bcf9924f17b0d12006c1a07963ca17e8d1"
+    },
+    {
+      "bytes": 78,
+      "path": "artifacts/results/.gitattributes",
+      "physical_sha256": "52097bdd63c86870746f8772500e5d967477c6030384d3a30b2d1825a903c3cb"
+    },
+    {
+      "bytes": 5764,
+      "path": "artifacts/results/phase05_answer_quality.parquet",
+      "physical_sha256": "bbb6915c751d64d68833d4f6e610b5f1ca62ca43977d88ef8830d87288da4931"
+    },
+    {
+      "bytes": 598,
+      "path": "artifacts/results/phase05_context_sufficiency_grounding_comparison.csv",
+      "physical_sha256": "9c15c670ba29380ed700097754cf01053f3ddaff14cb7d4031fc870b287f98b3"
+    },
+    {
+      "bytes": 72,
+      "path": "artifacts/results/phase05_evaluator_unevaluable_claims.csv",
+      "physical_sha256": "e0c9c506a1876562e0903eb27dd035d2474aad7474e3db0c809bbef0032659cf"
+    },
+    {
+      "bytes": 7949,
+      "path": "artifacts/results/phase05_execution_benchmark.json",
+      "physical_sha256": "473d817544179211cb2a505f895d8ba0c55a46be6e91cc6eab934e8418ac30ac"
+    },
+    {
+      "bytes": 2450,
+      "path": "artifacts/results/phase05_execution_optimization.json",
+      "physical_sha256": "48133fa4b887ab002ce6f92d60711c653d047f3d0f6e22192227a59bc0627e68"
+    },
+    {
+      "bytes": 59537,
+      "path": "artifacts/results/phase05_generation_cache.parquet",
+      "physical_sha256": "b69518a2cf680e392e0c5f466110d8965cc040345a0d1ebb38a3c1fd9d7a23e0"
+    },
+    {
+      "bytes": 3554,
+      "path": "artifacts/results/phase05_generation_config_manifest.json",
+      "physical_sha256": "bd9871c8a7f75a5696de082d0911854426800e729d35dfdc69e7e3f0c6722aac"
+    },
+    {
+      "bytes": 1797,
+      "path": "artifacts/results/phase05_generation_model_manifest.json",
+      "physical_sha256": "884d3b4d6cc68284aee2b5f6a8c3acc73a5a594bedb10852cb4f6b78ddb9cdf1"
+    },
+    {
+      "bytes": 1419,
+      "path": "artifacts/results/phase05_generation_provenance.json",
+      "physical_sha256": "76b3266234448f8d4bb82e915c5e163d22b3a0083acc653e6b5013842a743bfe"
+    },
+    {
+      "bytes": 5348,
+      "path": "artifacts/results/phase05_grounding_evaluator_config.json",
+      "physical_sha256": "f472f627882d8db120dd248e08c98cd21de889dec621f7bb658c7476a9e4df11"
+    },
+    {
+      "bytes": 1939,
+      "path": "artifacts/results/phase05_grounding_validation_manifest.json",
+      "physical_sha256": "4137e349e769fdeaeb1da48eb65f93ae25d0d60cd374f59822fe4e61c1e5a082"
+    },
+    {
+      "bytes": 894,
+      "path": "artifacts/results/phase05_integrity_report.json",
+      "physical_sha256": "ff2f9e2cb5a576672f916971d44fc6a7a227a25b551184cb4b7f66f321465c22"
+    },
+    {
+      "bytes": 13006,
+      "path": "artifacts/results/phase05_paired_k5_k10.parquet",
+      "physical_sha256": "90d456474077f9a60826393ee2f40d26c0fd155053d1f5886a12d0945e903834"
+    },
+    {
+      "bytes": 1564,
+      "path": "artifacts/results/phase05_paired_k5_k10_summary.json",
+      "physical_sha256": "7add68cea7e2d85d3f27302c3d0ac6cb562e596480ee68052c6a0cead448fbda"
+    },
+    {
+      "bytes": 7413,
+      "path": "artifacts/results/phase05_policy_G0.parquet",
+      "physical_sha256": "ce88b5706fd34fd04ae67454eaee391263c216a4e4b67b0c68e8fa8e1002550e"
+    },
+    {
+      "bytes": 7395,
+      "path": "artifacts/results/phase05_policy_G1.parquet",
+      "physical_sha256": "4065d729def107edaf233268da8b45f09993039d4810e2e02077cc2f5d453e34"
+    },
+    {
+      "bytes": 5261,
+      "path": "artifacts/results/phase05_policy_G2.parquet",
+      "physical_sha256": "faaad81af3d5e89fe6c68c1300dcfb5c68bbe8cab130fc2f3331b0d7e158184b"
+    },
+    {
+      "bytes": 5837,
+      "path": "artifacts/results/phase05_policy_G3.parquet",
+      "physical_sha256": "eebd0f1e3199e1187947cc9e93c6185cbe2b0e9962e029fe0ada2f5878a9dc34"
+    },
+    {
+      "bytes": 6487,
+      "path": "artifacts/results/phase05_policy_analysis_manifest.json",
+      "physical_sha256": "3135b151ff2d6ada77223885d64d6485e515920e05d77419a10c139af5cbb8e8"
+    },
+    {
+      "bytes": 1438,
+      "path": "artifacts/results/phase05_policy_generation_comparison.csv",
+      "physical_sha256": "f99363968daf367af4b9f2bde63a3f2bbf11507c8e92015e10aec4cadfc4ba27"
+    },
+    {
+      "bytes": 3430,
+      "path": "artifacts/results/phase05_pre_results_governance_freeze.json",
+      "physical_sha256": "53212b7c2df1fa48f9efaee2cc4f3dbf63edf93fad030239a86b6c55bc2f5066"
+    },
+    {
+      "bytes": 1484,
+      "path": "artifacts/results/phase05_quality_manifest.json",
+      "physical_sha256": "5f0c098de0df16c146a49b416eb4625c729da401ee6aa6d72fc8496e45ccc82c"
+    },
+    {
+      "bytes": 3240,
+      "path": "artifacts/results/phase05_ragtruth_bootstrap_intervals.csv",
+      "physical_sha256": "c2d0b255a0edc517de5917af33a04e52fd5fbc4a2ec41a7f1becdc64469460aa"
+    },
+    {
+      "bytes": 9363449,
+      "path": "artifacts/results/phase05_ragtruth_claim_scores.parquet",
+      "physical_sha256": "012e664439fdd0e323c29f2a2232339a4cdcd2025dcbeeb7d4649f003b4b78c0"
+    },
+    {
+      "bytes": 1052,
+      "path": "artifacts/results/phase05_ragtruth_schema_alignment_audit.json",
+      "physical_sha256": "b646267ccb62840fd634bbd528d6e9b048023980b5151a3f17099a8fc29a40aa"
+    },
+    {
+      "bytes": 642,
+      "path": "artifacts/results/phase05_ragtruth_test_metrics.csv",
+      "physical_sha256": "bb2fbc26dad54d6a09ecbb405b01926012bf45847d0ad20faa43fef2ecd6f51c"
+    },
+    {
+      "bytes": 4873,
+      "path": "artifacts/results/phase05_ragtruth_threshold_search.csv",
+      "physical_sha256": "86627e4ccd2310e65dca7866d3110da32ef22dc4303ac2eefaf44579358d980b"
+    },
+    {
+      "bytes": 675,
+      "path": "artifacts/results/phase05_selected_grounding_threshold.json",
+      "physical_sha256": "8cb87776894132b13582254390a4afa1b0e631eb6c59e004a0e1a1f6f24d1f9d"
+    },
+    {
+      "bytes": 185219,
+      "path": "artifacts/results/phase05_techqa_claim_grounding.parquet",
+      "physical_sha256": "3fa2dbd7fd0be995967ea5687454e3128a8c287f62b376c45c5df13562249bab"
+    },
+    {
+      "bytes": 620834,
+      "path": "artifacts/results/phase05_techqa_context_manifest.parquet",
+      "physical_sha256": "b757ee9c0d638d8a82a77d9bfd93803e7703f5d59df95b26c72210ca5c887f5f"
+    },
+    {
+      "bytes": 1744,
+      "path": "artifacts/results/phase05_techqa_context_utilization.json",
+      "physical_sha256": "1bd0ac69a6039cc4cc140d3b9e3de0464fa87154a267912e07be540f7ffbfd35"
+    },
+    {
+      "bytes": 38994,
+      "path": "artifacts/results/phase05_techqa_generated_claims.parquet",
+      "physical_sha256": "0b4322fe01b903d4942a5bd8c1ae8c02c24979cd564dcd26c37641dde363733e"
+    },
+    {
+      "bytes": 2914,
+      "path": "artifacts/results/phase05_techqa_grounding_manifest.json",
+      "physical_sha256": "94f4790227ceeae7075465f5776521b066c963e20c0151c4bc18e6864dfbe7d0"
+    },
+    {
+      "bytes": 9479,
+      "path": "artifacts/results/phase05_techqa_response_grounding.parquet",
+      "physical_sha256": "892c1e5eac167d3ac8ac21e282aff78f28b7452c787f3901c3f8c2a8d1d7c05a"
+    },
+    {
+      "bytes": 27,
+      "path": "configs/.gitattributes",
+      "physical_sha256": "46b1589860984f6b07c5456a0bd330a5f8ccf56a918946e47b870c8833542be1"
+    },
+    {
+      "bytes": 18753,
+      "path": "configs/phase05_generation_grounding.json",
+      "physical_sha256": "4d5cf5aa6d799ec1f4dc96093eb930e75ba89b566cc68bc71883cab48971b3fa"
+    },
+    {
+      "bytes": 26,
+      "path": "docs/.gitattributes",
+      "physical_sha256": "5e3ff4c9a3f8fbce6786962f248984e5cb1f0e94a2ae0b1447e74669099c94e9"
+    },
+    {
+      "bytes": 5808,
+      "path": "docs/PHASE_05_ARTIFACT_SCHEMAS.md",
+      "physical_sha256": "f24edce79ab08662425cc35a4a915b05530909de0718ff18c6e8ee3414779b1f"
+    },
+    {
+      "bytes": 3827,
+      "path": "docs/PHASE_05_EXECUTION.md",
+      "physical_sha256": "e9a2338c16766064b5be8415fb353aa53cfdf2d16d1e341faa5eb6d92f8d33a6"
+    },
+    {
+      "bytes": 1559,
+      "path": "docs/PHASE_05_EXECUTION_DECISION_REQUEST.md",
+      "physical_sha256": "4a534b18fc80fd79bd7a8314699bfa4196391b235528e2e6fa459c059b05340b"
+    },
+    {
+      "bytes": 3840,
+      "path": "docs/PHASE_05_EXECUTION_OPTIMIZATION.md",
+      "physical_sha256": "017a4bcdcb396030863cbfff7951aa5179ac41a80d27551b697a8b9b2ed56cfd"
+    },
+    {
+      "bytes": 6095,
+      "path": "docs/PHASE_05_RESEARCH_DECISIONS.md",
+      "physical_sha256": "9254c06eed4b9376d70d4843c9161f588a3aaeeaf7dcab652822c55b15570822"
+    },
+    {
+      "bytes": 2620,
+      "path": "docs/PHASE_05_RESULTS_INTERPRETATION.md",
+      "physical_sha256": "45e329d4206158dfb5ab6ac5fafdc566c701f8de34fac39b0bc361f82b3f966b"
+    },
+    {
+      "bytes": 25,
+      "path": "scripts/.gitattributes",
+      "physical_sha256": "80bdff06333612eaba6477b7e42d523ae4f66010c88be2a4868622e8fce23b62"
+    },
+    {
+      "bytes": 8186,
+      "path": "scripts/benchmark_phase05_nli_execution.py",
+      "physical_sha256": "f5f2d14db79e02ceabb11cf6671c7c06d235b807fe9ab5a8d15ef322e9546949"
+    },
+    {
+      "bytes": 8675,
+      "path": "scripts/check_phase05.py",
+      "physical_sha256": "e519ac80878d3bb679ac4d632c1593769ccf582e1cbc35cc82babe924cfccfbe"
+    },
+    {
+      "bytes": 9587,
+      "path": "scripts/finalize_phase05_artifacts.py",
+      "physical_sha256": "26e8ee61a697321f989a3b775c8eb7f80c2cdc8a2b8f08032e120a924d77539a"
+    },
+    {
+      "bytes": 859,
+      "path": "scripts/run_phase05_generation_grounding.py",
+      "physical_sha256": "f1d5b532c2b98ee5619425692628a1cb70330c12474a032c8072d90be6dd1a74"
+    },
+    {
+      "bytes": 360,
+      "path": "src/answerability_rag/generation/__init__.py",
+      "physical_sha256": "7a6d15671fb73f59e844ffe727018ae4bc97532267d88ca2b741d8e75e57d4b9"
+    },
+    {
+      "bytes": 2038,
+      "path": "src/answerability_rag/generation/claims.py",
+      "physical_sha256": "f043f9163b1ec49678d8e6c748afeea02f675088e04a5386f133fa8c7ac4f184"
+    },
+    {
+      "bytes": 5246,
+      "path": "src/answerability_rag/generation/config.py",
+      "physical_sha256": "5af5e7312c467fe6e8942c10e3c1286305c2ee38ab6366f2d45687952d55c5d2"
+    },
+    {
+      "bytes": 6705,
+      "path": "src/answerability_rag/generation/context.py",
+      "physical_sha256": "6f02e09c097503456d04ad60befbd20e6beda33188eda58d6dceb9631bde5ffa"
+    },
+    {
+      "bytes": 12110,
+      "path": "src/answerability_rag/generation/grounding.py",
+      "physical_sha256": "6318cb65ab0adca3433605a1179d5cd9a3773ea7be10d33227d32e4fcd68c536"
+    },
+    {
+      "bytes": 69182,
+      "path": "src/answerability_rag/generation/pipeline.py",
+      "physical_sha256": "15fc5b04a3315238b9c0fe20b0995119d9094eb69e7f0eb473340acad3b96ab8"
+    },
+    {
+      "bytes": 1809,
+      "path": "src/answerability_rag/generation/policy.py",
+      "physical_sha256": "e181ea27074f42de87ffd68feb36d7c696bcee732fb7156e78c832ffee897cbd"
+    },
+    {
+      "bytes": 1328,
+      "path": "src/answerability_rag/generation/quality.py",
+      "physical_sha256": "1ebae23c035af0724c0c700226f1821d78b95a6ad7f8e51c29ec888a895be1bd"
+    },
+    {
+      "bytes": 30,
+      "path": "tests/.gitattributes",
+      "physical_sha256": "a414d3b824993c66162f0d810b3f853c1dab6ac3f50d1ced5cdf39d14b847fd3"
+    },
+    {
+      "bytes": 10644,
+      "path": "tests/test_phase05_generation_grounding.py",
+      "physical_sha256": "da8c9e28b616c6d3f5a704e175562b953d3b7cd1d85e89af8b9620a98a3e857a"
+    }
+  ],
+  "manifest_includes_itself": false,
+  "phase03_final_manifest_sha256": "b02a0ca0e3352798c8d38ef4942fdca59e23d8d24c662493a1249d2864ca9879",
+  "phase04_final_manifest_sha256": "9afe8e988a14be4f8cf9eb032e71279b4154797ab16d6610e467f6da7cefccde",
+  "phase04_thresholds_changed": false,
+  "phase05_config_canonical_sha256": "b35ca88eccd8a24194a2976a12b31f82cc9ea243856c8c379001a84250972dd3",
+  "phase06_started": false,
+  "schema_version": "phase05-artifact-manifest-v1",
+  "techqa_test_sealed": true
+}

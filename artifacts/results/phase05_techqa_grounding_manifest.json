@@ -1,0 +1,92 @@
+{
+  "claim_artifact": {
+    "bytes": 185219,
+    "columns": [
+      "schema_version",
+      "dataset",
+      "response_id",
+      "source_id",
+      "question_id",
+      "official_split",
+      "quality",
+      "claim_id",
+      "claim_index",
+      "claim_text",
+      "claim_start",
+      "claim_end",
+      "human_unsupported",
+      "candidate_chunk_ids_json",
+      "candidate_similarities_json",
+      "candidate_nli_json",
+      "claim_token_length",
+      "pair_special_token_count",
+      "evaluation_status",
+      "claim_support_score",
+      "claim_unsupportedness_score",
+      "maximum_claim_contradiction",
+      "supporting_chunk_id",
+      "grounding_config_sha256"
+    ],
+    "path": "C:/answerability-aware-rag-research/artifacts/results/phase05_techqa_claim_grounding.parquet",
+    "physical_sha256": "3fa2dbd7fd0be995967ea5687454e3128a8c287f62b376c45c5df13562249bab",
+    "rows": 507,
+    "semantic_sha256": "e7a0109e6db699981eef3b5ee8591c75f302c050242c5304ff140436ed364cf2"
+  },
+  "counts": {
+    "claim_count": 507,
+    "evaluable_claim_count": 507,
+    "response_count": 178,
+    "unevaluable_claim_count": 0,
+    "zero_claim_response_count": 0
+  },
+  "generated_claim_artifact": {
+    "bytes": 38994,
+    "columns": [
+      "schema_version",
+      "response_id",
+      "question_id",
+      "claim_id",
+      "claim_index",
+      "claim_text",
+      "claim_start",
+      "claim_end"
+    ],
+    "path": "C:/answerability-aware-rag-research/artifacts/results/phase05_techqa_generated_claims.parquet",
+    "physical_sha256": "0b4322fe01b903d4942a5bd8c1ae8c02c24979cd564dcd26c37641dde363733e",
+    "rows": 507,
+    "semantic_sha256": "64fe29e54739c9a20dacaabcff39b9f1e4687763231b503c8ad79ebcdfc8fd1e"
+  },
+  "ragtruth_validation_manifest_sha256": "4137e349e769fdeaeb1da48eb65f93ae25d0d60cd374f59822fe4e61c1e5a082",
+  "response_artifact": {
+    "bytes": 9479,
+    "columns": [
+      "schema_version",
+      "response_id",
+      "question_id",
+      "k",
+      "generation_status",
+      "claim_count",
+      "evaluable_claim_count",
+      "unevaluable_claim_count",
+      "mean_claim_support_score",
+      "minimum_claim_support_score",
+      "unsupported_claim_count",
+      "unsupported_claim_rate",
+      "maximum_claim_contradiction",
+      "fully_supported_response",
+      "response_with_any_unsupported_claim",
+      "response_grounding_status",
+      "y_suff_final",
+      "t_support"
+    ],
+    "path": "C:/answerability-aware-rag-research/artifacts/results/phase05_techqa_response_grounding.parquet",
+    "physical_sha256": "892c1e5eac167d3ac8ac21e282aff78f28b7452c787f3901c3f8c2a8d1d7c05a",
+    "rows": 178,
+    "semantic_sha256": "6acae3bf7b9067b1442464d0f2c24c49e5770ff72f01fd1606a249f002d8afcc"
+  },
+  "schema_version": "phase05-techqa-grounding-manifest-v1",
+  "selected_t_support": 0.16,
+  "techqa_test_rows": 0,
+  "unevaluable_claim_count": 0,
+  "unevaluable_claim_rate": 0.0
+}

@@ -1,0 +1,40 @@
+{
+  "inferential_tests_performed": false,
+  "mean_difference_bertscore_f1_k10_minus_k5": 0.00040371431393569775,
+  "mean_difference_claim_support_k10_minus_k5": -0.034268965064732794,
+  "mean_difference_output_tokens_k10_minus_k5": -1.9101123595505618,
+  "mean_difference_rouge_l_f1_k10_minus_k5": 0.007129825807797378,
+  "mean_difference_unsupported_claim_rate_k10_minus_k5": -0.024179334655210397,
+  "paired_artifact": {
+    "bytes": 13006,
+    "columns": [
+      "schema_version",
+      "question_id",
+      "k5_response_id",
+      "k10_response_id",
+      "k5_rouge_l_f1",
+      "k10_rouge_l_f1",
+      "difference_rouge_l_f1_k10_minus_k5",
+      "k5_bertscore_f1",
+      "k10_bertscore_f1",
+      "difference_bertscore_f1_k10_minus_k5",
+      "k5_unsupported_claim_rate",
+      "k10_unsupported_claim_rate",
+      "difference_unsupported_claim_rate_k10_minus_k5",
+      "k5_mean_claim_support_score",
+      "k10_mean_claim_support_score",
+      "difference_mean_claim_support_k10_minus_k5",
+      "k5_output_tokens",
+      "k10_output_tokens",
+      "difference_output_tokens_k10_minus_k5",
+      "k5_fully_supported_response",
+      "k10_fully_supported_response"
+    ],
+    "path": "C:/answerability-aware-rag-research/artifacts/results/phase05_paired_k5_k10.parquet",
+    "physical_sha256": "90d456474077f9a60826393ee2f40d26c0fd155053d1f5886a12d0945e903834",
+    "rows": 89,
+    "semantic_sha256": "430bf6f040263098ca1b23ec1e615ae6d494606d18728806506e19caadcdd9ce"
+  },
+  "question_count": 89,
+  "schema_version": "phase05-paired-descriptive-summary-v1"
+}

@@ -1,0 +1,51 @@
+{
+  "claim_level_alignment_supported": true,
+  "dataset_revision": "c103204b9ce28d6bbad859304bf30de72b8ed8fe",
+  "human_label_span_count": 2927,
+  "label_fields": [
+    "start",
+    "end",
+    "text",
+    "meta",
+    "label_type",
+    "implicit_true",
+    "due_to_null"
+  ],
+  "offset_mismatch_count": 0,
+  "offset_mismatch_examples": [],
+  "parsed_passages_per_source": {
+    "3": 989
+  },
+  "qa_responses": 5934,
+  "qa_sources": 989,
+  "qa_test_responses": 900,
+  "qa_test_sources": 150,
+  "qa_train_responses": 5034,
+  "qa_train_sources": 839,
+  "quality_counts": {
+    "good": 5767,
+    "incorrect_refusal": 143,
+    "truncated": 24
+  },
+  "response_fields": [
+    "id",
+    "source_id",
+    "model",
+    "temperature",
+    "labels",
+    "split",
+    "quality",
+    "response"
+  ],
+  "responses_with_labels": 1724,
+  "schema_version": "phase05-ragtruth-schema-alignment-audit-v1",
+  "source_fields": [
+    "source_id",
+    "task_type",
+    "source",
+    "source_info",
+    "prompt"
+  ],
+  "source_id_crossings": [],
+  "validation_status": "pass"
+}

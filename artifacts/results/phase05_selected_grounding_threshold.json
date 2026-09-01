@@ -1,0 +1,20 @@
+{
+  "grounding_config_sha256": "eeed9e406fa42950fe2f5105c25956f9c220e33cf89c194f37aac2d69b48de4b",
+  "ragtruth_test_labels_accessed_for_selection": false,
+  "schema_version": "phase05-selected-grounding-threshold-v1",
+  "selection_population": "QA quality=good evaluable claims",
+  "selection_rule": [
+    "maximum unsupported-class F1",
+    "higher unsupported precision",
+    "higher t_support"
+  ],
+  "selection_split": "ragtruth_official_train",
+  "t_support": 0.16,
+  "threshold_grid": {
+    "inclusive": true,
+    "start": 0.0,
+    "step": 0.02,
+    "stop": 1.0
+  },
+  "train_claim_identity_sha256": "b12eaeeaa09ab3490056179647fe3eebd4222961e2df22de347495151a602117"
+}

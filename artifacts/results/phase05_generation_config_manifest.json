@@ -1,0 +1,89 @@
+{
+  "context_assembly": {
+    "budget_scope": "complete chat-templated input including instructions, question, context headers, separators, and generation prefix",
+    "budget_tokenizer": "frozen generator tokenizer",
+    "chunk_header": "[CHUNK {rank}]",
+    "chunk_separator": "\\n\\n",
+    "empty_chunk_rule": "fail the state because frozen retrieval chunks must be non-empty",
+    "full_context_rule": "include every retrieved chunk when the complete chat-templated input is at most maximum_input_tokens",
+    "include_prompt_visible_provenance": false,
+    "internal_provenance": [
+      "chunk_id",
+      "doc_id",
+      "filename",
+      "rank",
+      "text_sha256"
+    ],
+    "k10_additional_context_stop_rule": "stop before scientific interpretation if k10 fails to expose additional prompt-visible chunk text beyond k5 for 20 percent or more of the 89 questions",
+    "persist": [
+      "input_token_count",
+      "fully_included_chunk_count",
+      "final_truncated_chunk_id",
+      "final_truncated_chunk_original_tokens",
+      "final_truncated_chunk_included_tokens",
+      "retrieved_chunks_not_included",
+      "prompt_visible_chunk_ids",
+      "assembled_context_sha256"
+    ],
+    "preserve_retrieval_rank_order": true,
+    "truncation_rule": "include complete earlier chunks in rank order; if needed, token-truncate only the final included chunk to the largest deterministic prefix that fits; never skip an earlier chunk",
+    "version": "phase05-ranked-complete-chunks-v1"
+  },
+  "generation": {
+    "cache_key_fields": [
+      "question_id",
+      "retrieval_strategy",
+      "k",
+      "model_revision",
+      "tokenizer_revision",
+      "generation_config_sha256",
+      "prompt_sha256",
+      "assembled_context_sha256"
+    ],
+    "do_sample": false,
+    "empty_output": "persist empty_output; reference-answer and grounding metrics are NA",
+    "eos_token": "frozen tokenizer eos token",
+    "failure_status": "generation_failed",
+    "generation_failure": "persist generation_failed; do not convert to empty text",
+    "max_new_tokens": 128,
+    "normalization": "Unicode NFKC, CRLF/CR to LF, collapse Unicode whitespace runs to one ASCII space, strip leading/trailing whitespace",
+    "num_beams": 1,
+    "pad_token": "frozen tokenizer pad token",
+    "repetition_penalty": 1.0,
+    "retry": "at most one infrastructure retry with byte-identical inputs and identical settings; output quality never controls retry",
+    "seed": 42,
+    "temperature": null,
+    "top_k": null,
+    "top_p": null,
+    "valid_cached_statuses": [
+      "generated",
+      "empty_output"
+    ],
+    "whitespace_only_output": "normalize to empty_output",
+    "zero_evaluable_claims": "persist no_evaluable_claim; grounding rates are NA"
+  },
+  "generation_config_sha256": "4fb3b30aa7c51d5955659741b6e8f53e37a4e9a10030943324434cfd731e9cdf",
+  "phase05_config_canonical_sha256": "b35ca88eccd8a24194a2976a12b31f82cc9ea243856c8c379001a84250972dd3",
+  "prompt": {
+    "encoding": "UTF-8",
+    "forbidden_inputs": [
+      "benchmark_answer",
+      "y_suff_final",
+      "model_probability",
+      "retrieval_score",
+      "human_annotation",
+      "gold_evidence",
+      "NLI_label_or_score",
+      "span_coverage",
+      "policy_action"
+    ],
+    "line_endings": "LF",
+    "path": "artifacts/governance/phase05_generation_prompt.txt",
+    "physical_sha256": "2db430ca27b5dec058b00815d07b21bcf9924f17b0d12006c1a07963ca17e8d1",
+    "placeholders": [
+      "question",
+      "context"
+    ]
+  },
+  "schema_version": "phase05-generation-config-manifest-v1"
+}

@@ -1,0 +1,61 @@
+{
+  "context_manifest": {
+    "bytes": 620834,
+    "columns": [
+      "schema_version",
+      "response_id",
+      "question_id",
+      "split",
+      "retrieval_strategy",
+      "k",
+      "question",
+      "ordered_retrieved_chunk_ids_json",
+      "prompt_visible_chunk_ids_json",
+      "prompt_visible_chunks_json",
+      "assembled_context",
+      "assembled_context_sha256",
+      "rendered_prompt",
+      "rendered_prompt_sha256",
+      "input_token_count",
+      "fully_included_chunk_count",
+      "final_truncated_chunk_id",
+      "final_truncated_chunk_original_tokens",
+      "final_truncated_chunk_included_tokens",
+      "retrieved_chunks_not_included",
+      "k5_context_prefix_sha256",
+      "exposes_context_beyond_k5",
+      "context_identity_sha256",
+      "prompt_sha256",
+      "generation_config_sha256",
+      "y_suff_final"
+    ],
+    "path": "C:/answerability-aware-rag-research/artifacts/results/phase05_techqa_context_manifest.parquet",
+    "physical_sha256": "b757ee9c0d638d8a82a77d9bfd93803e7703f5d59df95b26c72210ca5c887f5f",
+    "rows": 178,
+    "semantic_sha256": "71b75e2380b2212d8ce14f2b58a37a09ff925e731fdbe1b8038537ab521143ae"
+  },
+  "k10_exposes_additional_context_count": 89,
+  "k10_exposes_additional_context_fraction": 1.0,
+  "k10_input_tokens": {
+    "count": 89,
+    "maximum": 3270,
+    "mean": 2352.494382022472,
+    "median": 2358,
+    "minimum": 1959,
+    "p25": 2273.0,
+    "p75": 2468.0
+  },
+  "k5_input_tokens": {
+    "count": 89,
+    "maximum": 1966,
+    "mean": 1274.5955056179776,
+    "median": 1276,
+    "minimum": 991,
+    "p25": 1222.0,
+    "p75": 1336.0
+  },
+  "question_count": 89,
+  "schema_version": "phase05-context-utilization-v1",
+  "state_count": 178,
+  "truncated_state_count": 0
+}

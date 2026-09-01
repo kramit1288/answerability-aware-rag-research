@@ -1,0 +1,3 @@
+phase05_*.json text eol=lf
+phase05_*.csv text eol=lf
+phase05_*.parquet binary

@@ -1,0 +1,28 @@
+{
+  "abstention_quality_is_na": true,
+  "generation_status_counts": {
+    "generated": 178
+  },
+  "grounding_validity_threshold_passed": true,
+  "k10_additional_context_fraction": 1.0,
+  "phase03_manifest_immutable": true,
+  "phase04_manifest_immutable": true,
+  "phase04_model_retrained": false,
+  "phase04_thresholds_changed": false,
+  "phase05_config_canonical_sha256": "b35ca88eccd8a24194a2976a12b31f82cc9ea243856c8c379001a84250972dd3",
+  "phase06_started": false,
+  "ragtruth_response_auroc": 0.7281599650349652,
+  "ragtruth_train_threshold_only": true,
+  "schema_version": "phase05-integrity-report-v1",
+  "selected_model_and_policy_unchanged": true,
+  "selected_t_support": 0.16,
+  "status": "pass",
+  "techqa_population": {
+    "questions": 89,
+    "states": 178
+  },
+  "techqa_test_rows": 0,
+  "techqa_test_sealed": true,
+  "truncated_context_states": 0,
+  "upstream_verified": true
+}

@@ -1,0 +1,17 @@
+You are answering a technical documentation question.
+
+Use only the information contained in the provided context.
+
+Do not add facts from outside the context.
+
+If the context supports only part of the answer, state only the supported information and do not guess missing details.
+
+Give a concise direct answer.
+
+Question:
+{question}
+
+Context:
+{context}
+
+Answer:

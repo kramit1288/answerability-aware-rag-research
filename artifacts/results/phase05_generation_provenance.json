@@ -1,0 +1,51 @@
+{
+  "attempt_count_distribution": {
+    "1": 178
+  },
+  "context_manifest_sha256": "b757ee9c0d638d8a82a77d9bfd93803e7703f5d59df95b26c72210ca5c887f5f",
+  "generation_cache": {
+    "bytes": 59537,
+    "columns": [
+      "schema_version",
+      "cache_key",
+      "response_id",
+      "question_id",
+      "retrieval_strategy",
+      "k",
+      "model_revision",
+      "tokenizer_revision",
+      "generation_config_sha256",
+      "prompt_sha256",
+      "assembled_context_sha256",
+      "raw_generated_text",
+      "normalized_generated_text",
+      "input_token_count",
+      "output_token_count",
+      "generation_status",
+      "attempt_count",
+      "runtime_seconds",
+      "runtime_metadata_json",
+      "error_class",
+      "error_message_sha256",
+      "output_sha256"
+    ],
+    "path": "C:/answerability-aware-rag-research/artifacts/results/phase05_generation_cache.parquet",
+    "physical_sha256": "b69518a2cf680e392e0c5f466110d8965cc040345a0d1ebb38a3c1fd9d7a23e0",
+    "rows": 178,
+    "semantic_sha256": "c6667b0f74fb4cb4376fac09a3344b8af9c6cee6ca076f2c608a5f00566bc89c"
+  },
+  "generation_closed_before_reference_evaluation": true,
+  "k10_status_counts": {
+    "generated": 89
+  },
+  "k5_status_counts": {
+    "generated": 89
+  },
+  "question_count": 89,
+  "schema_version": "phase05-generation-provenance-v1",
+  "state_count": 178,
+  "status_counts": {
+    "generated": 178
+  },
+  "techqa_test_rows": 0
+}

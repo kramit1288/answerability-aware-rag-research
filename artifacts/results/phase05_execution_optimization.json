@@ -1,0 +1,65 @@
+{
+  "schema_version": "phase05-execution-optimization-v1",
+  "scientific_config_canonical_sha256": "b35ca88eccd8a24194a2976a12b31f82cc9ea243856c8c379001a84250972dd3",
+  "amendment_reason": "Exhaustive frozen CPU inference had unacceptable wall-clock runtime; no partial performance result was used.",
+  "original_execution": {
+    "device": "cpu",
+    "dtype": "float32",
+    "nli_batch_size": 16,
+    "torch_num_threads": 2,
+    "torch_num_interop_threads": 2,
+    "checkpoint_claim_count": 4992,
+    "total_claim_count": 42296
+  },
+  "implementation_audit": {
+    "torch_version": "2.13.0+cpu",
+    "transformers_version": "5.15.0",
+    "logical_cpu_count": 4,
+    "true_batched_tokenizer": true,
+    "model_forward_once_per_batch": true,
+    "inference_mode": true,
+    "padding": "dynamic_longest_in_batch",
+    "fixed_max_length_padding": false,
+    "completed_checkpoint_rows_filtered_before_inference": true
+  },
+  "benchmark_artifact": {
+    "path": "artifacts/results/phase05_execution_benchmark.json",
+    "sha256": "473d817544179211cb2a505f895d8ba0c55a46be6e91cc6eab934e8418ac30ac",
+    "sample_claims": 16,
+    "sample_pairs": 48,
+    "labels_read": false,
+    "partial_performance_metrics_calculated": false
+  },
+  "equivalence_gate": {
+    "reference": "already persisted batch_size=16 CPU float32 outputs",
+    "candidate_configurations_tested": 12,
+    "all_candidates_argmax_class_changes": 0,
+    "maximum_candidate_absolute_difference": 8.344650268554688e-07,
+    "maximum_candidate_mean_absolute_difference": 3.8999132812023163e-08,
+    "count_exceeding_1e-6": 0,
+    "count_exceeding_1e-5": 0,
+    "tolerance": "max absolute difference <= 1e-5 and no argmax changes"
+  },
+  "selected_execution": {
+    "device": "cpu",
+    "dtype": "float32",
+    "nli_batch_size": 32,
+    "torch_num_threads": 4,
+    "torch_num_interop_threads": 1,
+    "dynamic_padding": true,
+    "length_bucketing": true,
+    "inference_mode": true
+  },
+  "selection": {
+    "rule": "fastest numerically equivalent candidate by claims_per_second",
+    "baseline_claims_per_second": 0.5018704444846512,
+    "selected_claims_per_second": 0.6841241320145612,
+    "speedup_factor": 1.3631488754374814,
+    "checkpoint_reuse": "resume from 4,992 existing claims; completed claim IDs are not recomputed"
+  },
+  "scientific_method_unchanged": true,
+  "model_unchanged": true,
+  "thresholds_unchanged": true,
+  "techqa_test_sealed": true,
+  "phase6_started": false
+}

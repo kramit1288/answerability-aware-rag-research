@@ -1,0 +1,60 @@
+{
+  "binary_techqa_grounding_interpretation": "validated_proxy",
+  "bootstrap_sha256": "c2d0b255a0edc517de5917af33a04e52fd5fbc4a2ec41a7f1becdc64469460aa",
+  "claim_artifact": {
+    "bytes": 9363449,
+    "columns": [
+      "schema_version",
+      "dataset",
+      "response_id",
+      "source_id",
+      "question_id",
+      "official_split",
+      "quality",
+      "claim_id",
+      "claim_index",
+      "claim_text",
+      "claim_start",
+      "claim_end",
+      "human_unsupported",
+      "candidate_chunk_ids_json",
+      "candidate_similarities_json",
+      "candidate_nli_json",
+      "claim_token_length",
+      "pair_special_token_count",
+      "evaluation_status",
+      "claim_support_score",
+      "claim_unsupportedness_score",
+      "maximum_claim_contradiction",
+      "supporting_chunk_id",
+      "grounding_config_sha256"
+    ],
+    "path": "C:/answerability-aware-rag-research/artifacts/results/phase05_ragtruth_claim_scores.parquet",
+    "physical_sha256": "012e664439fdd0e323c29f2a2232339a4cdcd2025dcbeeb7d4649f003b4b78c0",
+    "rows": 42296,
+    "semantic_sha256": "9f70124d57337d9daf87421fd6b838af1d5dd4b63441780a990a7a64740e7831"
+  },
+  "claim_counts": {
+    "claim_count": 42296,
+    "evaluable_claim_count": 42296,
+    "response_count": 5934,
+    "unevaluable_claim_count": 0,
+    "zero_claim_response_count": 0
+  },
+  "evaluator_retreated_or_replaced": false,
+  "metrics_sha256": "bb2fbc26dad54d6a09ecbb405b01926012bf45847d0ad20faa43fef2ecd6f51c",
+  "primary_test_response_auroc": 0.7281599650349652,
+  "ragtruth_census": {
+    "qa_test_responses": 900,
+    "qa_test_sources": 150,
+    "qa_train_responses": 5034,
+    "qa_train_sources": 839,
+    "source_crossings": 0
+  },
+  "schema_version": "phase05-grounding-validation-manifest-v1",
+  "selected_t_support": 0.16,
+  "test_influence_on_threshold": false,
+  "threshold_selection_split": "train",
+  "validity_threshold": 0.6,
+  "validity_threshold_passed": true
+}
