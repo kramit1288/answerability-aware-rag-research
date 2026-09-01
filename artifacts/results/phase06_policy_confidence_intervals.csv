@@ -1,0 +1,13 @@
+schema_version,policy_id,metric,numerator,denominator,point_estimate,ci_low,ci_high,confidence_level,method,requested_replicates,valid_replicates,seed,status
+phase06-policy-ci-v1,G0,answer_coverage,89,89,1.0,1.0,1.0,0.95,question_id_cluster_percentile_bootstrap,5000,5000,42,ok
+phase06-policy-ci-v1,G0,grounded_answer_yield,41,89,0.4606741573033708,0.3595505617977528,0.5617977528089888,0.95,question_id_cluster_percentile_bootstrap,5000,5000,42,ok
+phase06-policy-ci-v1,G0,unsupported_answer_population_rate,48,89,0.5393258426966292,0.43820224719101125,0.6404494382022472,0.95,question_id_cluster_percentile_bootstrap,5000,5000,42,ok
+phase06-policy-ci-v1,G1,answer_coverage,89,89,1.0,1.0,1.0,0.95,question_id_cluster_percentile_bootstrap,5000,5000,42,ok
+phase06-policy-ci-v1,G1,grounded_answer_yield,42,89,0.47191011235955055,0.3707865168539326,0.5730337078651685,0.95,question_id_cluster_percentile_bootstrap,5000,5000,42,ok
+phase06-policy-ci-v1,G1,unsupported_answer_population_rate,47,89,0.5280898876404494,0.42696629213483145,0.6292134831460674,0.95,question_id_cluster_percentile_bootstrap,5000,5000,42,ok
+phase06-policy-ci-v1,G2,answer_coverage,2,89,0.02247191011235955,0.0,0.056179775280898875,0.95,question_id_cluster_percentile_bootstrap,5000,5000,42,ok
+phase06-policy-ci-v1,G2,grounded_answer_yield,2,89,0.02247191011235955,0.0,0.056179775280898875,0.95,question_id_cluster_percentile_bootstrap,5000,5000,42,ok
+phase06-policy-ci-v1,G2,unsupported_answer_population_rate,0,89,0.0,0.0,0.0,0.95,question_id_cluster_percentile_bootstrap,5000,5000,42,ok
+phase06-policy-ci-v1,G3,answer_coverage,16,89,0.1797752808988764,0.10112359550561797,0.25842696629213485,0.95,question_id_cluster_percentile_bootstrap,5000,5000,42,ok
+phase06-policy-ci-v1,G3,grounded_answer_yield,7,89,0.07865168539325842,0.02247191011235955,0.1348314606741573,0.95,question_id_cluster_percentile_bootstrap,5000,5000,42,ok
+phase06-policy-ci-v1,G3,unsupported_answer_population_rate,9,89,0.10112359550561797,0.0449438202247191,0.16853932584269662,0.95,question_id_cluster_percentile_bootstrap,5000,5000,42,ok

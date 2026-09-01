@@ -1,0 +1,66 @@
+{
+  "environment": {
+    "matplotlib": "3.11.1",
+    "numpy": "2.5.2",
+    "pandas": "3.0.5",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "pyarrow": "25.0.1",
+    "python": "3.14.3",
+    "scipy": "1.18.0"
+  },
+  "families": {
+    "A_paired_k5_k10_continuous": {
+      "complete": true,
+      "holm_rejections": 0,
+      "size": 5
+    },
+    "B_sufficiency_association": {
+      "complete": true,
+      "holm_rejections": 3,
+      "size": 8
+    },
+    "C_paired_k5_k10_binary": {
+      "complete": true,
+      "holm_rejections": 0,
+      "size": 2
+    }
+  },
+  "limitations": [
+    "TechQA inference is validation-only over 89 questions.",
+    "Sufficiency-generation comparisons are associational.",
+    "Automatic grounding is an imperfect proxy with low binary precision on RAGTruth.",
+    "G2 quality has only two answered cases and is not inferentially compared."
+  ],
+  "paired_mean_differences_reproduced": {
+    "bertscore_f1": 0.00040371431393569775,
+    "mean_claim_support_score": -0.03426896506473279,
+    "output_token_count": -1.9101123595505618,
+    "rouge_l_f1": 0.007129825807797376,
+    "unsupported_claim_rate": -0.024179334655210393
+  },
+  "phase04_model_retrained": false,
+  "phase04_thresholds_changed": false,
+  "phase05_answers_regenerated": false,
+  "phase06_config_canonical_sha256": "f0aba2d25163010e81d2dbfee0cd98dbe5a81857839085cd41b048e2e56a6826",
+  "phase07_started": false,
+  "ragtruth_nli_rerun": false,
+  "schema_version": "phase06-statistical-summary-v1",
+  "significant_after_holm": [
+    "B_k5_rouge_l_f1_sufficient_minus_insufficient",
+    "B_k5_bertscore_f1_sufficient_minus_insufficient",
+    "B_k10_bertscore_f1_sufficient_minus_insufficient"
+  ],
+  "techqa_test_accessed": false,
+  "techqa_test_sealed": true,
+  "upstream": {
+    "generation_states": 178,
+    "phase03_final_target_config_sha256": "5b9a394e5e97776844054f3282af815462148adc62b528c77245d61707406977",
+    "phase04_selected_model_sha256": "efb07f98b8e73a5f277bd89591badf1d64f486354de8e4caccdad7672463a019",
+    "phase04_selected_policy_sha256": "455b11f36c2bcef93d6a2ff9a2323ebc72ebdafe34c7a0b5c0ae82cd1e70b0d5",
+    "phase05_manifest_sha256": "2f87445752de5013afe20961116fd024ee78dbb5a298fc2fe5fa8f2b2b57138e",
+    "ragtruth_claims": 42296,
+    "t_support": 0.16,
+    "techqa_test_sealed": true,
+    "techqa_validation_questions": 89
+  }
+}

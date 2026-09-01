@@ -1,0 +1,16 @@
+schema_version,family_id,comparison_id,rank,family_size,p_raw,p_holm,alpha,reject_holm
+phase06-holm-v1,A_paired_k5_k10_continuous,A_output_token_count_k10_minus_k5,1,5,0.14552193069424268,0.7276096534712134,0.05,False
+phase06-holm-v1,A_paired_k5_k10_continuous,A_mean_claim_support_score_k10_minus_k5,2,5,0.2502287027371686,1.0,0.05,False
+phase06-holm-v1,A_paired_k5_k10_continuous,A_unsupported_claim_rate_k10_minus_k5,3,5,0.26638595556022837,1.0,0.05,False
+phase06-holm-v1,A_paired_k5_k10_continuous,A_rouge_l_f1_k10_minus_k5,4,5,0.7447234243806374,1.0,0.05,False
+phase06-holm-v1,A_paired_k5_k10_continuous,A_bertscore_f1_k10_minus_k5,5,5,0.938001967027186,1.0,0.05,False
+phase06-holm-v1,B_sufficiency_association,B_k5_bertscore_f1_sufficient_minus_insufficient,1,8,0.0029679779161112586,0.02374382332889007,0.05,True
+phase06-holm-v1,B_sufficiency_association,B_k5_rouge_l_f1_sufficient_minus_insufficient,2,8,0.005333207610133438,0.03733245327093407,0.05,True
+phase06-holm-v1,B_sufficiency_association,B_k10_bertscore_f1_sufficient_minus_insufficient,3,8,0.00701907275687493,0.04211443654124958,0.05,True
+phase06-holm-v1,B_sufficiency_association,B_k5_unsupported_claim_rate_sufficient_minus_insufficient,4,8,0.01704136511363373,0.08520682556816865,0.05,False
+phase06-holm-v1,B_sufficiency_association,B_k10_rouge_l_f1_sufficient_minus_insufficient,5,8,0.05664836971847125,0.226593478873885,0.05,False
+phase06-holm-v1,B_sufficiency_association,B_k5_fully_supported_response_sufficient_minus_insufficient,6,8,0.20197169092475015,0.6059150727742504,0.05,False
+phase06-holm-v1,B_sufficiency_association,B_k10_unsupported_claim_rate_sufficient_minus_insufficient,7,8,0.3187215929181816,0.6374431858363632,0.05,False
+phase06-holm-v1,B_sufficiency_association,B_k10_fully_supported_response_sufficient_minus_insufficient,8,8,0.8289345678525519,0.8289345678525519,0.05,False
+phase06-holm-v1,C_paired_k5_k10_binary,C_fully_supported_response_k10_minus_k5,1,2,1.0,1.0,0.05,False
+phase06-holm-v1,C_paired_k5_k10_binary,C_response_contains_unsupported_claim_k10_minus_k5,2,2,1.0,1.0,0.05,False

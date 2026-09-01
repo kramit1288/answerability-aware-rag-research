@@ -1,0 +1,8 @@
+section,item,auroc,auprc,f1,brier,ece,selected,notes
+calibration,B3_random_forest:uncalibrated,0.7188328065638668,0.6745584985663475,0.5076923076923076,0.2138151724561436,0.06336962935842,True,frozen validation comparison
+calibration,B4_calibrated_random_forest:sigmoid,0.7188328065638668,0.6745584985663475,0.5025773195876287,0.2173071070299721,0.0790289808945361,False,frozen validation comparison
+calibration,B4_calibrated_random_forest:isotonic,0.7187742766231416,0.6622854814890599,0.4760601915184678,0.2177861910489285,0.0714143198562065,False,frozen validation comparison
+feature_ablation,A,0.6676776383701007,0.5785957683815837,0.5506607929515418,,,False,"[""retrieval_score""]"
+feature_ablation,B,0.7103335497167504,0.6735574190554056,0.5383678440925699,,,False,"[""query_context_lexical"",""query_context_semantic""]"
+feature_ablation,C,0.7086024823789405,0.6683444992723923,0.5611510791366906,,,False,"[""retrieval_score"",""query_context_lexical"",""query_context_semantic""]"
+feature_ablation,D,0.7188328065638668,0.6745584985663475,0.5076923076923076,,,True,"[""query"",""retrieval_score"",""query_context_lexical"",""query_context_semantic"",""context_composition"",""cross_retriever_agreement"",""retrieval_condition_metadata""]"

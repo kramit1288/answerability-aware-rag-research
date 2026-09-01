@@ -1,0 +1,13 @@
+section,system,risk_constraint,t_low,t_high_or_threshold,coverage,observed_selective_risk,retrieval_expansion_rate,false_abstention_rate,mean_retrieved_k,aurc
+fixed-condition risk-coverage,selected Random Forest,0.05,,0.7976647044899571,0.0271535580524344,0.0344827586206896,,,,0.3784805394600604
+fixed-condition risk-coverage,selected Random Forest,0.1,,0.7838454251283709,0.0430711610486891,0.0869565217391304,,,,0.3784805394600604
+fixed-condition risk-coverage,selected Random Forest,0.2,,0.6779617685497638,0.1123595505617977,0.2,,,,0.3784805394600604
+adaptive policy,P/G adaptive k5-to-k10,0.05,0.78,0.82,0.0224719101123595,0.0,0.0337078651685393,0.9622641509433962,5.168539325842697,
+adaptive policy,P/G adaptive k5-to-k10,0.1,0.78,0.82,0.0224719101123595,0.0,0.0337078651685393,0.9622641509433962,5.168539325842697,
+adaptive policy,P/G adaptive k5-to-k10,0.2,0.56,0.7199999999999999,0.1797752808988764,0.1875,0.146067415730337,0.7547169811320755,5.730337078651686,
+policy baseline,P0_always_answer_hybrid_k5,0.05,,,1.0,0.4719101123595505,0.0,0.0,5.0,
+policy baseline,P2_always_retrieve_hybrid_k10_then_two_way,0.05,,0.82,0.0224719101123595,0.0,1.0,0.9622641509433962,10.0,
+policy baseline,P0_always_answer_hybrid_k5,0.1,,,1.0,0.4719101123595505,0.0,0.0,5.0,
+policy baseline,P2_always_retrieve_hybrid_k10_then_two_way,0.1,,0.82,0.0224719101123595,0.0,1.0,0.9622641509433962,10.0,
+policy baseline,P0_always_answer_hybrid_k5,0.2,,,1.0,0.4719101123595505,0.0,0.0,5.0,
+policy baseline,P2_always_retrieve_hybrid_k10_then_two_way,0.2,,0.78,0.1235955056179775,0.1818181818181818,1.0,0.830188679245283,10.0,

@@ -1,0 +1,38 @@
+{
+  "F01": {
+    "caption": "Document Recall@k on the frozen TechQA VALIDATION answerable population. A correct-document hit is not equivalent to retrieved-context sufficiency.",
+    "title": "Validation document Recall@k"
+  },
+  "F02A": {
+    "caption": "Validation AUPRC for the simple score threshold, Logistic Regression, and uncalibrated Random Forest. The Random Forest was selected by the frozen AUPRC-first rule.",
+    "title": "Validation AUPRC by model"
+  },
+  "F02B": {
+    "caption": "Validation AUROC for the same frozen classifier comparison. Separate panels avoid a dual-axis display.",
+    "title": "Validation AUROC by model"
+  },
+  "F03": {
+    "caption": "Ten-bin reliability diagram for the selected uncalibrated Random Forest on frozen validation retrieval conditions; ECE is a bin-dependent diagnostic.",
+    "title": "Selected-model reliability"
+  },
+  "F04": {
+    "caption": "Top inference-time features ranked by fixed-seed validation AUPRC permutation decrease. Importance is descriptive and not causal.",
+    "title": "Random Forest permutation importance"
+  },
+  "F05": {
+    "caption": "Frozen validation risk-coverage curve with the 5%, 10%, and 20% observed-risk operating points. Observed validation risk is not a production guarantee.",
+    "title": "Selected-model risk-coverage curve"
+  },
+  "F06": {
+    "caption": "Distribution across 89 paired questions of unsupported-claim rate at k=10 minus k=5. Negative values favor lower binary unsupported exposure at k=10 under the frozen proxy.",
+    "title": "Paired unsupported-claim-rate differences"
+  },
+  "F07": {
+    "caption": "Mean unsupported-claim rate by frozen context-sufficiency group, analyzed separately at k=5 and k=10, with 95% question-bootstrap intervals. Comparisons are associational.",
+    "title": "Context sufficiency and unsupported generation"
+  },
+  "F08": {
+    "caption": "Answer coverage versus unsupported-answer population rate for G0-G3, annotated with grounded-answer yield. No Pareto-optimality or production-safety claim is made.",
+    "title": "Policy safety-utility observations"
+  }
+}

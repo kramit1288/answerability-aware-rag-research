@@ -1,0 +1,187 @@
+{
+  "schema_version": "phase06-statistics-config-v1",
+  "phase": "phase06_statistical_analysis",
+  "purpose": "Validation-only inferential analysis, uncertainty estimation, effect sizes, and thesis-ready tables and figures from frozen Phase 1-5 artifacts.",
+  "random_seed": 42,
+  "alpha": 0.05,
+  "confidence_level": 0.95,
+  "bootstrap": {
+    "replicates": 5000,
+    "interval": "percentile",
+    "techqa_resampling_unit": "question_id",
+    "ragtruth_resampling_unit": "source_id",
+    "seed": 42,
+    "duplicate_cluster_handling": "Each sampled cluster occurrence contributes all observations belonging to that cluster.",
+    "undefined_replicate_handling": "Discard undefined replicates, report valid replicate count, and never impute an undefined metric as zero."
+  },
+  "upstream_freeze": {
+    "phase05_tag": "phase-05-generation-grounding-v1",
+    "phase05_commit": "2850efa76b376a6640f6b6636bae3c531c6f4064",
+    "phase05_manifest_physical_sha256": "2f87445752de5013afe20961116fd024ee78dbb5a298fc2fe5fa8f2b2b57138e",
+    "phase04_selected_model_canonical_sha256": "efb07f98b8e73a5f277bd89591badf1d64f486354de8e4caccdad7672463a019",
+    "phase04_selected_policy_canonical_sha256": "455b11f36c2bcef93d6a2ff9a2323ebc72ebdafe34c7a0b5c0ae82cd1e70b0d5",
+    "phase03_final_target_config_canonical_sha256": "5b9a394e5e97776844054f3282af815462148adc62b528c77245d61707406977",
+    "required_techqa_validation_questions": 89,
+    "required_generation_states": 178,
+    "required_ragtruth_claims": 42296,
+    "required_support_threshold": 0.16
+  },
+  "scope": {
+    "techqa_split": "validation",
+    "techqa_test_access_allowed": false,
+    "ragtruth_official_test_use": "Consolidation of the already frozen supporting evaluator-validation results only; no NLI rerun, search, or recalibration.",
+    "phase04_retraining_allowed": false,
+    "phase04_threshold_change_allowed": false,
+    "phase05_generation_allowed": false,
+    "phase05_grounding_rescoring_allowed": false,
+    "phase07_started": false
+  },
+  "research_questions": [
+    {
+      "rq_id": "RQ1",
+      "frozen_wording": "How do retrieval strategy and retrieval depth affect whether the retrieved context is sufficient for technical-documentation questions?",
+      "proposal_intent": "How frequently are technical-documentation questions non-answerable because retrieved context is insufficient?",
+      "operational_mapping": "The proposal's question-level answerability intent is evaluated as document retrieval and retrieval-conditioned context sufficiency for the actual context bundle C(q,r,k), not as global question answerability.",
+      "datasets": ["TechQA TRAIN and VALIDATION frozen Phase 2/3 summaries"],
+      "experimental_unit": "question_id; repeated retrieval conditions are dependent",
+      "outcomes": ["document Recall@k", "MRR@10", "retrieved-context sufficiency"],
+      "comparisons": "BM25, dense, and hybrid across k in {1,3,5,10}",
+      "statistical_test": "Descriptive consolidation in Phase 6; no new retriever hypothesis family is introduced because TEST remains sealed and the approved Phase 6 request predeclares generation/grounding families A-C.",
+      "effect_size": "Absolute differences are descriptive where shown.",
+      "confidence_interval": "No new aggregate-only interval is fabricated; persisted uncertainty is reported where available.",
+      "table_ids": ["T02", "T03"],
+      "figure_ids": ["F01"]
+    },
+    {
+      "rq_id": "RQ2",
+      "frozen_wording": "Which retrieval and context characteristics predict retrieved-context sufficiency, and does a calibrated multivariate classifier improve on always-sufficient, single-score, linear, and uncalibrated tree baselines?",
+      "proposal_intent": "Which retrieval and context characteristics are useful in determining answerability on technical questions?",
+      "operational_mapping": "Prediction targets the frozen retrieval-conditioned y_suff_final and uses only inference-time retrieval/context features.",
+      "datasets": ["TechQA TRAIN for fitting already completed in Phase 4", "TechQA VALIDATION frozen Phase 4 results"],
+      "experimental_unit": "question_id with all retrieval conditions retained per question",
+      "outcomes": ["AUROC", "AUPRC", "F1", "Brier score", "ECE", "permutation importance"],
+      "comparisons": "B1, Logistic Regression, uncalibrated Random Forest, and calibration variants; B0 retained as an operational reference",
+      "statistical_test": "No new post-hoc classifier-family p-value; frozen question-bootstrap confidence intervals and descriptive comparisons are consolidated.",
+      "effect_size": "Metric point differences are descriptive; no post-hoc standardized label is assigned.",
+      "confidence_interval": "Frozen Phase 4 95% question-bootstrap intervals for the selected Random Forest.",
+      "table_ids": ["T04", "T05"],
+      "figure_ids": ["F02A", "F02B", "F03", "F04"]
+    },
+    {
+      "rq_id": "RQ3",
+      "frozen_wording": "How does a calibrated policy that can answer, request additional retrieval evidence, or abstain at k=5-and that resolves expansion cases once at k=10-change unsafe answering, false abstention, retrieval expansion, coverage, and selective risk relative to an always-answer RAG system and simpler gates?",
+      "proposal_intent": "What is the effect of the answerability-aware policy on unsafe answer rate and false abstention rate?",
+      "operational_mapping": "The medium action is one fixed retrieval expansion, and all policy claims are validation-set safety-coverage observations rather than production guarantees.",
+      "datasets": ["TechQA VALIDATION frozen Phase 4 trajectories", "TechQA VALIDATION frozen Phase 5 policy views"],
+      "experimental_unit": "question_id trajectory",
+      "outcomes": ["coverage", "selective risk", "false abstention", "retrieval expansion", "AURC", "grounded-answer yield", "unsupported-answer population rate"],
+      "comparisons": "Frozen P/G policies and 5%, 10%, and 20% operating points; thresholds are not retuned.",
+      "statistical_test": "No significance test between deterministic operating thresholds; uncertainty for policy proportions uses question bootstrap.",
+      "effect_size": "Absolute policy proportions and safety-coverage trade-offs.",
+      "confidence_interval": "95% question-bootstrap intervals for coverage, grounded-answer yield, and unsupported-answer population rate.",
+      "table_ids": ["T06", "T10"],
+      "figure_ids": ["F05", "F08"]
+    },
+    {
+      "rq_id": "RQ4",
+      "frozen_wording": "Does gating reduce exposure to unsupported generated claims, and how reliably does the automatic grounding measure agree with RAGTruth and blinded manual judgement?",
+      "proposal_intent": "How is hallucination risk measured without overclaiming?",
+      "operational_mapping": "Phase 6 tests frozen generation/grounding contrasts while treating NLI support as an imperfect retrieved-context grounding proxy, not authoritative hallucination truth.",
+      "datasets": ["TechQA VALIDATION frozen Phase 5 paired and policy artifacts", "RAGTruth official supporting TEST results frozen in Phase 5"],
+      "experimental_unit": "TechQA question_id; RAGTruth source_id for already persisted evaluator intervals",
+      "outcomes": ["ROUGE-L", "BERTScore F1", "unsupported-claim rate", "mean claim support", "fully-supported response", "output tokens", "RAGTruth discrimination and classification metrics"],
+      "comparisons": "Paired k10-k5; sufficient-insufficient separately at k=5 and k=10; G0-G3 descriptive safety-quality-coverage views.",
+      "statistical_test": "Families A-C: Wilcoxon signed-rank, exact McNemar, Mann-Whitney U, and Fisher exact as predeclared below.",
+      "effect_size": "Mean/median paired difference, matched-pairs rank-biserial correlation, risk difference, Cliff's delta, risk ratio, and odds ratio as applicable.",
+      "confidence_interval": "95% question-bootstrap intervals for paired differences, association contrasts, Cliff's delta, and policy proportions; frozen source-bootstrap RAGTruth intervals.",
+      "table_ids": ["T07", "T08", "T09", "T10", "T11"],
+      "figure_ids": ["F06", "F07", "F08"]
+    }
+  ],
+  "hypothesis_families": [
+    {
+      "family_id": "A_paired_k5_k10_continuous",
+      "correction": "Holm",
+      "comparisons": ["rouge_l_f1", "bertscore_f1", "unsupported_claim_rate", "mean_claim_support_score", "output_token_count"],
+      "direction": "k10 - k5",
+      "test": "two-sided Wilcoxon signed-rank with Pratt zero handling and aligned complete pairs",
+      "effect_size": "matched-pairs rank-biserial correlation with sign following k10-k5"
+    },
+    {
+      "family_id": "B_sufficiency_association",
+      "correction": "Holm",
+      "comparisons": ["k5:rouge_l_f1", "k5:bertscore_f1", "k5:unsupported_claim_rate", "k5:fully_supported_response", "k10:rouge_l_f1", "k10:bertscore_f1", "k10:unsupported_claim_rate", "k10:fully_supported_response"],
+      "direction": "sufficient - insufficient",
+      "continuous_test": "two-sided Mann-Whitney U",
+      "continuous_effect_size": "Cliff's delta",
+      "binary_test": "two-sided Fisher exact",
+      "binary_effect_sizes": ["risk difference", "risk ratio", "odds ratio"]
+    },
+    {
+      "family_id": "C_paired_k5_k10_binary",
+      "correction": "Holm",
+      "comparisons": ["fully_supported_response", "response_contains_unsupported_claim"],
+      "direction": "k10 - k5",
+      "test": "two-sided exact McNemar using the discordant-pair binomial distribution",
+      "effect_size": "absolute paired risk difference"
+    }
+  ],
+  "multiple_testing": {
+    "method": "Holm step-down",
+    "alpha": 0.05,
+    "scope": "Applied separately within each predeclared family A, B, and C.",
+    "persist": ["raw p-value", "Holm-adjusted p-value", "rejection decision", "family identifier", "family size"]
+  },
+  "missing_values": {
+    "continuous_pairs": "Use only aligned question pairs with both outcomes observed; report excluded count.",
+    "binary_pairs": "Use only aligned pairs with both binary outcomes observed; never convert NA to false.",
+    "independent_groups": "Exclude only rows missing the named outcome; never zero-impute.",
+    "policy_quality": "Abstentions and undefined answer content remain NA; conditional quality uses answered eligible cases only.",
+    "undefined_rates": "Remain NA when their denominator is zero."
+  },
+  "effect_size_conventions": {
+    "paired_rank_biserial": "(sum positive Pratt ranks - sum negative Pratt ranks) / sum nonzero Pratt ranks; positive follows k10-k5.",
+    "cliffs_delta": "P(X_sufficient > X_insufficient) - P(X_sufficient < X_insufficient).",
+    "risk_difference_paired": "mean(binary_k10 - binary_k5).",
+    "risk_difference_independent": "rate_sufficient - rate_insufficient.",
+    "qualitative_magnitude_labels": false
+  },
+  "tiny_sample_guard": {
+    "minimum_answered_n_for_quality_bootstrap": 10,
+    "G2_answered_n": 2,
+    "G2_quality_inference_allowed": false,
+    "interpretation": "G2 quality is descriptive only with severe uncertainty; zero observed unsupported responses is not evidence that true risk is zero."
+  },
+  "tables": [
+    ["T01", "dataset_population_split_census"],
+    ["T02", "controlled_retrieval_results"],
+    ["T03", "phase03_human_and_target_validation"],
+    ["T04", "phase04_classifier_comparison"],
+    ["T05", "calibration_and_feature_ablation"],
+    ["T06", "risk_coverage_and_policy_comparison"],
+    ["T07", "ragtruth_evaluator_validation"],
+    ["T08", "paired_k5_k10_generation_grounding"],
+    ["T09", "sufficiency_association_outcomes"],
+    ["T10", "generation_policy_safety_quality_coverage"],
+    ["T11", "inferential_test_summary"]
+  ],
+  "figures": [
+    ["F01", "validation_recall_at_k_by_retriever"],
+    ["F02A", "validation_auprc_by_model"],
+    ["F02B", "validation_auroc_by_model"],
+    ["F03", "selected_model_reliability"],
+    ["F04", "random_forest_permutation_importance"],
+    ["F05", "selected_model_risk_coverage"],
+    ["F06", "paired_unsupported_claim_rate_differences"],
+    ["F07", "context_sufficiency_unsupported_generation"],
+    ["F08", "policy_safety_utility" ]
+  ],
+  "interpretation_rules": [
+    "A p-value above alpha is described as not providing evidence of a statistically detectable difference, never as proof of no difference.",
+    "Context-sufficiency comparisons are associational because the Phase 3 target and generation outcomes are measured on the same retrieval-conditioned state.",
+    "The contradictory direction between binary unsupported rate and continuous mean support is retained and discussed.",
+    "Observed validation risk is not a production safety guarantee.",
+    "Grounding proxy output is not authoritative hallucination truth.",
+    "Quality is always reported with coverage for selective policies."
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "generated_from_canonical_artifacts": true,
+  "schema_version": "phase06-table-manifest-v1",
+  "tables": [
+    {
+      "csv_path": "artifacts/tables/phase06_table01_dataset_population_split_census.csv",
+      "csv_sha256": "dfdd73bcf900ece103fa2c8c1bcc1539e13ea412df7b755c71d29db2049ff1d4",
+      "markdown_path": "artifacts/tables/phase06_table01_dataset_population_split_census.md",
+      "markdown_sha256": "440408596b1cd4a62031fc3108bb9f990713ddd9434fd565479949fc9181d3e0",
+      "rows": 8,
+      "table_id": "T01",
+      "title": "Table 1 — Dataset, population, and split census"
+    },
+    {
+      "csv_path": "artifacts/tables/phase06_table02_controlled_retrieval_results.csv",
+      "csv_sha256": "de7e1320eb15fc7e165e6eb2e1ca2c46a2342fdf62ab74ea0539ae8f210cd7c1",
+      "markdown_path": "artifacts/tables/phase06_table02_controlled_retrieval_results.md",
+      "markdown_sha256": "b5fc5d9f12626de31d41067242ca49dd83d9a843993925464bc0dd2e08d4bbe9",
+      "rows": 12,
+      "table_id": "T02",
+      "title": "Table 2 — Controlled retrieval results"
+    },
+    {
+      "csv_path": "artifacts/tables/phase06_table03_phase03_human_target_validation.csv",
+      "csv_sha256": "1ea37d14f3ea3aa6804d62ca3593472ccc340861c7dd1583ab739739c3190cd2",
+      "markdown_path": "artifacts/tables/phase06_table03_phase03_human_target_validation.md",
+      "markdown_sha256": "9268daeb420d3dae1c93029a83b31f3fee31221f7c197078b3490941b2f84f94",
+      "rows": 14,
+      "table_id": "T03",
+      "title": "Table 3 — Phase 3 human and final-target validation"
+    },
+    {
+      "csv_path": "artifacts/tables/phase06_table04_phase04_classifier_comparison.csv",
+      "csv_sha256": "a74069304f58ec53bd0f77f7d6bb2439ccda3f18adc94fd738b3940e6971c64a",
+      "markdown_path": "artifacts/tables/phase06_table04_phase04_classifier_comparison.md",
+      "markdown_sha256": "f9541336e713e9657657ac4f4665b869142b2a8c461a4ec5d532d928a8710df0",
+      "rows": 6,
+      "table_id": "T04",
+      "title": "Table 4 — Phase 4 classifier comparison"
+    },
+    {
+      "csv_path": "artifacts/tables/phase06_table05_calibration_feature_ablation.csv",
+      "csv_sha256": "26ba0e860ae96a3c148ddf6284cda3823b486cd790baef69c2227eb42908bd78",
+      "markdown_path": "artifacts/tables/phase06_table05_calibration_feature_ablation.md",
+      "markdown_sha256": "75de171afbd6ad2cc62215547f9eda4027ea87312fd6e7878a1d00156f74ba8c",
+      "rows": 7,
+      "table_id": "T05",
+      "title": "Table 5 — Calibration and feature ablation"
+    },
+    {
+      "csv_path": "artifacts/tables/phase06_table06_risk_coverage_policy_comparison.csv",
+      "csv_sha256": "f987a64bc434b30ad8262dd5b9d51a0175111fa11cc1765987643f4b341afa6e",
+      "markdown_path": "artifacts/tables/phase06_table06_risk_coverage_policy_comparison.md",
+      "markdown_sha256": "b27c1fe723088d5bdaba0236158b13d3cadb4bb1cb9f219b62c5c9a6698459f5",
+      "rows": 12,
+      "table_id": "T06",
+      "title": "Table 6 — Risk-coverage and policy comparison"
+    },
+    {
+      "csv_path": "artifacts/tables/phase06_table07_ragtruth_evaluator_validation.csv",
+      "csv_sha256": "7257a750535bfc1d800a1d79caeab2ac2614257051f3cd3da37821be39f59b1f",
+      "markdown_path": "artifacts/tables/phase06_table07_ragtruth_evaluator_validation.md",
+      "markdown_sha256": "bfa6482df01d6eef0542b780df0a4b7c90605bf305a22dc75749f14c081d058e",
+      "rows": 20,
+      "table_id": "T07",
+      "title": "Table 7 — RAGTruth evaluator validation"
+    },
+    {
+      "csv_path": "artifacts/tables/phase06_table08_paired_k5_k10_generation_grounding.csv",
+      "csv_sha256": "9d5997cb354b4bf3f0ecabf93d3bb94a44a457803241eb7e7ec0436de963fc2a",
+      "markdown_path": "artifacts/tables/phase06_table08_paired_k5_k10_generation_grounding.md",
+      "markdown_sha256": "a50c84cab21d22026b40a0ec7090024c390bd912a6e5e74291efa45b60916601",
+      "rows": 7,
+      "table_id": "T08",
+      "title": "Table 8 — Paired k5/k10 generation and grounding"
+    },
+    {
+      "csv_path": "artifacts/tables/phase06_table09_sufficiency_association_outcomes.csv",
+      "csv_sha256": "415901b513c4b08eb22a3081f2d47a3fcda1b9e797fe95fb3e15d72d8156722f",
+      "markdown_path": "artifacts/tables/phase06_table09_sufficiency_association_outcomes.md",
+      "markdown_sha256": "73b01df22a7a60a30d9eca7216fd7a02f9723fed7f6aec1aed097d21776ffa92",
+      "rows": 8,
+      "table_id": "T09",
+      "title": "Table 9 — Sufficiency-association outcomes"
+    },
+    {
+      "csv_path": "artifacts/tables/phase06_table10_generation_policy_comparison.csv",
+      "csv_sha256": "06ccd83daa1b35aafae56a3ecffbc137854b59ee688ef38f89925b51c954e5fc",
+      "markdown_path": "artifacts/tables/phase06_table10_generation_policy_comparison.md",
+      "markdown_sha256": "6733d67d715d7d18cf0c495250220d38051ba45494b9de5bb0b1813931fe77ef",
+      "rows": 4,
+      "table_id": "T10",
+      "title": "Table 10 — G0-G3 safety, quality, and coverage"
+    },
+    {
+      "csv_path": "artifacts/tables/phase06_table11_inferential_test_summary.csv",
+      "csv_sha256": "90f149a2eb39c0f0387b251dc4ae57920740683f46954324b74a751fc109478b",
+      "markdown_path": "artifacts/tables/phase06_table11_inferential_test_summary.md",
+      "markdown_sha256": "bac5e6653ef3748d727539aaaf90c0f24038978776c7e981271aeb2b91ff0c2f",
+      "rows": 15,
+      "table_id": "T11",
+      "title": "Table 11 — Inferential statistical test summary"
+    }
+  ]
+}

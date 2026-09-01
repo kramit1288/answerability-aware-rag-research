@@ -1,0 +1,9 @@
+dataset,population,split,questions_or_sources,observations,positive_or_answerable,negative_or_impossible,notes
+TechQA,frozen benchmark census,train,637,637,427.0,210.0,group-aware split
+TechQA,frozen benchmark census,validation,137,137,92.0,45.0,group-aware split
+TechQA,frozen benchmark census,test (sealed; census only),136,136,91.0,45.0,No TechQA TEST outcomes accessed
+TechQA,Phase 3/4 PRIMARY context-sufficiency,train,424,5088,2325.0,2763.0,retrieval-conditioned y_suff_final
+TechQA,Phase 3/4 PRIMARY context-sufficiency,validation,89,1068,477.0,591.0,retrieval-conditioned y_suff_final
+TechQA,Phase 5 generation states,validation,89,178,,,hybrid k=5 and k=10
+RAGTruth QA,supporting evaluator validation,official train,839,5034,,,threshold selection only
+RAGTruth QA,supporting evaluator validation,official test,150,900,,,not the sealed TechQA final TEST

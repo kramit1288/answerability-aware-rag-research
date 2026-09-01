@@ -1,3 +1,5 @@
+.gitattributes text eol=lf
+
 # Byte-hashed frozen research artifacts require deterministic LF checkout.
 artifacts/results/phase03_final_artifact_manifest.json text eol=lf
 docs/PHASE_03_FINAL_VALIDATION.md text eol=lf
@@ -14,3 +16,20 @@ scripts/finalize_phase04_artifacts.py text eol=lf
 scripts/run_phase04_modeling.py text eol=lf
 src/answerability_rag/answerability/*.py text eol=lf
 tests/test_phase04_*.py text eol=lf
+
+# Phase 6 statistical-analysis artifacts use deterministic LF checkout.
+configs/phase06_*.json text eol=lf
+docs/PHASE_06_*.md text eol=lf
+scripts/*phase06*.py text eol=lf
+src/answerability_rag/statistics/*.py text eol=lf
+tests/test_phase06_*.py text eol=lf
+artifacts/results/phase06_*.json text eol=lf
+artifacts/results/phase06_*.csv text eol=lf
+artifacts/tables/phase06_*.csv text eol=lf
+artifacts/tables/phase06_*.md text eol=lf
+artifacts/figures/phase06_*.csv text eol=lf
+artifacts/figures/phase06_*.svg text eol=lf
+artifacts/figures/phase06_*.png binary
+artifacts/results/phase06_*.parquet binary
+artifacts/results/.gitignore text eol=lf
+artifacts/figures/.gitignore text eol=lf

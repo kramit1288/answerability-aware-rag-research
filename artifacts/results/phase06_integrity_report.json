@@ -1,0 +1,37 @@
+{
+  "bootstrap_replicates": 5000,
+  "figure_count": 9,
+  "g2_tiny_sample_guard_applied": true,
+  "holm_family_sizes": {
+    "A_paired_k5_k10_continuous": 5,
+    "B_sufficiency_association": 8,
+    "C_paired_k5_k10_binary": 2
+  },
+  "paired_descriptive_differences_reproduced": true,
+  "phase04_model_retrained": false,
+  "phase04_thresholds_changed": false,
+  "phase05_answers_regenerated": false,
+  "phase06_config_canonical_sha256": "f0aba2d25163010e81d2dbfee0cd98dbe5a81857839085cd41b048e2e56a6826",
+  "phase07_started": false,
+  "pre_analysis_governance_frozen_before_results": true,
+  "ragtruth_bootstrap_unit": "source_id",
+  "ragtruth_nli_rerun": false,
+  "schema_version": "phase06-integrity-report-v1",
+  "status": "pass",
+  "sufficiency_counts": {
+    "k10": {
+      "insufficient": 36,
+      "sufficient": 53
+    },
+    "k5": {
+      "insufficient": 42,
+      "sufficient": 47
+    }
+  },
+  "table_count": 11,
+  "techqa_bootstrap_unit": "question_id",
+  "techqa_test_accessed": false,
+  "techqa_test_rows": 0,
+  "techqa_test_sealed": true,
+  "upstream_hashes_reproduced": true
+}

@@ -1,0 +1,15 @@
+section,metric,estimate,ci_low,ci_high,notes
+strict proxy development audit,sample size,150.0,,,equal-allocation stratified audit
+strict proxy development audit,precision,1.0,0.8864866068260312,0.9999999999999999,strict positives
+strict proxy development audit,raw F1,0.5172413793103449,,,descriptive sample only
+strict proxy development audit,weighted F1,0.5641877948935314,,,failed original 0.85 gate
+final independent confirmation,sample size,50.0,,,one human with AI-assisted pre-key adjudication
+final independent confirmation,precision,0.9117647058823529,0.7703951343719113,0.9695340563253514,Wilson CI
+final independent confirmation,recall,0.9117647058823529,,,
+final independent confirmation,raw F1,0.9117647058823528,,,
+final independent confirmation,accuracy,0.88,,,
+final independent confirmation,weighted F1,0.8631833614127157,,,passed frozen 0.85 gate
+final target population,eligible questions,513.0,,,TRAIN+VALIDATION
+final target population,eligible conditions,6156.0,,,PRIMARY
+final target population,positive conditions,2802.0,,,
+final target population,negative conditions,3354.0,,,
