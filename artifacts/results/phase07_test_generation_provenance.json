@@ -1,0 +1,46 @@
+{
+  "attempt_count_distribution": {
+    "1": 176
+  },
+  "benchmark_answers_entered_generation": false,
+  "context_manifest_sha256": "9d8fd5023e6acf6c70bb6396d64dbc9f22a0f4527c0bfb60bd4152347d2ce88f",
+  "generation_cache": {
+    "bytes": 55732,
+    "columns": [
+      "schema_version",
+      "cache_key",
+      "response_id",
+      "question_id",
+      "retrieval_strategy",
+      "k",
+      "model_revision",
+      "tokenizer_revision",
+      "generation_config_sha256",
+      "prompt_sha256",
+      "assembled_context_sha256",
+      "raw_generated_text",
+      "normalized_generated_text",
+      "input_token_count",
+      "output_token_count",
+      "generation_status",
+      "attempt_count",
+      "runtime_seconds",
+      "runtime_metadata_json",
+      "error_class",
+      "error_message_sha256",
+      "output_sha256"
+    ],
+    "path": "C:/answerability-aware-rag-research/artifacts/results/phase07_test_generation_cache.parquet",
+    "physical_sha256": "45616e2503a860c4a2c1536793c6595e305d26147b1e9fe9f65c5f054021735c",
+    "rows": 176,
+    "semantic_sha256": "a8761115c8398aa9060599efbc1c485bbe3c5a5ec507625b35db46fb19b2c5c2"
+  },
+  "generation_closed_before_reference_evaluation": true,
+  "generation_config_sha256": "4fb3b30aa7c51d5955659741b6e8f53e37a4e9a10030943324434cfd731e9cdf",
+  "question_count": 88,
+  "schema_version": "phase07-test-generation-provenance-v1",
+  "state_count": 176,
+  "status_counts": {
+    "generated": 176
+  }
+}

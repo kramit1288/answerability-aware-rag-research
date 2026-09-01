@@ -1,0 +1,96 @@
+{
+  "schema_version": "phase07-final-tables-manifest-v1",
+  "tables": [
+    {
+      "csv": {
+        "path": "artifacts/tables/phase07_table00_target_by_retrieval_condition.csv",
+        "physical_sha256": "8431affc05ba0aeb5e60004c26a133d34c578817937fd8a307cd88bdd05af104"
+      },
+      "markdown": {
+        "path": "artifacts/tables/phase07_table00_target_by_retrieval_condition.md",
+        "physical_sha256": "e2d615bbfa8a788fefcb1beeb45c121cc942fba99b4db79b08617d021da3a91b"
+      },
+      "rows": 24,
+      "table_id": "phase07_table00_target_by_retrieval_condition",
+      "title": "Retrieved-context sufficiency by strategy and depth"
+    },
+    {
+      "csv": {
+        "path": "artifacts/tables/phase07_table01_classifier_validation_test.csv",
+        "physical_sha256": "1d1937dd47a92744224348e78f954b7737f17cb5844bc688ebcf395af9720585"
+      },
+      "markdown": {
+        "path": "artifacts/tables/phase07_table01_classifier_validation_test.md",
+        "physical_sha256": "d4d1f44ac63b1c0ca160d3eac63228fae4f4821fa9801e2608df84361e984980"
+      },
+      "rows": 16,
+      "table_id": "phase07_table01_classifier_validation_test",
+      "title": "Final classifier: VALIDATION vs TEST"
+    },
+    {
+      "csv": {
+        "path": "artifacts/tables/phase07_table02_risk_coverage_validation_test.csv",
+        "physical_sha256": "2230a49b2686297dc2569e8a4384a70405e8a4783490cc42c637f670811b0539"
+      },
+      "markdown": {
+        "path": "artifacts/tables/phase07_table02_risk_coverage_validation_test.md",
+        "physical_sha256": "93b28ef3607ed7aba27646b6b10715a41660da517f7714c6cc81baa96d9932a5"
+      },
+      "rows": 8,
+      "table_id": "phase07_table02_risk_coverage_validation_test",
+      "title": "Frozen risk/coverage: VALIDATION vs TEST"
+    },
+    {
+      "csv": {
+        "path": "artifacts/tables/phase07_table03_policy_validation_test.csv",
+        "physical_sha256": "8d07e33f4b39dab15afb56b6367c6f58f25cba2b879f16536abc3378a045a5d8"
+      },
+      "markdown": {
+        "path": "artifacts/tables/phase07_table03_policy_validation_test.md",
+        "physical_sha256": "9494e561a9c783e4871ce832a2565043c04a736f9ac6e43876a7ec303b60bce3"
+      },
+      "rows": 4,
+      "table_id": "phase07_table03_policy_validation_test",
+      "title": "Frozen adaptive policies: VALIDATION vs TEST"
+    },
+    {
+      "csv": {
+        "path": "artifacts/tables/phase07_table04_quality_grounding_validation_test.csv",
+        "physical_sha256": "a453eba0ae0e5c96f8746bf005337108409701e2509f717d110168732a1f5886"
+      },
+      "markdown": {
+        "path": "artifacts/tables/phase07_table04_quality_grounding_validation_test.md",
+        "physical_sha256": "ad83a3284285c6388f1cc8856d48f4320858dcac916ef42ede8c958df5a41ea4"
+      },
+      "rows": 4,
+      "table_id": "phase07_table04_quality_grounding_validation_test",
+      "title": "k5/k10 answer quality and grounding"
+    },
+    {
+      "csv": {
+        "path": "artifacts/tables/phase07_table05_sufficiency_associations.csv",
+        "physical_sha256": "64b9ea0cf1f9bee4154ad048d3eafa558132e123a565b8520b6cd11d5d966fdc"
+      },
+      "markdown": {
+        "path": "artifacts/tables/phase07_table05_sufficiency_associations.md",
+        "physical_sha256": "bc99fbf4ce9daf8827f362f6532d60beb89c351175f095facce22d6946b8cad9"
+      },
+      "rows": 16,
+      "table_id": "phase07_table05_sufficiency_associations",
+      "title": "Context sufficiency associations"
+    },
+    {
+      "csv": {
+        "path": "artifacts/tables/phase07_table06_inferential_tests.csv",
+        "physical_sha256": "cac549e9fb11f3de8bbe949e719bab6280a3111f1fdda2846f1969c779debcea"
+      },
+      "markdown": {
+        "path": "artifacts/tables/phase07_table06_inferential_tests.md",
+        "physical_sha256": "15749636fff9c7a99585c60bc826661ee3d28dee24f628001196827f28d0c4a8"
+      },
+      "rows": 30,
+      "table_id": "phase07_table06_inferential_tests",
+      "title": "Predeclared inferential tests"
+    }
+  ]
+}

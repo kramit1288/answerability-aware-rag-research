@@ -33,3 +33,21 @@ artifacts/figures/phase06_*.png binary
 artifacts/results/phase06_*.parquet binary
 artifacts/results/.gitignore text eol=lf
 artifacts/figures/.gitignore text eol=lf
+
+# Phase 7 final TEST artifacts use deterministic LF checkout.
+configs/phase07_*.json text eol=lf
+docs/PHASE_07_*.md text eol=lf
+scripts/*phase07*.py text eol=lf
+src/answerability_rag/final_test/*.py text eol=lf
+tests/test_phase07_*.py text eol=lf
+artifacts/results/phase07_*.json text eol=lf
+artifacts/results/phase07_*.csv text eol=lf
+artifacts/results/phase07_*.parquet binary
+artifacts/tables/phase07_*.csv text eol=lf
+artifacts/tables/phase07_*.md text eol=lf
+artifacts/figures/phase07_*.csv text eol=lf
+artifacts/figures/phase07_*.svg text eol=lf
+artifacts/figures/phase07_*.png binary
+data/derived/phase07/*.json text eol=lf
+data/derived/phase07/*.jsonl text eol=lf
+data/derived/phase07/*.parquet binary

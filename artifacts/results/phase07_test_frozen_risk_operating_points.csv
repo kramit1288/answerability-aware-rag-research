@@ -1,0 +1,4 @@
+validation_risk_constraint,frozen_validation_threshold,test_answered_count,test_total_count,test_coverage,test_unsafe_answer_count,test_selective_risk,threshold_selected_on_test
+0.05,0.7976647044899572,29,1056,0.027462121212121212,27,0.9310344827586207,False
+0.1,0.7838454251283709,36,1056,0.03409090909090909,31,0.8611111111111112,False
+0.2,0.6779617685497638,131,1056,0.1240530303030303,48,0.366412213740458,False

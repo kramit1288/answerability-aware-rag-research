@@ -1,0 +1,49 @@
+{
+  "benchmark_answers_entered_generation": false,
+  "bertscore": {
+    "batch_size": 8,
+    "device": "cpu",
+    "dtype": "float32",
+    "idf": false,
+    "language": "en",
+    "model_revision": "fb53ab8802853c8e4fbdbcd0529f21fc6f459b2b",
+    "model_type": "distilroberta-base",
+    "num_layers": 5,
+    "package": "bert-score",
+    "reported_measure": "F1",
+    "rescale_with_baseline": false,
+    "use_fast_tokenizer": true,
+    "version": "0.3.13"
+  },
+  "evaluated_responses": 176,
+  "generation_cache_sha256": "45616e2503a860c4a2c1536793c6595e305d26147b1e9fe9f65c5f054021735c",
+  "quality_artifact": {
+    "bytes": 5658,
+    "columns": [
+      "schema_version",
+      "response_id",
+      "question_id",
+      "k",
+      "generation_status",
+      "reference_status",
+      "rouge_l_f1",
+      "bertscore_f1",
+      "metric_status",
+      "generation_cache_sha256"
+    ],
+    "path": "C:/answerability-aware-rag-research/artifacts/results/phase07_test_answer_quality.parquet",
+    "physical_sha256": "48353a39b7ad13c2956effcf63af8b7c3fdf3458fb2ea45f887ff99623186915",
+    "rows": 176,
+    "semantic_sha256": "315909856572a0c450ad98106ff1d9810921d9b210123953025689afcf7f60ff"
+  },
+  "references_first_accessed_after_generation_closed": true,
+  "rouge_l": {
+    "implementation": "rouge_score.rouge_scorer.RougeScorer",
+    "measure": "rougeL F1/fmeasure",
+    "package": "rouge-score",
+    "use_stemmer": false,
+    "version": "0.1.2"
+  },
+  "schema_version": "phase07-test-quality-manifest-v1",
+  "undefined_responses": 0
+}

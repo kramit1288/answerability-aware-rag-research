@@ -1,0 +1,26 @@
+domain,metric,validation,test,classification
+classifier,auroc,0.7188328065638668,0.7587518441111385,uncertain due to CI overlap/sample size
+classifier,auprc,0.6745584985663475,0.5788107387951278,uncertain due to CI overlap/sample size
+classifier,f1,0.5076923076923076,0.5863095238095238,uncertain due to CI overlap/sample size
+classifier,brier,0.2138151724561436,0.19385001035646257,uncertain due to CI overlap/sample size
+risk_coverage,aurc,0.3784805394600604,0.48011829704916265,weaker on TEST
+policy,G2_coverage,0.0224719101123595,0.034090909090909,directionally consistent
+policy,G2_selective_risk,0.0,1.0,weaker on TEST
+policy,G3_coverage,0.1797752808988764,0.1590909090909091,weaker on TEST
+policy,G3_selective_risk,0.1875,0.2857142857142857,weaker on TEST
+generation,k5_mean_rouge_l,0.1919938130251226,0.1976702098952987,stronger on TEST
+generation,k5_mean_bertscore_f1,0.8874577015973208,0.8831843584775925,weaker on TEST
+generation,k5_mean_unsupported_claim_rate,0.3012704707351105,0.3100386339471268,weaker on TEST
+generation,k5_fully_supported_response_rate,0.4606741573033708,0.4659090909090909,stronger on TEST
+generation,k10_mean_rouge_l,0.1991236388329199,0.2050737800293703,stronger on TEST
+generation,k10_mean_bertscore_f1,0.8878614159112566,0.8850333670323546,weaker on TEST
+generation,k10_mean_unsupported_claim_rate,0.2770911360799001,0.3368389186571005,weaker on TEST
+generation,k10_fully_supported_response_rate,0.4719101123595505,0.4204545454545454,weaker on TEST
+sufficiency_association,B_k10_bertscore_f1_sufficient_minus_insufficient,0.0168634682144008,0.0216328647697163,directionally consistent
+sufficiency_association,B_k10_fully_supported_response_sufficient_minus_insufficient,0.0461215932914046,0.2848988064348728,directionally consistent
+sufficiency_association,B_k10_rouge_l_f1_sufficient_minus_insufficient,0.0570915258000818,0.152298199844779,directionally consistent
+sufficiency_association,B_k10_unsupported_claim_rate_sufficient_minus_insufficient,-0.0975541579315164,-0.2123330397331435,directionally consistent
+sufficiency_association,B_k5_bertscore_f1_sufficient_minus_insufficient,0.0154778253222912,0.0247134878521873,directionally consistent
+sufficiency_association,B_k5_fully_supported_response_sufficient_minus_insufficient,0.1509625126646403,0.1302982731554159,directionally consistent
+sufficiency_association,B_k5_rouge_l_f1_sufficient_minus_insufficient,0.0505900203743147,0.1668380345625089,directionally consistent
+sufficiency_association,B_k5_unsupported_claim_rate_sufficient_minus_insufficient,-0.1982274470071716,-0.1208484984800773,directionally consistent

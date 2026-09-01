@@ -1,0 +1,5 @@
+{
+  "aurc": 0.48011829704916265,
+  "integration": "right_endpoint_rectangle_over_increasing_observed_coverage",
+  "schema_version": "phase07-test-aurc-v1"
+}

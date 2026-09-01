@@ -1,0 +1,251 @@
+{
+  "schema_version": "phase07-final-test-config-v1",
+  "phase": "phase07_final_one_time_sealed_techqa_test_evaluation",
+  "purpose": "Obtain one final unbiased estimate of the complete frozen system on the held-out TechQA TEST split.",
+  "random_seed": 42,
+  "governance_statement": "No post-TEST scientific choice is permitted.",
+  "upstream_freeze": {
+    "phase06_tag": "phase-06-statistical-analysis-v1",
+    "phase06_commit": "a6dc70ee13c0ddc14e7d5f7622110343d5befe8e",
+    "phase06_config_canonical_sha256": "f0aba2d25163010e81d2dbfee0cd98dbe5a81857839085cd41b048e2e56a6826",
+    "phase06_manifest_physical_sha256": "798454342a3dd067d352249b0a1b0a03ba20fa513f53f7b4e2710c8c6c29b2a2",
+    "phase05_manifest_physical_sha256": "2f87445752de5013afe20961116fd024ee78dbb5a298fc2fe5fa8f2b2b57138e",
+    "phase04_selected_model_canonical_sha256": "efb07f98b8e73a5f277bd89591badf1d64f486354de8e4caccdad7672463a019",
+    "phase04_selected_policy_canonical_sha256": "455b11f36c2bcef93d6a2ff9a2323ebc72ebdafe34c7a0b5c0ae82cd1e70b0d5",
+    "phase03_final_target_config_canonical_sha256": "5b9a394e5e97776844054f3282af815462148adc62b528c77245d61707406977",
+    "phase03_final_manifest_physical_sha256": "b02a0ca0e3352798c8d38ef4942fdca59e23d8d24c662493a1249d2864ca9879",
+    "phase04_model_binary_physical_sha256": "7d0f124cfea75d9b69e52ef83af066eae50afdf35b5d3f4a0d53f7785b36b9fd",
+    "phase04_feature_registry_physical_sha256": "850a29b2493e481f93fabdbc9374a2ee64a971cd6e6f045699f046f7424decfb",
+    "phase05_config_canonical_sha256": "b35ca88eccd8a24194a2976a12b31f82cc9ea243856c8c379001a84250972dd3",
+    "phase05_prompt_physical_sha256": "2db430ca27b5dec058b00815d07b21bcf9924f17b0d12006c1a07963ca17e8d1",
+    "phase05_generation_config_sha256": "4fb3b30aa7c51d5955659741b6e8f53e37a4e9a10030943324434cfd731e9cdf",
+    "phase05_grounding_config_sha256": "eeed9e406fa42950fe2f5105c25956f9c220e33cf89c194f37aac2d69b48de4b",
+    "phase03_semantic_scoring_sha256": "98f7279821921d825470ee64efa810777e5b331d4c978e6234e7b689b6657fdf",
+    "phase03_semantic_label_governance_sha256": "233c61c45c7ad75b876e81deeb290d546a13f034f1d18c82787aea678ba0f533"
+  },
+  "test_access": {
+    "dataset": "TechQA",
+    "split": "test",
+    "source": "frozen Phase 1 split assignments",
+    "unseal_once": true,
+    "governance_freeze_required_before_access": true,
+    "upstream_integrity_required_before_access": true,
+    "unseal_record_required_before_scientific_access": true,
+    "previous_model_or_policy_selection_use": false,
+    "post_unseal_tuning_permitted": false,
+    "unplanned_rerun_rule": "Record the reason and retain the first valid output; never replace an output because its scientific result or quality is undesirable."
+  },
+  "population": {
+    "total_census_source": "artifacts/data/techqa_split_assignments.csv",
+    "split_membership_mutation_permitted": false,
+    "primary": {
+      "benchmark_answerable_only": true,
+      "require_defensible_alignment": true,
+      "exclude_benchmark_impossible": true,
+      "exclude_unresolved_reference_or_evidence": true,
+      "exclude_semantic_unevaluable": true,
+      "semantic_unevaluable_reason": "claim_exceeds_frozen_nli_pair_budget",
+      "retrieval_strategies": ["bm25", "dense", "hybrid"],
+      "depths": [1, 3, 5, 10],
+      "expected_conditions_per_eligible_question": 12
+    },
+    "benchmark_impossible_sensitivity": {
+      "separate_from_primary": true,
+      "frozen_preliminary_target": 0,
+      "interpretation": "Benchmark-relative sensitivity with known contamination; not perfect ground truth.",
+      "may_influence_primary": false
+    }
+  },
+  "target": {
+    "strict_source": "artifacts/data/context_sufficiency_labels.parquet",
+    "semantic_model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "semantic_model_revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+    "semantic_device": "cpu",
+    "semantic_dtype": "float32",
+    "semantic_max_pair_tokens": 256,
+    "semantic_batch_size": 16,
+    "claim_segmentation": "reference-claims-sentence-list-semicolon-v1",
+    "context_aggregation": "claim-ranked-multi-chunk-window-v1",
+    "strict_positive_demotion_permitted": false,
+    "final_rule": "if y_suff_strict == 1 then y_suff_final = 1 else rescue when maximum_span_coverage_fraction >= 0.20 OR (mean_claim_entailment >= 0.35 AND minimum_claim_entailment >= 0.05 AND maximum_selected_premise_contradiction < 0.50)",
+    "thresholds": {
+      "maximum_span_coverage_fraction": 0.2,
+      "mean_claim_entailment": 0.35,
+      "minimum_claim_entailment": 0.05,
+      "maximum_selected_premise_contradiction_exclusive": 0.5
+    },
+    "aggregate_balance_access": "Only after every eligible TEST condition has a final immutable target or explicit exclusion.",
+    "immutable_after_construction": true
+  },
+  "features_and_model": {
+    "feature_registry_path": "configs/phase04_feature_registry.json",
+    "feature_count": 39,
+    "feature_names_source": "configs/phase04_selected_model.json",
+    "feature_generation": "Exact Phase 4 condition_features implementation with frozen Phase 2 retrieval/chunk/MiniLM/BM25 resources.",
+    "forbidden_test_fit_operations": ["imputation", "scaling", "categorical mapping", "score normalization", "model fitting", "calibration fitting"],
+    "model_path": "artifacts/models/phase04_selected_model.joblib",
+    "model_family": "random_forest",
+    "calibration_method": "uncalibrated",
+    "classification_threshold": 0.5,
+    "recalibration_permitted": false
+  },
+  "classifier_evaluation": {
+    "population": "all PRIMARY eligible TEST retrieval conditions",
+    "metrics": ["auroc", "auprc", "accuracy", "precision", "recall", "f1", "brier", "ece"],
+    "ece_bins": 10,
+    "ece_binning": "fixed equal-width bins over [0,1]",
+    "bootstrap_metrics": ["auroc", "auprc", "f1", "brier"],
+    "bootstrap": {
+      "unit": "question_id",
+      "replicates": 5000,
+      "seed": 42,
+      "confidence_level": 0.95,
+      "interval": "percentile",
+      "duplicate_cluster_handling": "Each sampled question occurrence contributes all 12 retrieval-condition rows.",
+      "undefined_replicate_handling": "Discard and report; never replace with zero."
+    },
+    "validation_comparison": "Descriptive only; no system choice or tuning."
+  },
+  "risk_coverage": {
+    "population": "PRIMARY eligible TEST conditions",
+    "curve": "Complete tied-threshold curve from frozen probabilities using Phase 4 right-endpoint AURC convention.",
+    "aurc": "Right-endpoint rectangular integration over increasing observed coverage.",
+    "frozen_validation_thresholds": {
+      "0.05": 0.7976647044899572,
+      "0.10": 0.7838454251283709,
+      "0.20": 0.6779617685497638
+    },
+    "test_threshold_selection_permitted": false,
+    "question": "How did the frozen validation-selected operating thresholds generalize?"
+  },
+  "policies": {
+    "population": "PRIMARY eligible TEST questions on hybrid retrieval",
+    "trajectory": "Start k5; answer when p5>=t_high; abstain when p5<t_low; otherwise expand exactly once to k10 and answer only when p10>=t_high.",
+    "maximum_expansions": 1,
+    "primary_10_percent": {"policy_id": "G2", "t_low": 0.78, "t_high": 0.82},
+    "sensitivity_20_percent": {"policy_id": "G3", "t_low": 0.56, "t_high": 0.72},
+    "metrics": ["eligible_questions", "answer_count", "answer_coverage", "abstention_count", "retrieval_expansion_count", "retrieval_expansion_rate", "selective_risk", "false_abstention_rate", "safe_answer_count", "unsafe_answer_count", "mean_retrieval_depth", "retrieval_cost_proxy"],
+    "proportion_confidence_intervals": {
+      "unit": "question_id",
+      "replicates": 5000,
+      "seed": 42,
+      "confidence_level": 0.95,
+      "interval": "percentile"
+    },
+    "test_reselection_permitted": false
+  },
+  "generation": {
+    "population": "Every PRIMARY eligible TEST question at hybrid k5 and hybrid k10, exactly one frozen state per question/depth.",
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "model_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "device": "cpu",
+    "dtype": "float32",
+    "prompt_path": "artifacts/governance/phase05_generation_prompt.txt",
+    "prompt_sha256": "2db430ca27b5dec058b00815d07b21bcf9924f17b0d12006c1a07963ca17e8d1",
+    "generation_config_sha256": "4fb3b30aa7c51d5955659741b6e8f53e37a4e9a10030943324434cfd731e9cdf",
+    "context_assembly": "phase05-ranked-complete-chunks-v1",
+    "maximum_input_tokens": 32640,
+    "max_new_tokens": 128,
+    "do_sample": false,
+    "num_beams": 1,
+    "repetition_penalty": 1.0,
+    "reference_answers_available_to_prompt": false,
+    "failure_rule": "Persist generation_failed; at most one infrastructure retry with byte-identical input/settings; no quality-motivated rerun.",
+    "empty_output_rule": "Persist empty_output and keep answer-quality and grounding rates NA."
+  },
+  "answer_quality": {
+    "reference_access_boundary": "Load benchmark answers only after the complete generation artifact is closed and hashed.",
+    "metrics": ["rouge_l_f1", "bertscore_f1"],
+    "rouge_l": "rouge-score 0.1.2, RougeL F1, use_stemmer=false",
+    "bertscore": "bert-score 0.3.13, distilroberta-base revision fb53ab8802853c8e4fbdbcd0529f21fc6f459b2b, layer 5, no IDF, no baseline rescaling, CPU float32",
+    "depths": [5, 10],
+    "paired_direction": "k10 - k5",
+    "undefined_rule": "NA for abstention, generation failure, empty output, or unusable reference; never zero-impute."
+  },
+  "grounding": {
+    "interpretation": "Automatic retrieved-context support proxy; not authoritative hallucination labels.",
+    "evaluator_model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "evaluator_revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+    "candidate_embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "candidate_embedding_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "candidate_count": 3,
+    "support_threshold": 0.16,
+    "threshold_reselection_permitted": false,
+    "metrics": ["claim_count", "evaluable_claim_count", "unevaluable_claim_count", "unsupported_claim_rate", "fully_supported_response_rate", "mean_claim_support_score", "maximum_claim_contradiction"],
+    "undefined_rule": "Claims and rates follow frozen Phase 5 evaluator-status and NA rules."
+  },
+  "inferential_analysis": {
+    "alpha": 0.05,
+    "confidence_level": 0.95,
+    "bootstrap_replicates": 5000,
+    "bootstrap_unit": "question_id",
+    "bootstrap_seed": 42,
+    "multiple_testing": "Holm separately within each frozen family",
+    "families": {
+      "A_paired_k5_k10_continuous": {
+        "metrics": ["rouge_l_f1", "bertscore_f1", "unsupported_claim_rate", "mean_claim_support_score", "output_token_count"],
+        "test": "two-sided Wilcoxon signed-rank with Pratt zero handling",
+        "effect": "matched-pairs rank-biserial correlation",
+        "direction": "k10 - k5"
+      },
+      "B_sufficiency_association": {
+        "comparisons": ["k5:rouge_l_f1", "k5:bertscore_f1", "k5:unsupported_claim_rate", "k5:fully_supported_response", "k10:rouge_l_f1", "k10:bertscore_f1", "k10:unsupported_claim_rate", "k10:fully_supported_response"],
+        "continuous_test": "two-sided Mann-Whitney U",
+        "continuous_effect": "Cliff's delta",
+        "binary_test": "two-sided Fisher exact",
+        "binary_effects": ["risk difference", "risk ratio", "odds ratio"],
+        "direction": "sufficient - insufficient"
+      },
+      "C_paired_k5_k10_binary": {
+        "metrics": ["fully_supported_response", "response_contains_unsupported_claim"],
+        "test": "two-sided exact McNemar",
+        "effect": "paired risk difference",
+        "direction": "k10 - k5"
+      }
+    },
+    "test_result_influence": "None; p-values cannot alter analysis scope, evaluator, threshold, or conclusions by selection."
+  },
+  "generation_policy_views": {
+    "G0": "always answer with hybrid k5",
+    "G1": "always answer with hybrid k10",
+    "G2": "frozen primary 10% adaptive policy",
+    "G3": "frozen 20% adaptive sensitivity policy",
+    "metrics": ["answer_count", "coverage", "abstention_count", "mean_rouge_l", "median_rouge_l", "mean_bertscore_f1", "median_bertscore_f1", "unsupported_claim_rate", "fully_supported_answer_rate", "grounded_answer_yield", "unsupported_answer_population_rate", "mean_output_tokens"],
+    "abstention_quality": "NA"
+  },
+  "validation_to_test": {
+    "role": "Descriptive generalization comparison only.",
+    "classification_labels": ["directionally consistent", "weaker on TEST", "stronger on TEST", "uncertain due to CI overlap/sample size"],
+    "post_hoc_pass_fail_permitted": false
+  },
+  "failure_handling": {
+    "upstream_hash_mismatch": "Stop before TEST access.",
+    "target_or_feature_integrity_failure": "Stop and preserve the unseal record; do not alter the frozen method.",
+    "generation_failure": "Persist failure and continue other independent frozen states where scientifically valid.",
+    "metric_undefined": "Persist NA with numerator/denominator or reason.",
+    "scientific_rerun_for_quality": false,
+    "setting_substitution": false
+  },
+  "reporting": {
+    "report_worse_test_unchanged": true,
+    "primary_and_sensitivity_separate": true,
+    "quality_always_with_coverage": true,
+    "unsupported_claim_wording": "proxy",
+    "thesis_rewriting_in_phase07": false,
+    "final_results_path": "docs/PHASE_07_FINAL_RESULTS.md"
+  },
+  "integrity": {
+    "post_test_tuning_detected_required_value": false,
+    "upstream_scientific_hash_change_after_unseal": "fail",
+    "manifest_self_reference": false,
+    "source_byte_basis": "Git-index bytes for final scientific artifacts",
+    "phase08_or_thesis_implementation_allowed": false
+  },
+  "serialization": {
+    "json": "UTF-8, sorted keys, two-space indentation, reject NaN, trailing LF",
+    "csv": "UTF-8, stable columns, empty fields for missing values, LF",
+    "parquet": "Parquet 2.6, ZSTD level 9, dictionary disabled, statistics enabled, data page 1.0, row groups at most 65536",
+    "hash": "SHA-256 over physical bytes; canonical JSON SHA-256 for configuration-like objects"
+  }
+}

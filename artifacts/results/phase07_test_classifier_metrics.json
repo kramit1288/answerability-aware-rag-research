@@ -1,0 +1,15 @@
+{
+  "accuracy": 0.7367424242424242,
+  "auprc": 0.5788107387951278,
+  "auroc": 0.7587518441111385,
+  "brier": 0.19385001035646257,
+  "condition_count": 1056,
+  "decision_threshold": 0.5,
+  "ece": 0.07012608710330326,
+  "f1": 0.5863095238095238,
+  "precision": 0.7035714285714286,
+  "question_count": 88,
+  "recall": 0.5025510204081632,
+  "schema_version": "phase07-test-classifier-metrics-v1",
+  "split": "test"
+}

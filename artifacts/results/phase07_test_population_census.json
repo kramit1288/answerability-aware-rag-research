@@ -1,0 +1,16 @@
+{
+  "benchmark_answerable_test_questions": 91,
+  "benchmark_impossible_kept_separate": true,
+  "benchmark_impossible_test_questions": 45,
+  "conditions_per_primary_question": 12,
+  "excluded_test_questions": 48,
+  "exclusion_reason_counts": {
+    "benchmark_impossible_primary_exclusion": 45,
+    "no_defensible_gold_alignment": 3
+  },
+  "primary_eligible_retrieval_conditions": 1056,
+  "primary_eligible_test_questions": 88,
+  "schema_version": "phase07-test-population-census-v1",
+  "split_membership_changed": false,
+  "total_test_questions": 136
+}

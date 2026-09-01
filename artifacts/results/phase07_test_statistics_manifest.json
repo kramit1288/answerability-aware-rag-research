@@ -1,0 +1,21 @@
+{
+  "bootstrap_replicates": 5000,
+  "families": {
+    "A_paired_k5_k10_continuous": 5,
+    "B_sufficiency_association": 8,
+    "C_paired_k5_k10_binary": 2
+  },
+  "holm_rejections": [
+    "B_k5_rouge_l_f1_sufficient_minus_insufficient",
+    "B_k5_bertscore_f1_sufficient_minus_insufficient",
+    "B_k10_rouge_l_f1_sufficient_minus_insufficient",
+    "B_k10_bertscore_f1_sufficient_minus_insufficient",
+    "B_k10_unsupported_claim_rate_sufficient_minus_insufficient",
+    "B_k10_fully_supported_response_sufficient_minus_insufficient"
+  ],
+  "schema_version": "phase07-test-statistical-analysis-manifest-v1",
+  "seed": 42,
+  "test_count": 15,
+  "test_results_used_for_tuning": false,
+  "validation_and_test_inference_separated": true
+}

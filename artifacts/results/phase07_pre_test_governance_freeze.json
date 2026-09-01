@@ -1,0 +1,59 @@
+{
+  "freeze_timestamp": "2026-09-01T12:05:03.8292177+05:30",
+  "governance_files": [
+    {
+      "path": "configs/phase07_final_test.json",
+      "physical_sha256": "aa85ee4f566a00852e695133892fcdb55436cbfa39e427af6ac0db6454dfa1df"
+    },
+    {
+      "path": "docs/PHASE_07_ARTIFACT_SCHEMAS.md",
+      "physical_sha256": "6f935a746b7a4508bbe0f1fe2b2f09b8df914cd3f5aa0c9928c0106a08579fe3"
+    },
+    {
+      "path": "docs/PHASE_07_EXECUTION.md",
+      "physical_sha256": "76ac9122e3d49b04ae5afd9482d01fc14a3811f82c36746205d1c09a43f9cc07"
+    },
+    {
+      "path": "docs/PHASE_07_RESEARCH_DECISIONS.md",
+      "physical_sha256": "2ecdcee9b13da7533b93b8976680d47071b649a826fc12ff70350c740cda9a03"
+    }
+  ],
+  "no_post_test_scientific_choice_statement": "No post-TEST scientific choice is permitted.",
+  "phase07_config_canonical_sha256": "fa556227bf9a3f60dd6fc2bd5e19e1ed5a1d1a3e9cb72217d355511898ea9206",
+  "phase07_config_physical_sha256": "aa85ee4f566a00852e695133892fcdb55436cbfa39e427af6ac0db6454dfa1df",
+  "schema_version": "phase07-pre-test-governance-freeze-v1",
+  "scientific_choices_frozen": [
+    "upstream hashes and revisions",
+    "TEST census and primary eligibility/exclusion rules",
+    "strict and semantic final-target construction",
+    "39-feature inference and frozen model procedure",
+    "classification metrics and threshold",
+    "risk-coverage convention and validation-derived thresholds",
+    "adaptive policy trajectories and thresholds",
+    "generator, tokenizer, prompt, context assembly, and decoding",
+    "answer-quality metrics",
+    "grounding evaluator and support threshold",
+    "bootstrap units, replicates, seed, and intervals",
+    "Phase 6 inferential families, tests, effects, and Holm correction",
+    "primary versus benchmark-impossible sensitivity separation",
+    "failure handling, missing values, and reporting language",
+    "validation-to-TEST descriptive classification",
+    "post-TEST tuning and final artifact integrity checks"
+  ],
+  "techqa_test_scientific_content_accessed_before_freeze": false,
+  "techqa_test_unsealed": false,
+  "upstream_expected": {
+    "phase03_final_manifest_physical_sha256": "b02a0ca0e3352798c8d38ef4942fdca59e23d8d24c662493a1249d2864ca9879",
+    "phase03_final_target_config_canonical_sha256": "5b9a394e5e97776844054f3282af815462148adc62b528c77245d61707406977",
+    "phase04_model_binary_physical_sha256": "7d0f124cfea75d9b69e52ef83af066eae50afdf35b5d3f4a0d53f7785b36b9fd",
+    "phase04_selected_model_canonical_sha256": "efb07f98b8e73a5f277bd89591badf1d64f486354de8e4caccdad7672463a019",
+    "phase04_selected_policy_canonical_sha256": "455b11f36c2bcef93d6a2ff9a2323ebc72ebdafe34c7a0b5c0ae82cd1e70b0d5",
+    "phase05_generation_config_sha256": "4fb3b30aa7c51d5955659741b6e8f53e37a4e9a10030943324434cfd731e9cdf",
+    "phase05_manifest_physical_sha256": "2f87445752de5013afe20961116fd024ee78dbb5a298fc2fe5fa8f2b2b57138e",
+    "phase05_prompt_physical_sha256": "2db430ca27b5dec058b00815d07b21bcf9924f17b0d12006c1a07963ca17e8d1",
+    "phase06_commit": "a6dc70ee13c0ddc14e7d5f7622110343d5befe8e",
+    "phase06_config_canonical_sha256": "f0aba2d25163010e81d2dbfee0cd98dbe5a81857839085cd41b048e2e56a6826",
+    "phase06_manifest_physical_sha256": "798454342a3dd067d352249b0a1b0a03ba20fa513f53f7b4e2710c8c6c29b2a2",
+    "phase06_tag": "phase-06-statistical-analysis-v1"
+  }
+}

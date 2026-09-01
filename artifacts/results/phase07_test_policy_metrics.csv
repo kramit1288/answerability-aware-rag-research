@@ -1,0 +1,3 @@
+policy_id,risk_constraint,t_low,t_high,eligible_questions,answer_count,answer_coverage,abstention_count,retrieval_expansion_count,retrieval_expansion_rate,selective_risk,selective_risk_numerator,selective_risk_denominator,false_abstention_rate,false_abstention_count,false_abstention_denominator,safe_answer_count,unsafe_answer_count,mean_retrieval_depth,retrieval_cost_proxy
+G2,0.1,0.78,0.82,88,3,0.03409090909090909,85,1,0.011363636363636364,1.0,3,3,1.0,39,39,0,3,5.056818181818182,1.0113636363636362
+G3,0.2,0.56,0.72,88,14,0.1590909090909091,74,12,0.13636363636363635,0.2857142857142857,4,14,0.75,30,40,10,4,5.681818181818182,1.1363636363636362

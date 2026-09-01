@@ -1,0 +1,9 @@
+policy_id,metric,point_estimate,ci_low,ci_high,confidence_level,requested_replicates,valid_replicates,seed,resampling_unit
+G2,answer_coverage,0.03409090909090909,0.0,0.07954545454545454,0.95,5000,5000,42,question_id
+G2,selective_risk,1.0,1.0,1.0,0.95,5000,4753,42,question_id
+G2,false_abstention_rate,1.0,1.0,1.0,0.95,5000,5000,42,question_id
+G2,retrieval_expansion_rate,0.011363636363636364,0.0,0.03409090909090909,0.95,5000,5000,42,question_id
+G3,answer_coverage,0.1590909090909091,0.09090909090909091,0.23863636363636365,0.95,5000,5000,42,question_id
+G3,selective_risk,0.2857142857142857,0.06666666666666667,0.5384615384615384,0.95,5000,5000,42,question_id
+G3,false_abstention_rate,0.75,0.6097560975609756,0.875,0.95,5000,5000,42,question_id
+G3,retrieval_expansion_rate,0.13636363636363635,0.06818181818181818,0.2159090909090909,0.95,5000,5000,42,question_id

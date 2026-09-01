@@ -1,0 +1,16 @@
+family_id,comparison_id,rank,family_size,p_raw,p_holm,alpha,reject_holm
+A_paired_k5_k10_continuous,A_bertscore_f1_k10_minus_k5,1,5,0.13036789611726382,0.6518394805863191,0.05,False
+A_paired_k5_k10_continuous,A_rouge_l_f1_k10_minus_k5,2,5,0.3422567694772759,1.0,0.05,False
+A_paired_k5_k10_continuous,A_output_token_count_k10_minus_k5,3,5,0.7518869819375839,1.0,0.05,False
+A_paired_k5_k10_continuous,A_mean_claim_support_score_k10_minus_k5,4,5,0.7660831713970964,1.0,0.05,False
+A_paired_k5_k10_continuous,A_unsupported_claim_rate_k10_minus_k5,5,5,0.890113714557653,1.0,0.05,False
+B_sufficiency_association,B_k10_rouge_l_f1_sufficient_minus_insufficient,1,8,6.26972967702327e-06,5.015783741618616e-05,0.05,True
+B_sufficiency_association,B_k5_rouge_l_f1_sufficient_minus_insufficient,2,8,2.430269940290947e-05,0.0001701188958203663,0.05,True
+B_sufficiency_association,B_k5_bertscore_f1_sufficient_minus_insufficient,3,8,0.0005557901579397388,0.0033347409476384327,0.05,True
+B_sufficiency_association,B_k10_bertscore_f1_sufficient_minus_insufficient,4,8,0.001807944819555625,0.009039724097778125,0.05,True
+B_sufficiency_association,B_k10_unsupported_claim_rate_sufficient_minus_insufficient,5,8,0.005172854684201518,0.02069141873680607,0.05,True
+B_sufficiency_association,B_k10_fully_supported_response_sufficient_minus_insufficient,6,8,0.009389285570742506,0.028167856712227518,0.05,True
+B_sufficiency_association,B_k5_unsupported_claim_rate_sufficient_minus_insufficient,7,8,0.12407338222954106,0.24814676445908213,0.05,False
+B_sufficiency_association,B_k5_fully_supported_response_sufficient_minus_insufficient,8,8,0.283387973604151,0.283387973604151,0.05,False
+C_paired_k5_k10_binary,C_fully_supported_response_k10_minus_k5,1,2,0.557197093963623,1.0,0.05,False
+C_paired_k5_k10_binary,C_response_contains_unsupported_claim_k10_minus_k5,2,2,0.557197093963623,1.0,0.05,False

@@ -1,0 +1,50 @@
+{
+  "figures": [
+    {
+      "data": {
+        "path": "artifacts/figures/phase07_figure01_validation_test_risk_coverage_data.csv",
+        "physical_sha256": "ca28ee468d0f654df531516f352103d220031e989f0ab9566b2fbca7d1504b9a"
+      },
+      "figure_id": "phase07_figure01_validation_test_risk_coverage",
+      "png": {
+        "path": "artifacts/figures/phase07_figure01_validation_test_risk_coverage.png",
+        "physical_sha256": "7ae4a9343d7c8437ffb6f9bb23200d59a8d19c6798a87c63dad804357e2ca1bd"
+      },
+      "svg": {
+        "path": "artifacts/figures/phase07_figure01_validation_test_risk_coverage.svg",
+        "physical_sha256": "b553d06fef5107cb1e1877bc9e5aa148182cb934ec167292daef908db1908386"
+      }
+    },
+    {
+      "data": {
+        "path": "artifacts/figures/phase07_figure02_sufficiency_unsupported_association_data.csv",
+        "physical_sha256": "3b1550d690150c44045aa4d5a6a07f34679fc8b833b9d26d61764b76a3b44859"
+      },
+      "figure_id": "phase07_figure02_sufficiency_unsupported_association",
+      "png": {
+        "path": "artifacts/figures/phase07_figure02_sufficiency_unsupported_association.png",
+        "physical_sha256": "dea3b68c30ff7f6e4963fa672d54db971a63deaa8e09496b80bd07f7619193c1"
+      },
+      "svg": {
+        "path": "artifacts/figures/phase07_figure02_sufficiency_unsupported_association.svg",
+        "physical_sha256": "1366713ef238c59ff8b300722c9e1fd1a7f8316be680e76fd54140270f4bdbdc"
+      }
+    },
+    {
+      "data": {
+        "path": "artifacts/figures/phase07_figure03_policy_coverage_unsupported_exposure_data.csv",
+        "physical_sha256": "4af9d23e8bbddf0eeb2461e4377d1b06ff5118f4a30c6cac755bd40929e34a50"
+      },
+      "figure_id": "phase07_figure03_policy_coverage_unsupported_exposure",
+      "png": {
+        "path": "artifacts/figures/phase07_figure03_policy_coverage_unsupported_exposure.png",
+        "physical_sha256": "4b7f35728126709009ba816d8152f4a717d9c6b074ddd8ded89989265f955a66"
+      },
+      "svg": {
+        "path": "artifacts/figures/phase07_figure03_policy_coverage_unsupported_exposure.svg",
+        "physical_sha256": "12ebb55dc72107815425f366d09e9556b975b486cc4f5cde50a4befd92eb0bb5"
+      }
+    }
+  ],
+  "schema_version": "phase07-final-figures-manifest-v1"
+}

@@ -1,0 +1,8 @@
+# Frozen adaptive policies: VALIDATION vs TEST
+
+| split | policy_id | risk_constraint | coverage | selective_risk | false_abstention_rate | expansion_rate | safe_answers | unsafe_answers |
+|---|---|---|---|---|---|---|---|---|
+| VALIDATION | G2 | 0.1 | 0.0224719101123595 | 0.0 | 0.9622641509433962 | 0.0337078651685393 | 2 | 0 |
+| TEST | G2 | 0.1 | 0.034090909090909 | 1.0 | 1.0 | 0.0113636363636363 | 0 | 3 |
+| VALIDATION | G3 | 0.2 | 0.1797752808988764 | 0.1875 | 0.7547169811320755 | 0.146067415730337 | 13 | 3 |
+| TEST | G3 | 0.2 | 0.1590909090909091 | 0.2857142857142857 | 0.75 | 0.1363636363636363 | 10 | 4 |

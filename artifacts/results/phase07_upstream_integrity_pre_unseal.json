@@ -1,0 +1,112 @@
+{
+  "checked_at": "2026-09-01T12:06:34.3970338+05:30",
+  "checks": {
+    "current_branch": {
+      "expected": "phase-07-final-test-evaluation",
+      "observed": "phase-07-final-test-evaluation",
+      "pass": true
+    },
+    "current_commit_at_phase06_tag": {
+      "expected": "a6dc70ee13c0ddc14e7d5f7622110343d5befe8e",
+      "observed": "a6dc70ee13c0ddc14e7d5f7622110343d5befe8e",
+      "pass": true
+    },
+    "phase03_final_manifest_entries": {
+      "failures": [],
+      "verified_count": 26
+    },
+    "phase03_final_manifest_physical_sha256": {
+      "expected": "b02a0ca0e3352798c8d38ef4942fdca59e23d8d24c662493a1249d2864ca9879",
+      "observed": "b02a0ca0e3352798c8d38ef4942fdca59e23d8d24c662493a1249d2864ca9879",
+      "pass": true
+    },
+    "phase03_final_target_config_canonical_sha256": {
+      "expected": "5b9a394e5e97776844054f3282af815462148adc62b528c77245d61707406977",
+      "observed": "5b9a394e5e97776844054f3282af815462148adc62b528c77245d61707406977",
+      "pass": true
+    },
+    "phase04_manifest_entries": {
+      "failures": [],
+      "verified_count": 48
+    },
+    "phase04_model_binary_physical_sha256": {
+      "expected": "7d0f124cfea75d9b69e52ef83af066eae50afdf35b5d3f4a0d53f7785b36b9fd",
+      "observed": "7d0f124cfea75d9b69e52ef83af066eae50afdf35b5d3f4a0d53f7785b36b9fd",
+      "pass": true
+    },
+    "phase04_selected_model_canonical_sha256": {
+      "expected": "efb07f98b8e73a5f277bd89591badf1d64f486354de8e4caccdad7672463a019",
+      "observed": "efb07f98b8e73a5f277bd89591badf1d64f486354de8e4caccdad7672463a019",
+      "pass": true
+    },
+    "phase04_selected_policy_canonical_sha256": {
+      "expected": "455b11f36c2bcef93d6a2ff9a2323ebc72ebdafe34c7a0b5c0ae82cd1e70b0d5",
+      "observed": "455b11f36c2bcef93d6a2ff9a2323ebc72ebdafe34c7a0b5c0ae82cd1e70b0d5",
+      "pass": true
+    },
+    "phase05_generation_config_sha256": {
+      "expected": "4fb3b30aa7c51d5955659741b6e8f53e37a4e9a10030943324434cfd731e9cdf",
+      "observed": "4fb3b30aa7c51d5955659741b6e8f53e37a4e9a10030943324434cfd731e9cdf",
+      "pass": true
+    },
+    "phase05_generator_revision": {
+      "expected": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+      "observed": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+      "pass": true
+    },
+    "phase05_grounding_config_sha256": {
+      "expected": "eeed9e406fa42950fe2f5105c25956f9c220e33cf89c194f37aac2d69b48de4b",
+      "observed": "eeed9e406fa42950fe2f5105c25956f9c220e33cf89c194f37aac2d69b48de4b",
+      "pass": true
+    },
+    "phase05_grounding_model_revision": {
+      "expected": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+      "observed": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+      "pass": true
+    },
+    "phase05_grounding_threshold": {
+      "expected": 0.16,
+      "observed": 0.16,
+      "pass": true
+    },
+    "phase05_manifest_entries": {
+      "failures": [],
+      "verified_count": 61
+    },
+    "phase05_manifest_physical_sha256": {
+      "expected": "2f87445752de5013afe20961116fd024ee78dbb5a298fc2fe5fa8f2b2b57138e",
+      "observed": "2f87445752de5013afe20961116fd024ee78dbb5a298fc2fe5fa8f2b2b57138e",
+      "pass": true
+    },
+    "phase05_prompt_physical_sha256": {
+      "expected": "2db430ca27b5dec058b00815d07b21bcf9924f17b0d12006c1a07963ca17e8d1",
+      "observed": "2db430ca27b5dec058b00815d07b21bcf9924f17b0d12006c1a07963ca17e8d1",
+      "pass": true
+    },
+    "phase06_config_canonical_sha256": {
+      "expected": "f0aba2d25163010e81d2dbfee0cd98dbe5a81857839085cd41b048e2e56a6826",
+      "observed": "f0aba2d25163010e81d2dbfee0cd98dbe5a81857839085cd41b048e2e56a6826",
+      "pass": true
+    },
+    "phase06_manifest_entries": {
+      "failures": [],
+      "verified_count": 80
+    },
+    "phase06_manifest_physical_sha256": {
+      "expected": "798454342a3dd067d352249b0a1b0a03ba20fa513f53f7b4e2710c8c6c29b2a2",
+      "observed": "798454342a3dd067d352249b0a1b0a03ba20fa513f53f7b4e2710c8c6c29b2a2",
+      "pass": true
+    },
+    "phase06_tag_commit": {
+      "expected": "a6dc70ee13c0ddc14e7d5f7622110343d5befe8e",
+      "observed": "a6dc70ee13c0ddc14e7d5f7622110343d5befe8e",
+      "pass": true
+    }
+  },
+  "manifest_entry_failure_count": 0,
+  "phase07_config_canonical_sha256": "fa556227bf9a3f60dd6fc2bd5e19e1ed5a1d1a3e9cb72217d355511898ea9206",
+  "schema_version": "phase07-upstream-integrity-pre-unseal-v1",
+  "scientific_hash_mismatch_count": 0,
+  "status": "pass",
+  "techqa_test_scientific_content_accessed": false
+}
